@@ -7,6 +7,7 @@ class Section extends StatelessWidget {
     @required this.title,
     @required this.body,
     @required this.child,
+    this.onPressed,
   })  : assert(title != null),
         assert(body != null),
         assert(child != null),
@@ -15,6 +16,7 @@ class Section extends StatelessWidget {
   final String title;
   final Widget body;
   final Widget child;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +39,12 @@ class Section extends StatelessWidget {
               child: body,
             ),
             const SizedBox(height: 20),
-            PhoneFrame(
-              title: title,
-              child: child,
+            GestureDetector(
+              onTap: onPressed,
+              child: PhoneFrame(
+                title: title,
+                child: child,
+              ),
             ),
             Align(
               child: Row(

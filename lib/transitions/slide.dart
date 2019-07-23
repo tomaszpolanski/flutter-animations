@@ -1,4 +1,5 @@
 import 'package:animation_cheat_page/shared/material_import.dart';
+import 'package:animation_cheat_page/shared/network/urls.dart';
 
 class SlideExample extends StatelessWidget {
   const SlideExample({
@@ -11,6 +12,7 @@ class SlideExample extends StatelessWidget {
 
   static const title = 'SlideTransition';
   static const body = _body;
+  static const url = '$rootUrl/blob/web/lib/transitions/slide.dart';
 
   final Widget child;
   final Animation<double> animation;

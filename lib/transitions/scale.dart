@@ -1,4 +1,5 @@
 import 'package:animation_cheat_page/shared/material_import.dart';
+import 'package:animation_cheat_page/shared/network/urls.dart';
 
 class ScaleExample extends StatelessWidget {
   const ScaleExample({
@@ -11,6 +12,7 @@ class ScaleExample extends StatelessWidget {
 
   static const title = 'ScaleTransition';
   static const body = _body;
+  static const url = '$rootUrl/blob/web/lib/transitions/scale.dart';
 
   final Widget child;
   final Animation<double> animation;
