@@ -1,7 +1,7 @@
 import 'package:animation_cheat_page/shared/html.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:animation_cheat_page/shared/section.dart';
-import 'package:animation_cheat_page/transitions/scale.dart';
+import 'package:animation_cheat_page/transitions/all_transitions.dart';
 import 'package:animation_cheat_page/transitions/slide.dart';
 import 'package:flutter/services.dart';
 
@@ -107,28 +107,18 @@ class __AnimationProviderState extends State<_AnimationProvider>
     return Scrollbar(
       child: ListView(
         children: [
-          Section(
-            title: SlideExample.title,
-            body: Text(SlideExample.body),
-            onPressed: () {
-              _handleUrl(context, SlideExample.url);
-            },
-            child: SlideExample(
-              animation: _controller,
-              child: child,
+          for (final example in allTransitions)
+            Section(
+              title: example.title,
+              body: Text(example.body),
+              onPressed: () {
+                _handleUrl(context, example.url);
+              },
+              child: SlideExample(
+                animation: _controller,
+                child: child,
+              ),
             ),
-          ),
-          Section(
-            title: ScaleExample.title,
-            body: Text(ScaleExample.body),
-            onPressed: () {
-              _handleUrl(context, ScaleExample.url);
-            },
-            child: ScaleExample(
-              animation: _controller,
-              child: child,
-            ),
-          ),
         ],
       ),
     );
