@@ -2,7 +2,6 @@ import 'package:animation_cheat_page/shared/html.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:animation_cheat_page/shared/section.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart';
-import 'package:flutter/services.dart';
 
 const bool isBrowser = identical(0, 0.0);
 
@@ -84,7 +83,6 @@ class __AnimationProviderState extends State<_AnimationProvider>
     } else {
       Clipboard.setData(ClipboardData(text: url));
       final snackBar = SnackBar(
-        behavior: SnackBarBehavior.floating,
         content: Text('Copied link:\n$url'),
       );
       Scaffold.of(context).showSnackBar(snackBar);
