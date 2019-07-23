@@ -9,9 +9,6 @@ class ScaleExample extends StatelessWidget {
         assert(child != null),
         super(key: key);
 
-  static const title = 'ScaleTransition';
-  static const body = _body;
-
   final Widget child;
   final Animation<double> animation;
 
@@ -23,7 +20,3 @@ class ScaleExample extends StatelessWidget {
     );
   }
 }
-
-const _body = '''
-Scale transition changes the size of the widget.
-''';

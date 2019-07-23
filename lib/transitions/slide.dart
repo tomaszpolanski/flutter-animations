@@ -9,9 +9,6 @@ class SlideExample extends StatelessWidget {
         assert(child != null),
         super(key: key);
 
-  static const title = 'SlideTransition';
-  static const body = _body;
-
   final Widget child;
   final Animation<double> animation;
 
@@ -26,7 +23,3 @@ class SlideExample extends StatelessWidget {
     );
   }
 }
-
-const _body = '''
-Slide transition moves widget X times of it's dimention.
-''';

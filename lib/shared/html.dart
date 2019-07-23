@@ -1,6 +1,6 @@
 // For web
-//
-//export 'dart:html';
+
+export 'dart:html';
 
 //// For native
 //final Window window = Window();
