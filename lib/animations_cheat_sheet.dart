@@ -147,8 +147,8 @@ class _Header extends StatelessWidget {
     final children = [
       for (var i = 0; i < letters.length; i++)
         Container(
-          height: 100,
-          width: 80,
+          height: 140,
+          width: 100,
           color: Color.lerp(
             const Color(0xFF64B5F6),
             const Color(0xFF0C47A1),
@@ -185,7 +185,7 @@ class _Header extends StatelessWidget {
                 letters[i],
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 34,
+                  fontSize: 44,
                 ),
               ),
             ),
@@ -196,10 +196,13 @@ class _Header extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       child: Card(
         clipBehavior: Clip.antiAlias,
-        child: MediaQuery.of(context).size.width > 900
+        child: MediaQuery.of(context).size.width > 1080
             ? Column(
                 children: [
-                  const FlutterLogo(size: 100),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20),
+                    child: FlutterLogo(size: 140),
+                  ),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -210,7 +213,10 @@ class _Header extends StatelessWidget {
             : Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const FlutterLogo(size: 300),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 100),
+                    child: FlutterLogo(size: 300),
+                  ),
                   Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,
