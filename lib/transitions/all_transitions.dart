@@ -7,7 +7,7 @@ final allTransitions = [
   Example(
     title: 'SlideTransition',
     body: "Slide transition moves widget X times of it's dimention.",
-    url: '$rootUrl/blob/web/lib/transitions/slide.dart',
+    url: '$rootUrl/blob/master/lib/transitions/slide.dart',
     builder: (animation, child) => SlideExample(
       animation: animation,
       child: child,
@@ -16,7 +16,7 @@ final allTransitions = [
   Example(
     title: 'ScaleTransition',
     body: 'Scale transition changes the size of the widget.',
-    url: '$rootUrl/blob/web/lib/transitions/scale.dart',
+    url: '$rootUrl/blob/master/lib/transitions/scale.dart',
     builder: (animation, child) => ScaleExample(
       animation: animation,
       child: child,
