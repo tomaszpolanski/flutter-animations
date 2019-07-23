@@ -132,80 +132,92 @@ class __AnimationProviderState extends State<_AnimationProvider>
 }
 
 class _Header extends StatelessWidget {
-  const _Header(
-    this.text, {
+  _Header(
+    String text, {
     @required this.animation,
     Key key,
-  }) : super(key: key);
+  })  : letters = text.split(''),
+        super(key: key);
 
-  final String text;
   final Animation<double> animation;
-
-  List<String> get letters => text.split('');
+  final List<String> letters;
 
   @override
   Widget build(BuildContext context) {
+    final children = [
+      for (var i = 0; i < letters.length; i++)
+        Container(
+          height: 100,
+          width: 80,
+          color: Color.lerp(
+            const Color(0xFF64B5F6),
+            const Color(0xFF0C47A1),
+            i / letters.length,
+          ),
+          child: Center(
+            child: WrappedAnimatedBuilder<double>(
+              animation: Tween<double>(
+                begin: 0,
+                end: 1,
+              ).animate(
+                CurvedAnimation(
+                  parent: animation,
+                  curve: Interval(
+                    (i / 2) / letters.length,
+                    (1 + i) / letters.length,
+                    curve: Curves.ease,
+                  ),
+                ),
+              ),
+              builder: (context, animation, child) {
+                return FadeTransition(
+                  opacity: animation,
+                  child: SlideTransition(
+                    position: animation.drive(Tween<Offset>(
+                      begin: const Offset(-1, 0),
+                      end: const Offset(0, 0),
+                    )),
+                    child: child,
+                  ),
+                );
+              },
+              child: Text(
+                letters[i],
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 34,
+                ),
+              ),
+            ),
+          ),
+        ),
+    ];
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Card(
         clipBehavior: Clip.antiAlias,
-        child: Column(
-          children: [
-            const FlutterLogo(size: 100),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                for (var i = 0; i < letters.length; i++)
-                  Container(
-                    height: 100,
-                    width: 80,
-                    color: Color.lerp(
-                      const Color(0xFF64B5F6),
-                      const Color(0xFF0C47A1),
-                      i / letters.length,
-                    ),
-                    child: Center(
-                      child: WrappedAnimatedBuilder<double>(
-                        animation: Tween<double>(
-                          begin: 0,
-                          end: 1,
-                        ).animate(
-                          CurvedAnimation(
-                            parent: animation,
-                            curve: Interval(
-                              (i / 2) / letters.length,
-                              (1 + i) / letters.length,
-                              curve: Curves.ease,
-                            ),
-                          ),
-                        ),
-                        builder: (context, animation, child) {
-                          return FadeTransition(
-                            opacity: animation,
-                            child: SlideTransition(
-                              position: animation.drive(Tween<Offset>(
-                                begin: const Offset(-1, 0),
-                                end: const Offset(0, 0),
-                              )),
-                              child: child,
-                            ),
-                          );
-                        },
-                        child: Text(
-                          letters[i],
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 34,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-              ],
-            )
-          ],
-        ),
+        child: MediaQuery.of(context).size.width > 900
+            ? Column(
+                children: [
+                  const FlutterLogo(size: 100),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: children,
+                  )
+                ],
+              )
+            : Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const FlutterLogo(size: 300),
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: children,
+                  )
+                ],
+              ),
       ),
     );
   }
