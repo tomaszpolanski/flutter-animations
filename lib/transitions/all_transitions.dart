@@ -5,19 +5,19 @@ import 'package:animation_cheat_page/transitions/slide.dart';
 
 final allTransitions = [
   Example(
-    title: 'ScaleTransition',
-    body: 'Scale transition changes the size of the widget.',
-    url: '$rootUrl/blob/web/lib/transitions/scale.dart',
-    builder: (animation, child) => ScaleExample(
+    title: 'SlideTransition',
+    body: "Slide transition moves widget X times of it's dimention.",
+    url: '$rootUrl/blob/web/lib/transitions/slide.dart',
+    builder: (animation, child) => SlideExample(
       animation: animation,
       child: child,
     ),
   ),
   Example(
-    title: 'SlideTransition',
-    body: "Slide transition moves widget X times of it's dimention.",
-    url: '$rootUrl/blob/web/lib/transitions/slide.dart',
-    builder: (animation, child) => SlideExample(
+    title: 'ScaleTransition',
+    body: 'Scale transition changes the size of the widget.',
+    url: '$rootUrl/blob/web/lib/transitions/scale.dart',
+    builder: (animation, child) => ScaleExample(
       animation: animation,
       child: child,
     ),

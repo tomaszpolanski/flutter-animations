@@ -2,7 +2,6 @@ import 'package:animation_cheat_page/shared/html.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:animation_cheat_page/shared/section.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart';
-import 'package:animation_cheat_page/transitions/slide.dart';
 import 'package:flutter/services.dart';
 
 const bool isBrowser = identical(0, 0.0);
@@ -114,10 +113,7 @@ class __AnimationProviderState extends State<_AnimationProvider>
               onPressed: () {
                 _handleUrl(context, example.url);
               },
-              child: SlideExample(
-                animation: _controller,
-                child: child,
-              ),
+              child: example.builder(_controller, child),
             ),
         ],
       ),
