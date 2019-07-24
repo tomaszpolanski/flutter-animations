@@ -1,49 +1,9 @@
 [
   {
+    "family": "MaterialIcons",
     "fonts": [
       {
         "asset": "fonts/MaterialIcons-Regular.ttf"
-      }
-    ],
-    "family": "MaterialIcons"
-  },
-  {
-    "family": "Floks",
-    "fonts": [
-      {
-        "asset": "fonts/folks.ttf"
-      }
-    ]
-  },
-  {
-    "family": "Montserrat",
-    "fonts": [
-      {
-        "asset": "fonts/Montserrat-Regular.ttf"
-      },
-      {
-        "asset": "fonts/Monoserrat/Montserrat-Thin.ttf",
-        "weight": 100
-      },
-      {
-        "asset": "fonts/Monoserrat/Montserrat-Light.ttf",
-        "weight": 300
-      },
-      {
-        "asset": "fonts/Monoserrat/Montserrat-Regular.ttf",
-        "weight": 400
-      },
-      {
-        "asset": "fonts/Monoserrat/Montserrat-Medium.ttf",
-        "weight": 600
-      },
-      {
-        "asset": "fonts/Monoserrat/Montserrat-Bold.ttf",
-        "weight": 700
-      },
-      {
-        "asset": "fonts/Monoserrat/Montserrat-Black.ttf",
-        "weight": 900
       }
     ]
   },
@@ -51,26 +11,26 @@
     "family": "Roboto",
     "fonts": [
       {
-        "asset": "fonts/Roboto-Regular.ttf"
+        "asset": "fonts/Roboto/Roboto-Regular.ttf"
       },
       {
-        "asset": "fonts/Roboto-Thin.ttf",
+        "asset": "fonts/Roboto/Roboto-Thin.ttf",
         "weight": 100
       },
       {
-        "asset": "fonts/Roboto-Light.ttf",
+        "asset": "fonts/Roboto/Roboto-Light.ttf",
         "weight": 300
       },
       {
-        "asset": "fonts/Roboto-Medium.ttf",
+        "asset": "fonts/Roboto/Roboto-Medium.ttf",
         "weight": 600
       },
       {
-        "asset": "fonts/Roboto-Bold.ttf",
+        "asset": "fonts/Roboto/Roboto-Bold.ttf",
         "weight": 700
       },
       {
-        "asset": "fonts/Roboto-Black.ttf",
+        "asset": "fonts/Roboto/Roboto-Black.ttf",
         "weight": 900
       }
     ]
