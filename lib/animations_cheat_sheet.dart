@@ -192,38 +192,29 @@ class _Header extends StatelessWidget {
           ),
         ),
     ];
+    final screenWidth = MediaQuery.of(context).size.width;
+    final rowCount = screenWidth > 1080 ? 1 : screenWidth > 600 ? 2 : 5;
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Card(
         clipBehavior: Clip.antiAlias,
-        child: MediaQuery.of(context).size.width > 1080
-            ? Column(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20),
-                    child: FlutterLogo(size: 140),
-                  ),
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: children,
-                  )
-                ],
-              )
-            : Row(
+        child: Column(
+          children: [
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 20),
+              child: FlutterLogo(size: 140),
+            ),
+            for (int i = 0; i < rowCount; i++)
+              Row(
                 mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 100),
-                    child: FlutterLogo(size: 300),
-                  ),
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: children,
-                  )
-                ],
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: children.sublist(
+                  i * (children.length / rowCount).round(),
+                  (i + 1) * (children.length / rowCount).round(),
+                ),
               ),
+          ],
+        ),
       ),
     );
   }
