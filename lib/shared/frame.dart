@@ -16,6 +16,7 @@ class PhoneFrame extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       child: Card(
+        clipBehavior: Clip.antiAlias,
         child: SizedBox(
           width: 300,
           height: 400,
