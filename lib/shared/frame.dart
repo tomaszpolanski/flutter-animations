@@ -39,7 +39,7 @@ class PhoneFrame extends StatelessWidget {
                     primary: true,
                     title: Text(title),
                   ),
-                  body: Center(child: child),
+                  body: Align(child: child),
                 ),
               ),
               Container(
