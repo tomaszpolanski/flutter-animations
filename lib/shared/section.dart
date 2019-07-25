@@ -1,7 +1,7 @@
 import 'package:animation_cheat_page/shared/frame.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
 
-class Section extends StatelessWidget {
+class Section extends StatefulWidget {
   const Section({
     Key key,
     @required this.title,
@@ -19,6 +19,28 @@ class Section extends StatelessWidget {
   final VoidCallback onPressed;
 
   @override
+  _SectionState createState() => _SectionState();
+}
+
+class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Align(
       child: SizedBox(
@@ -27,7 +49,7 @@ class Section extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              title,
+              widget.title,
               style: Theme.of(context)
                   .textTheme
                   .headline
@@ -36,14 +58,21 @@ class Section extends StatelessWidget {
             const SizedBox(height: 20),
             DefaultTextStyle.merge(
               style: Theme.of(context).textTheme.body1,
-              child: body,
+              child: widget.body,
             ),
             const SizedBox(height: 20),
             GestureDetector(
-              onTap: onPressed,
-              child: PhoneFrame(
-                title: title,
-                child: child,
+              onTap: widget.onPressed,
+              child: Listener(
+                onPointerEnter: (_) => _controller.forward(),
+                onPointerExit: (_) => _controller.reverse(),
+                child: PhoneFrame(
+                  title: widget.title,
+                  elevation: _controller.drive(
+                    Tween<double>(begin: 1, end: 3),
+                  ),
+                  child: widget.child,
+                ),
               ),
             ),
             Align(
