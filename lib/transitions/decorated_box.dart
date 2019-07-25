@@ -24,7 +24,7 @@ class DecoratedBoxExample extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(30)),
         ),
       )),
-      child: SizedBox(
+      child: const SizedBox(
         width: 140,
         height: 140,
         child: Icon(
