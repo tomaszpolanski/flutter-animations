@@ -2,6 +2,7 @@ import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:animation_cheat_page/shared/network/urls.dart';
 import 'package:animation_cheat_page/transitions/align.dart';
 import 'package:animation_cheat_page/transitions/decorated_box.dart';
+import 'package:animation_cheat_page/transitions/default_text_style.dart';
 import 'package:animation_cheat_page/transitions/fade.dart';
 import 'package:animation_cheat_page/transitions/positioned.dart';
 import 'package:animation_cheat_page/transitions/relative_positioned.dart';
@@ -92,6 +93,14 @@ final allTransitions = [
     builder: (animation, child) => AlignExample(
       animation: animation,
       child: child,
+    ),
+  ),
+  Example(
+    title: 'DefaultTextStyleTransition',
+    body: 'Amazing for animating all the text styles!',
+    url: '$rootUrl/blob/master/lib/transitions/default_text_style.dart',
+    builder: (animation, child) => DefaultTextStyleExample(
+      animation: animation,
     ),
   ),
 ];
