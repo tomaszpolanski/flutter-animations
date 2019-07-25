@@ -1,3 +1,4 @@
+import 'package:animation_cheat_page/shared/animation_builder.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:intl/intl.dart';
 
@@ -5,18 +6,27 @@ class PhoneFrame extends StatelessWidget {
   const PhoneFrame({
     Key key,
     @required this.title,
+    @required this.elevation,
     @required this.child,
   })  : assert(child != null),
         super(key: key);
 
   final String title;
   final Widget child;
+  final Animation<double> elevation;
 
   @override
   Widget build(BuildContext context) {
     return Align(
-      child: Card(
-        clipBehavior: Clip.antiAlias,
+      child: WrappedAnimatedBuilder(
+        animation: elevation,
+        builder: (context, animation, child) {
+          return Card(
+            clipBehavior: Clip.antiAlias,
+            elevation: elevation.value,
+            child: child,
+          );
+        },
         child: SizedBox(
           width: 300,
           height: 400,
