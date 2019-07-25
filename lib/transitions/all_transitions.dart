@@ -1,7 +1,11 @@
 import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:animation_cheat_page/shared/network/urls.dart';
+import 'package:animation_cheat_page/transitions/align.dart';
+import 'package:animation_cheat_page/transitions/decorated_box.dart';
+import 'package:animation_cheat_page/transitions/default_text_style.dart';
 import 'package:animation_cheat_page/transitions/fade.dart';
 import 'package:animation_cheat_page/transitions/positioned.dart';
+import 'package:animation_cheat_page/transitions/relative_positioned.dart';
 import 'package:animation_cheat_page/transitions/rotation.dart';
 import 'package:animation_cheat_page/transitions/scale.dart';
 import 'package:animation_cheat_page/transitions/size.dart';
@@ -60,6 +64,43 @@ final allTransitions = [
     builder: (animation, child) => PositionedExample(
       animation: animation,
       child: child,
+    ),
+  ),
+  Example(
+    title: 'RelativePositionedTransition',
+    body: 'TODO',
+    url: '$rootUrl/blob/master/lib/transitions/relative_positioned.dart',
+    builder: (animation, child) => RelativePositionedExample(
+      animation: animation,
+      child: child,
+    ),
+  ),
+  Example(
+    title: 'DecoratedBoxTransition',
+    body: 'A really interesting transition that allows a bunch of transtions. '
+        '\nIMPORTANT: Might not work with widgets that already use box '
+        'decorations like Container and Material!!',
+    url: '$rootUrl/blob/master/lib/transitions/decorated_box.dart',
+    builder: (animation, child) => DecoratedBoxExample(
+      animation: animation,
+    ),
+  ),
+  Example(
+    title: 'AlignTransition',
+    body: 'Wanna change the alignment to the parent? This is the perfect'
+        ' widget!',
+    url: '$rootUrl/blob/master/lib/transitions/align.dart',
+    builder: (animation, child) => AlignExample(
+      animation: animation,
+      child: child,
+    ),
+  ),
+  Example(
+    title: 'DefaultTextStyleTransition',
+    body: 'Amazing for animating all the text styles!',
+    url: '$rootUrl/blob/master/lib/transitions/default_text_style.dart',
+    builder: (animation, child) => DefaultTextStyleExample(
+      animation: animation,
     ),
   ),
 ];
