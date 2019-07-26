@@ -20,7 +20,7 @@ class Description extends StatelessWidget {
                 'Still, it is work in progress — the catalogue of samples will grow.'),
             Wrap(
               children: [
-                ...'If you have any suggestions regarding the content, wither report them via'
+                ...'If you have any suggestions regarding the content, please report them via'
                     .split(' ')
                     .map((word) => Text('$word ')),
                 GestureDetector(
@@ -86,6 +86,7 @@ class Description extends StatelessWidget {
 // TODO(tomek) use this implementation whenever
 // https://github.com/flutter/flutter/issues/34931 is available
 
+// ignore: unused_element
 class _Description extends StatelessWidget {
   const _Description({Key key}) : super(key: key);
 
@@ -100,7 +101,7 @@ class _Description extends StatelessWidget {
                 'I present you my set of Flutter animation code snippets. '
                 'I will keep it short, sweet and simple with loads of visual examples made with Flutter.\n'
                 'Still, it is work in progress — the catalog of samples will grow. '
-                'If you have any suggestions regarding the content, wither report them via ',
+                'If you have any suggestions regarding the content, please report them via ',
           ),
           TextSpan(
             text: 'Github',
