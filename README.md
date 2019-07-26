@@ -7,3 +7,5 @@ List of animations and transitions that you can used in Flutter.
 
 Available as a [webpage](https://flutter-animations-cheat-sheet.codemagic.app/#/).
 
+## Building
+You can build both for desktop and web. To toggle between them just run `./toggle.sh` script
