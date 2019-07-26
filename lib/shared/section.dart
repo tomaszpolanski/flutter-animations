@@ -51,8 +51,9 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Align(
-      child: SizedBox(
-        width: 600,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        width: 640,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
