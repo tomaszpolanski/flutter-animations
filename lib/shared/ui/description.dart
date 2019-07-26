@@ -40,7 +40,8 @@ class Description extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     if (isBrowser) {
-                      window.open('https://www.google.com/teapot',
+                      window.open(
+                          'https://medium.com/flutter-community/flutter-animations-cheat-sheet-7f8cebfb850c',
                           'Flutter Animations Cheat Sheet');
                     }
                   },
@@ -122,7 +123,8 @@ class _Description extends StatelessWidget {
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 if (isBrowser) {
-                  window.open('https://www.google.com/teapot',
+                  window.open(
+                      'https://medium.com/flutter-community/flutter-animations-cheat-sheet-7f8cebfb850c',
                       'Flutter Animations Cheat Sheet');
                 }
               },
