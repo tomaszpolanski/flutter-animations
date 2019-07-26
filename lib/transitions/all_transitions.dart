@@ -32,7 +32,7 @@ final allTransitions = [
   ),
   Example(
     title: 'RotationTransition',
-    body: 'TODO: pass the number of rotation',
+    body: 'Simply rotates widget X amount of times',
     url: 'master/lib/transitions/rotation.dart',
     builder: (animation, child) => RotationExample(
       animation: animation,
@@ -41,7 +41,7 @@ final allTransitions = [
   ),
   Example(
     title: 'SizeTransition',
-    body: 'TODO: difference between size and scale',
+    body: 'Uses clipping to change the visible size of the widget',
     url: 'master/lib/transitions/size.dart',
     builder: (animation, child) => SizeExample(
       animation: animation,
@@ -50,7 +50,8 @@ final allTransitions = [
   ),
   Example(
     title: 'FadeTransition',
-    body: 'TODO',
+    body: "Changes opacity of the render box, therefore it's more performant "
+        'than using normal Opacity widget',
     url: 'master/lib/transitions/fade.dart',
     builder: (animation, child) => FadeExample(
       animation: animation,
@@ -59,7 +60,8 @@ final allTransitions = [
   ),
   Example(
     title: 'PositionedTransition',
-    body: 'TODO',
+    body: 'Moves widget around Stack therefore this widget has to be in '
+        'a Stack',
     url: 'master/lib/transitions/positioned.dart',
     builder: (animation, child) => PositionedExample(
       animation: animation,
@@ -68,7 +70,8 @@ final allTransitions = [
   ),
   Example(
     title: 'RelativePositionedTransition',
-    body: 'TODO',
+    body: 'Similar to PositionedTransition but positions widget relatively to '
+        'a bounding box with the specified size',
     url: 'master/lib/transitions/relative_positioned.dart',
     builder: (animation, child) => RelativePositionedExample(
       animation: animation,

@@ -14,7 +14,7 @@ class CodeBlock extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey, width: 1),
-        borderRadius: const BorderRadius.all(Radius.circular(2)),
+        borderRadius: const BorderRadius.all(Radius.circular(5)),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Text(

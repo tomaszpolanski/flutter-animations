@@ -3,6 +3,7 @@ import 'package:animation_cheat_page/shared/code/code_button.dart';
 import 'package:animation_cheat_page/shared/frame.dart';
 import 'package:animation_cheat_page/shared/interop.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
+import 'package:animation_cheat_page/shared/ui/separator.dart';
 
 class Section extends StatefulWidget {
   const Section({
@@ -50,8 +51,9 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Align(
-      child: SizedBox(
-        width: 600,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        width: 640,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -64,7 +66,7 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
             ),
             const SizedBox(height: 20),
             DefaultTextStyle.merge(
-              style: Theme.of(context).textTheme.body1,
+              style: Theme.of(context).textTheme.subhead,
               child: widget.body,
             ),
             const SizedBox(height: 20),
@@ -107,24 +109,7 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
               ),
             ),
             if (_code != null) CodeBlock(_code),
-            Align(
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  for (var i = 0; i < 3; i++)
-                    Container(
-                      height: 8,
-                      width: 8,
-                      margin: const EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.black.withOpacity(0.7),
-                      ),
-                    )
-                ],
-              ),
-            )
+            const Align(child: Separator())
           ],
         ),
       ),
