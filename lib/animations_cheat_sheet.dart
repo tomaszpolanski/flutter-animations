@@ -21,7 +21,6 @@ class AnimationCheatSheet extends StatelessWidget {
         );
       },
       theme: ThemeData(
-        primarySwatch: Colors.green,
         fontFamily: 'Roboto',
       ),
       home: const _PresentationList(),
