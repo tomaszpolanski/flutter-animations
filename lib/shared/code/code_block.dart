@@ -16,7 +16,7 @@ class CodeBlock extends StatelessWidget {
         border: Border.all(color: Colors.grey, width: 1),
         borderRadius: const BorderRadius.all(Radius.circular(2)),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Text(
         code,
         style: TextStyle(

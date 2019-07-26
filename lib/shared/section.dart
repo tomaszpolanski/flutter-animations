@@ -1,6 +1,7 @@
 import 'package:animation_cheat_page/shared/code/code_block.dart';
 import 'package:animation_cheat_page/shared/code/code_button.dart';
 import 'package:animation_cheat_page/shared/frame.dart';
+import 'package:animation_cheat_page/shared/interop.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
 
 class Section extends StatefulWidget {
@@ -95,10 +96,10 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
                     : IconButton(
                         icon: Icon(Icons.content_copy),
                         tooltip: 'Copy code',
-                        onPressed: () {
-                          Clipboard.setData(ClipboardData(text: _code));
+                        onPressed: () async {
+                          await copyText(_code);
                           const snackBar = SnackBar(
-                            content: const Text('Code copied!'),
+                            content: Text('Code copied!'),
                           );
                           Scaffold.of(context).showSnackBar(snackBar);
                         },
