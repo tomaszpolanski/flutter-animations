@@ -1,9 +1,8 @@
 import 'package:animation_cheat_page/shared/animation_builder.dart';
+import 'package:animation_cheat_page/shared/interop.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:animation_cheat_page/shared/section.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart';
-
-const bool isBrowser = identical(0, 0.0);
 
 class AnimationCheatSheet extends StatelessWidget {
   const AnimationCheatSheet({Key key}) : super(key: key);
@@ -119,9 +118,10 @@ class __AnimationProviderState extends State<_AnimationProvider>
           for (final example in allTransitions)
             Section(
               title: example.title,
+              url: example.fileUrl,
               body: Text(example.body),
               onPressed: () {
-                _handleUrl(context, example.url);
+                _handleUrl(context, example.pageUrl);
               },
               child: example.builder(_controller, child),
             ),
