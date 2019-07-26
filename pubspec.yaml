@@ -63,4 +63,17 @@ flutter:
 #          weight: 700
 #        - asset: fonts/Roboto/Roboto-Black.ttf
 #          weight: 900
-#
+#    - family: Montserrat
+#      fonts:
+#        - asset: fonts/Monoserrat/Montserrat-Thin.ttf
+#          weight: 100
+#        - asset: fonts/Monoserrat/Montserrat-Light.ttf
+#          weight: 300
+#        - asset: fonts/Monoserrat/Montserrat-Regular.ttf
+#          weight: 400
+#        - asset: fonts/Monoserrat/Montserrat-Medium.ttf
+#          weight: 500
+#        - asset: fonts/Monoserrat/Montserrat-Bold.ttf
+#          weight: 700
+#        - asset: fonts/Monoserrat/Montserrat-Black.ttf
+#          weight: 900

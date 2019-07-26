@@ -1,3 +1,5 @@
+import 'package:animation_cheat_page/shared/code/code_block.dart';
+import 'package:animation_cheat_page/shared/code/code_button.dart';
 import 'package:animation_cheat_page/shared/frame.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
 
@@ -5,15 +7,18 @@ class Section extends StatefulWidget {
   const Section({
     Key key,
     @required this.title,
+    @required this.url,
     @required this.body,
     @required this.child,
     this.onPressed,
   })  : assert(title != null),
+        assert(url != null),
         assert(body != null),
         assert(child != null),
         super(key: key);
 
   final String title;
+  final String url;
   final Widget body;
   final Widget child;
   final VoidCallback onPressed;
@@ -24,6 +29,7 @@ class Section extends StatefulWidget {
 
 class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
   AnimationController _controller;
+  String _code;
 
   @override
   void initState() {
@@ -75,6 +81,31 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
                 ),
               ),
             ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                child: _code == null
+                    ? CodeButton(
+                        url: widget.url,
+                        onFetched: (code) {
+                          setState(() => _code = code);
+                        },
+                      )
+                    : IconButton(
+                        icon: Icon(Icons.content_copy),
+                        tooltip: 'Copy code',
+                        onPressed: () {
+                          Clipboard.setData(ClipboardData(text: _code));
+                          const snackBar = SnackBar(
+                            content: const Text('Code copied!'),
+                          );
+                          Scaffold.of(context).showSnackBar(snackBar);
+                        },
+                      ),
+              ),
+            ),
+            if (_code != null) CodeBlock(_code),
             Align(
               child: Row(
                 mainAxisSize: MainAxisSize.min,

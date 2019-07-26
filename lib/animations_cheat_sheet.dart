@@ -119,9 +119,10 @@ class __AnimationProviderState extends State<_AnimationProvider>
           for (final example in allTransitions)
             Section(
               title: example.title,
+              url: example.fileUrl,
               body: Text(example.body),
               onPressed: () {
-                _handleUrl(context, example.url);
+                _handleUrl(context, example.pageUrl);
               },
               child: example.builder(_controller, child),
             ),
