@@ -1,3 +1,4 @@
+import 'package:animation_cheat_page/animated_widgets/all_animated_widgets.dart';
 import 'package:animation_cheat_page/shared/interop.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:animation_cheat_page/shared/section.dart';
@@ -118,7 +119,7 @@ class __AnimationProviderState extends State<_AnimationProvider>
           ),
           const Align(child: Description()),
           const Align(child: Separator()),
-          for (final example in allTransitions)
+          for (final example in [...allTransitions, ...allAnimatedWidgets])
             Section(
               title: example.title,
               url: example.fileUrl,

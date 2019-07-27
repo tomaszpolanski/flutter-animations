@@ -18,3 +18,5 @@ linux/.generated_flutter_root
 windows/Generated.props
 lib/generated/i18n.dart
 res/
+
+android/local.properties
