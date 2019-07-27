@@ -7,5 +7,46 @@ List of animations and transitions that you can used in Flutter.
 
 Available as a [webpage](https://flutter-animations-cheat-sheet.codemagic.app/#/).
 
-## Building
-You can build both for desktop and web. To toggle between them just run `./toggle.sh` script
+## Building on Desktop
+* Last tested version of Flutter that works with this repo is `v1.7.8+hotfix.3`:
+  * `flutter version v1.7.8+hotfix.3`
+
+## Building and running Desktop application
+* First enable desktop imports (detaults are web) buy running `./toggle.sh` script
+### Linux
+- Add the following to `.bash_profile` but replace `$HOME/flutter/` with path to your Flutter folder
+```
+# Add Flutter
+export PATH="$PATH:$HOME/flutter/bin"
+# Add Dart
+export PATH="$PATH:$HOME/flutter/bin/cache/dart-sdk/bin"
+export ENABLE_FLUTTER_DESKTOP=true
+```
+### Mac
+- Add the following to `.bash_profile` but replace `$HOME/flutter/` with path to your Flutter folder
+```
+# Add Flutter
+export PATH="$PATH:$HOME/flutter/bin"
+# Add Dart
+export PATH="$PATH:$HOME/flutter/bin/cache/dart-sdk/bin"
+export ENABLE_FLUTTER_DESKTOP=true
+```
+- Update CocoaPods:
+```
+brew upgrade cocoapods
+pod setup
+gem install cocoapods
+```
+### Windows
+- Add to PATH paths to dart and flutter and add `ENABLE_FLUTTER_DESKTOP` to env variables
+
+* Check if `flutter devices` now shows your desktop device
+
+## Running on Desktop
+Enter `flutter-animations` in your terminal and run `flutter run`. 
+You might need to use `-d` to pick desktop if you have any other device connected.
+
+OR
+
+Open in your ide `flutter-animations` 
+In IntelliJ/VS Code select appropriate device via device picker and run tha app
