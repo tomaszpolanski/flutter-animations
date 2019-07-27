@@ -9,7 +9,7 @@ Available as a [webpage](https://flutter-animations-cheat-sheet.codemagic.app/#/
 
 ## Building on Desktop
 * Last tested version of Flutter that works with this repo is `v1.7.8+hotfix.3`:
-  * `flutter version v1.7.8+hotfix.3`
+  * **Important**: Use `version` otherwise desktop won't be picked up: `flutter version v1.7.8+hotfix.3`
 
 ## Building and running Desktop application
 * First enable desktop imports (detaults are web) buy running `./toggle.sh` script
