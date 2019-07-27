@@ -50,3 +50,7 @@ OR
 
 Open in your ide `flutter-animations` 
 In IntelliJ/VS Code select appropriate device via device picker and run tha app
+
+
+## Testing
+Testing on web can be run with `flutter pub run test -p chrome`
