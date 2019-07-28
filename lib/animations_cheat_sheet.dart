@@ -1,9 +1,9 @@
 import 'package:animation_cheat_page/animated_widgets/all_animated_widgets.dart';
 import 'package:animation_cheat_page/shared/interop.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
-import 'package:animation_cheat_page/shared/section.dart';
 import 'package:animation_cheat_page/shared/ui/description.dart';
 import 'package:animation_cheat_page/shared/ui/header.dart';
+import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:animation_cheat_page/shared/ui/separator.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart';
 
@@ -119,7 +119,25 @@ class __AnimationProviderState extends State<_AnimationProvider>
           ),
           const Align(child: Description()),
           const Align(child: Separator()),
+          const SectionHeader(
+            title: Text('Transitions'),
+            child: Text(description),
+          ),
           for (final example in [...allTransitions, ...allAnimatedWidgets])
+            Section(
+              title: example.title,
+              url: example.fileUrl,
+              body: Text(example.body),
+              onPressed: () {
+                _handleUrl(context, example.pageUrl);
+              },
+              child: example.builder(_controller, child),
+            ),
+          const SectionHeader(
+            title: Text('Animated Widgets'),
+            child: Text('TODO'),
+          ),
+          for (final example in [...allAnimatedWidgets])
             Section(
               title: example.title,
               url: example.fileUrl,

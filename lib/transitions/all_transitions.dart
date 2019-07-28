@@ -11,6 +11,14 @@ import 'package:animation_cheat_page/transitions/scale.dart';
 import 'package:animation_cheat_page/transitions/size.dart';
 import 'package:animation_cheat_page/transitions/slide.dart';
 
+const description = 'Transitions are in most cases the most performant way '
+    'for creating animations. '
+    'They required an Animation object to be passed to them '
+    '- this is usually just an AnimationController.'
+    '\nThe benefit of using Transitions it that they usually work on render '
+    'objects so the widgets and elements that are animated do not need '
+    'to perform rebuild.';
+
 final allTransitions = [
   Example(
     title: 'SlideTransition',
