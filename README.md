@@ -12,7 +12,7 @@ Available as a [webpage](https://flutter-animations-cheat-sheet.codemagic.app/#/
   * **Important**: Use `version` otherwise desktop won't be picked up: `flutter version v1.7.8+hotfix.3`
 
 ## Building and running Desktop application
-* First enable desktop imports (detaults are web) buy running `./toggle.sh` script
+* First enable desktop imports (defaults are web) buy running `./toggle.sh` script
 ### Linux
 - Add the following to `.bash_profile` but replace `$HOME/flutter/` with path to your Flutter folder
 ```
