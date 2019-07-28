@@ -3,6 +3,7 @@ import 'package:animation_cheat_page/shared/code/code_button.dart';
 import 'package:animation_cheat_page/shared/frame.dart';
 import 'package:animation_cheat_page/shared/interop.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
+import 'package:animation_cheat_page/shared/ui/new_label.dart';
 import 'package:animation_cheat_page/shared/ui/separator.dart';
 
 class Section extends StatefulWidget {
@@ -10,17 +11,20 @@ class Section extends StatefulWidget {
     Key key,
     @required this.title,
     @required this.url,
+    @required this.released,
     @required this.body,
     @required this.child,
     this.onPressed,
   })  : assert(title != null),
         assert(url != null),
+        assert(released != null),
         assert(body != null),
         assert(child != null),
         super(key: key);
 
   final String title;
   final String url;
+  final DateTime released;
   final Widget body;
   final Widget child;
   final VoidCallback onPressed;
@@ -57,12 +61,9 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
-              widget.title,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline
-                  .copyWith(fontWeight: FontWeight.bold),
+            _SectionTitle(
+              title: widget.title,
+              released: widget.released,
             ),
             const SizedBox(height: 20),
             DefaultTextStyle.merge(
@@ -155,5 +156,40 @@ class SectionHeader extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class _SectionTitle extends StatelessWidget {
+  const _SectionTitle({
+    Key key,
+    @required this.title,
+    @required this.released,
+  })  : assert(title != null),
+        assert(released != null),
+        super(key: key);
+
+  final String title;
+  final DateTime released;
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO(tomek) use cookies when they start working
+    final showNew = DateTime.now().toUtc().difference(released).inDays < 5;
+    final titleWidget = Text(
+      title,
+      style: Theme.of(context)
+          .textTheme
+          .headline
+          .copyWith(fontWeight: FontWeight.bold),
+    );
+    return showNew
+        ? Wrap(
+            spacing: 8,
+            children: [
+              NewLabel(),
+              titleWidget,
+            ],
+          )
+        : titleWidget;
   }
 }
