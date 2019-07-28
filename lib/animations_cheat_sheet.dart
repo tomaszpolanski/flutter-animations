@@ -4,6 +4,7 @@ import 'package:animation_cheat_page/shared/interop.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:animation_cheat_page/shared/ui/description.dart';
 import 'package:animation_cheat_page/shared/ui/header.dart';
+import 'package:animation_cheat_page/shared/ui/new_section.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:animation_cheat_page/shared/ui/separator.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart'
@@ -121,6 +122,12 @@ class __AnimationProviderState extends State<_AnimationProvider>
           ),
           const Align(child: Description()),
           const Align(child: Separator()),
+          Align(
+            child: NewSection(
+              transitions: transitions.allTransitions,
+              animated: animated.allAnimatedWidgets,
+            ),
+          ),
           const SectionHeader(
             title: Text('Transitions'),
             child: Text(transitions.description),
