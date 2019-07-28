@@ -116,3 +116,44 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
     );
   }
 }
+
+class SectionHeader extends StatelessWidget {
+  const SectionHeader({
+    Key key,
+    @required this.title,
+    @required this.child,
+  })  : assert(title != null),
+        assert(child != null),
+        super(key: key);
+
+  final Widget title;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        width: 640,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            DefaultTextStyle.merge(
+              style: Theme.of(context)
+                  .textTheme
+                  .display1
+                  .copyWith(fontWeight: FontWeight.bold, color: Colors.black),
+              child: title,
+            ),
+            const SizedBox(height: 20),
+            DefaultTextStyle.merge(
+              style: Theme.of(context).textTheme.subhead,
+              child: child,
+            ),
+            const SizedBox(height: 20),
+          ],
+        ),
+      ),
+    );
+  }
+}

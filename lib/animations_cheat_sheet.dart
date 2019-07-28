@@ -1,11 +1,13 @@
-import 'package:animation_cheat_page/animated_widgets/all_animated_widgets.dart';
+import 'package:animation_cheat_page/animated_widgets/all_animated_widgets.dart'
+    as animated;
 import 'package:animation_cheat_page/shared/interop.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
-import 'package:animation_cheat_page/shared/section.dart';
 import 'package:animation_cheat_page/shared/ui/description.dart';
 import 'package:animation_cheat_page/shared/ui/header.dart';
+import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:animation_cheat_page/shared/ui/separator.dart';
-import 'package:animation_cheat_page/transitions/all_transitions.dart';
+import 'package:animation_cheat_page/transitions/all_transitions.dart'
+    as transitions;
 
 class AnimationCheatSheet extends StatelessWidget {
   const AnimationCheatSheet({Key key}) : super(key: key);
@@ -119,7 +121,25 @@ class __AnimationProviderState extends State<_AnimationProvider>
           ),
           const Align(child: Description()),
           const Align(child: Separator()),
-          for (final example in [...allTransitions, ...allAnimatedWidgets])
+          const SectionHeader(
+            title: Text('Transitions'),
+            child: Text(transitions.description),
+          ),
+          for (final example in transitions.allTransitions)
+            Section(
+              title: example.title,
+              url: example.fileUrl,
+              body: Text(example.body),
+              onPressed: () {
+                _handleUrl(context, example.pageUrl);
+              },
+              child: example.builder(_controller, child),
+            ),
+          const SectionHeader(
+            title: Text('Animated Widgets'),
+            child: Text(animated.description),
+          ),
+          for (final example in animated.allAnimatedWidgets)
             Section(
               title: example.title,
               url: example.fileUrl,
