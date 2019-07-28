@@ -61,7 +61,7 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            _SectionTitle(
+            SectionTitle(
               title: widget.title,
               released: widget.released,
             ),
@@ -159,8 +159,8 @@ class SectionHeader extends StatelessWidget {
   }
 }
 
-class _SectionTitle extends StatelessWidget {
-  const _SectionTitle({
+class SectionTitle extends StatelessWidget {
+  const SectionTitle({
     Key key,
     @required this.title,
     @required this.released,
@@ -173,8 +173,6 @@ class _SectionTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO(tomek) use cookies when they start working
-    final showNew = DateTime.now().toUtc().difference(released).inDays < 5;
     final titleWidget = Text(
       title,
       style: Theme.of(context)
@@ -182,7 +180,7 @@ class _SectionTitle extends StatelessWidget {
           .headline
           .copyWith(fontWeight: FontWeight.bold),
     );
-    return showNew
+    return showNew(released)
         ? Wrap(
             spacing: 8,
             children: [
@@ -192,4 +190,9 @@ class _SectionTitle extends StatelessWidget {
           )
         : titleWidget;
   }
+}
+
+bool showNew(DateTime released) {
+  // TODO(tomek) use cookies when they start working
+  return DateTime.now().toUtc().difference(released).inDays < 5;
 }
