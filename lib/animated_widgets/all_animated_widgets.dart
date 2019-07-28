@@ -1,3 +1,4 @@
+import 'package:animation_cheat_page/animated_widgets/container.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart';
 
 import 'cross_fade.dart';
@@ -13,6 +14,17 @@ final allAnimatedWidgets = [
     body: 'Cross-fades between two children',
     url: 'master/lib/animated_widgets/cross_fade.dart',
     builder: (_, child) => CrossFadeExample(
+      child: child,
+    ),
+  ),
+  Example(
+    released: DateTime.utc(2019, 7, 28),
+    title: 'AnimatedContainer',
+    body:
+        'Powerfull widget that allows animation of most of the properties of a normal '
+        'container',
+    url: 'master/lib/animated_widgets/container.dart',
+    builder: (_, child) => ContainerExample(
       child: child,
     ),
   ),
