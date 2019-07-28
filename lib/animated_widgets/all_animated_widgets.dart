@@ -8,6 +8,7 @@ const description = 'Those animations are easier to use as and can perform '
 
 final allAnimatedWidgets = [
   Example(
+    released: DateTime.utc(2019, 7, 28),
     title: 'AnimatedCrossFade',
     body: 'Cross-fades between two children',
     url: 'master/lib/animated_widgets/cross_fade.dart',

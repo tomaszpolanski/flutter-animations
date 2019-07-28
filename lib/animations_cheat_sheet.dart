@@ -129,6 +129,7 @@ class __AnimationProviderState extends State<_AnimationProvider>
             Section(
               title: example.title,
               url: example.fileUrl,
+              released: example.released,
               body: Text(example.body),
               onPressed: () {
                 _handleUrl(context, example.pageUrl);
@@ -143,6 +144,7 @@ class __AnimationProviderState extends State<_AnimationProvider>
             Section(
               title: example.title,
               url: example.fileUrl,
+              released: example.released,
               body: Text(example.body),
               onPressed: () {
                 _handleUrl(context, example.pageUrl);
