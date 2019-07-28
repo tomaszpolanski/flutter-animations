@@ -13,7 +13,7 @@ class CodeBlock extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey, width: 1),
+        border: Border.all(color: Colors.grey, width: 2),
         borderRadius: const BorderRadius.all(Radius.circular(5)),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
