@@ -12,13 +12,16 @@ class PaddingExample extends StatefulWidget {
 }
 
 class _PaddingExampleState extends State<PaddingExample> {
-  bool _showFirst;
+  bool _showFirst = false;
   Timer _timer;
 
   @override
   void initState() {
     super.initState();
-    _showFirst = true;
+    // starts animating just after the first frame
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => setState(() => _showFirst = !_showFirst),
+    );
     _timer = Timer.periodic(
       const Duration(seconds: 4),
       (_) => setState(() => _showFirst = !_showFirst),
