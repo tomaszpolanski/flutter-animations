@@ -4,12 +4,8 @@ import 'package:animation_cheat_page/shared/material_import.dart';
 
 class ContainerExample extends StatefulWidget {
   const ContainerExample({
-    @required this.child,
     Key key,
-  })  : assert(child != null),
-        super(key: key);
-
-  final Widget child;
+  }) : super(key: key);
 
   @override
   _ContainerExampleState createState() => _ContainerExampleState();
