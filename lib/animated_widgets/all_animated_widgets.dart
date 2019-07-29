@@ -40,7 +40,7 @@ final allAnimatedWidgets = [
         );
       },
       child: const Text(
-          'Wanna animate just padding? Super Easy, Barely An Inconvenience.',
+          'Wanna animate just the padding? Super Easy, Barely An Inconvenience.',
           style: TextStyle(
             decoration: TextDecoration.underline,
           ),
