@@ -20,3 +20,5 @@ lib/generated/i18n.dart
 res/
 
 android/local.properties
+/android/.gradle
+ios/Flutter/Generated.xcconfig
