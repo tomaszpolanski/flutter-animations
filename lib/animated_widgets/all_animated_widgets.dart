@@ -1,4 +1,6 @@
 import 'package:animation_cheat_page/animated_widgets/container.dart';
+import 'package:animation_cheat_page/animated_widgets/padding.dart';
+import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart';
 
 import 'cross_fade.dart';
@@ -11,21 +13,40 @@ final allAnimatedWidgets = [
   Example(
     released: DateTime.utc(2019, 7, 28),
     title: 'AnimatedCrossFade',
-    body: 'Cross-fades between two children',
+    body: const Text('Cross-fades between two children'),
     url: 'master/lib/animated_widgets/cross_fade.dart',
-    builder: (_, child) => CrossFadeExample(
-      child: child,
-    ),
+    builder: (_, child) =>
+        CrossFadeExample(
+          child: child,
+        ),
   ),
   Example(
     released: DateTime.utc(2019, 7, 28),
     title: 'AnimatedContainer',
-    body:
+    body: const Text(
         'Powerfull widget that allows animation of most of the properties of a normal '
-        'container',
+            'container'),
     url: 'master/lib/animated_widgets/container.dart',
-    builder: (_, child) => ContainerExample(
-      child: child,
+    builder: (_, child) => const ContainerExample(),
+  ),
+  Example(
+    released: DateTime.utc(2019, 7, 29),
+    title: 'AnimatedPadding',
+    body: GestureDetector(
+      onTap: () {
+        window.open(
+          'https://www.youtube.com/playlist?list=PL--PgETgAz5FGoatB9KQzbnpv0bgZqU2l',
+          'Super Easy',
+        );
+      },
+      child: const Text(
+          'Wanna animate just padding? Super Easy, Barely An Inconvenience.',
+          style: TextStyle(
+            decoration: TextDecoration.underline,
+          ),
+      ),
     ),
+    url: 'master/lib/animated_widgets/container.dart',
+    builder: (_, child) => const PaddingExample(),
   ),
 ];
