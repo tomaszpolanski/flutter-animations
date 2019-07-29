@@ -33,8 +33,8 @@ class _PaddingExampleState extends State<PaddingExample> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.green,
+    return Card(
+      color: Colors.yellowAccent,
       child: AnimatedPadding(
         duration: const Duration(seconds: 4),
         padding:
