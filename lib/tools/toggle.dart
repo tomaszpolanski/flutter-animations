@@ -8,6 +8,7 @@ Future<void> main() async {
     await File(materialDesktop).rename(material);
     await File(test).rename(testWeb);
     await File(testDesktop).rename(test);
+    print('Changed configuration to Desktop/Mobile');
   } else {
     await File(yaml).rename(yamlDesktop);
     await File(yamlWeb).rename(yaml);
@@ -15,6 +16,7 @@ Future<void> main() async {
     await File(materialWeb).rename(material);
     await File(test).rename(testDesktop);
     await File(testWeb).rename(test);
+    print('Changed configuration to Web');
   }
 }
 
