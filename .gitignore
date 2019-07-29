@@ -21,3 +21,4 @@ res/
 
 android/local.properties
 /android/.gradle
+ios/Flutter/Generated.xcconfig
