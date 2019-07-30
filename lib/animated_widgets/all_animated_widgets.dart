@@ -1,3 +1,4 @@
+import 'package:animation_cheat_page/animated_widgets/align.dart';
 import 'package:animation_cheat_page/animated_widgets/container.dart';
 import 'package:animation_cheat_page/animated_widgets/padding.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
@@ -15,17 +16,16 @@ final allAnimatedWidgets = [
     title: 'AnimatedCrossFade',
     body: const Text('Cross-fades between two children'),
     url: 'master/lib/animated_widgets/cross_fade.dart',
-    builder: (_, child) =>
-        CrossFadeExample(
-          child: child,
-        ),
+    builder: (_, child) => CrossFadeExample(
+      child: child,
+    ),
   ),
   Example(
     released: DateTime.utc(2019, 7, 28),
     title: 'AnimatedContainer',
     body: const Text(
         'Powerfull widget that allows animation of most of the properties of a normal '
-            'container'),
+        'container'),
     url: 'master/lib/animated_widgets/container.dart',
     builder: (_, child) => const ContainerExample(),
   ),
@@ -40,13 +40,32 @@ final allAnimatedWidgets = [
         );
       },
       child: const Text(
-          'Wanna animate just the padding? Super Easy, Barely An Inconvenience.',
-          style: TextStyle(
-            decoration: TextDecoration.underline,
-          ),
+        'Wanna animate just the padding? Super Easy, Barely An Inconvenience.',
+        style: TextStyle(
+          decoration: TextDecoration.underline,
+        ),
       ),
     ),
-    url: 'master/lib/animated_widgets/container.dart',
+    url: 'master/lib/animated_widgets/padding.dart',
     builder: (_, child) => const PaddingExample(),
+  ),
+  Example(
+    released: DateTime.utc(2019, 7, 30),
+    title: 'AnimatedAlign',
+    body: GestureDetector(
+      onTap: () {
+        window.open(
+          'https://www.youtube.com/playlist?list=PL--PgETgAz5FGoatB9KQzbnpv0bgZqU2l',
+          'Super Easy',
+        );
+      },
+      child: const Text(
+        'Animating alignment? Super Easy, Barely An Inconvenience.',
+      ),
+    ),
+    url: 'master/lib/animated_widgets/align.dart',
+    builder: (_, child) => AlignExample(
+      child: child,
+    ),
   ),
 ];
