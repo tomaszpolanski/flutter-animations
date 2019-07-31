@@ -48,7 +48,7 @@ class _ContainerExampleState extends State<ContainerExample> {
               border: Border.all(color: Colors.black, width: 5),
               borderRadius: const BorderRadius.all(Radius.circular(15)),
             ),
-      child: Icon(
+      child: const Icon(
         Icons.star,
         size: 50,
       ),

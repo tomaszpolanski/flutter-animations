@@ -1,6 +1,7 @@
 import 'package:animation_cheat_page/animated_widgets/align.dart';
 import 'package:animation_cheat_page/animated_widgets/container.dart';
 import 'package:animation_cheat_page/animated_widgets/padding.dart';
+import 'package:animation_cheat_page/animated_widgets/positioned.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart';
 
@@ -67,5 +68,16 @@ final allAnimatedWidgets = [
     builder: (_, child) => AlignExample(
       child: child,
     ),
+  ),
+  Example(
+    released: DateTime.utc(2019, 7, 31),
+    title: 'AnimatedPositioned',
+    body: const Text(
+        'This widget changes the position and size of a widget that is within a stack.\n'
+        'AnimatedPositioned triggers re-layout on every animation frame so it might be expensive.\n'
+        'In case you don\'t need to change the size of this widget, use something '
+        'like SlideTransition which only does repaint during the animation.'),
+    url: 'master/lib/animated_widgets/positioned.dart',
+    builder: (_, child) => PositionedExample(),
   ),
 ];
