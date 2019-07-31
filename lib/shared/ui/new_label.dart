@@ -7,15 +7,18 @@ class NewLabel extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 6),
       decoration: BoxDecoration(
         color: Theme.of(context).accentColor,
-        borderRadius: const BorderRadius.all(Radius.circular(5)),
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
       ),
-      child: Text(
-        'new',
-        style: Theme.of(context).textTheme.headline.copyWith(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontStyle: FontStyle.italic,
-            ),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 8, right: 11),
+        child: Text(
+          'new',
+          style: Theme.of(context).textTheme.headline.copyWith(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontStyle: FontStyle.italic,
+              ),
+        ),
       ),
     );
   }
