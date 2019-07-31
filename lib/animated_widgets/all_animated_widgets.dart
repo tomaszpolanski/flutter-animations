@@ -78,6 +78,6 @@ final allAnimatedWidgets = [
         'In case you don\'t need to change the size of this widget, use something '
         'like SlideTransition which only does repaint during the animation.'),
     url: 'master/lib/animated_widgets/positioned.dart',
-    builder: (_, child) => PositionedExample(),
+    builder: (_, child) => const PositionedExample(),
   ),
 ];
