@@ -8,6 +8,31 @@
     ]
   },
   {
+    "family": "CrimsonPro",
+    "fonts": [
+      {
+        "asset": "fonts/CrimsonPro/CrimsonPro-Light.ttf",
+        "weight": 300
+      },
+      {
+        "asset": "fonts/CrimsonPro/CrimsonPro-Regular.ttf",
+        "weight": 400
+      },
+      {
+        "asset": "fonts/CrimsonPro/CrimsonPro-Medium.ttf",
+        "weight": 600
+      },
+      {
+        "asset": "fonts/CrimsonPro/CrimsonPro-Bold.ttf",
+        "weight": 700
+      },
+      {
+        "asset": "fonts/CrimsonPro/CrimsonPro-Black.ttf",
+        "weight": 900
+      }
+    ]
+  },
+  {
     "family": "Montserrat",
     "fonts": [
       {

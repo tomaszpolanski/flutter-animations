@@ -27,7 +27,7 @@ class AnimationCheatSheet extends StatelessWidget {
         );
       },
       theme: ThemeData(
-        fontFamily: 'Roboto',
+        fontFamily: 'CrimsonPro',
       ),
       home: const _PresentationList(),
     );

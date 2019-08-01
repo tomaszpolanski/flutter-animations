@@ -17,7 +17,7 @@ class SizeExample extends StatelessWidget {
     return SizeTransition(
       axis: Axis.horizontal,
       sizeFactor: animation,
-      child: child, // TODO(tomek) center it properly
+      child: child,
     );
   }
 }
