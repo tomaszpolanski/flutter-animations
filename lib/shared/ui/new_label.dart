@@ -17,6 +17,7 @@ class NewLabel extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
                 fontStyle: FontStyle.italic,
+                fontFamily: 'Roboto',
                 fontSize: 30,
               ),
         ),

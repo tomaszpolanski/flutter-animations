@@ -4,64 +4,31 @@ description: Presentations made with Flutter
 environment:
   sdk: ">=2.3.0-dev.0.3.flutter-c46deebfb6 <3.0.0"
 
-
 dependencies:
-  flutter:
-    sdk: flutter
-  flutter_localizations:
-    sdk: flutter
-
-  http: ^0.12.0+1
+  flutter_web: any
+  flutter_web_ui: any
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_driver:
-    sdk: flutter
+  flutter_web_test: any
+  build_runner: ^1.6.2
+  build_daemon: ^2.0.0
+  build_web_compilers: ^1.0.0
+  test: ^1.6.3
 
+
+dependency_overrides:
+  flutter_web:
+    git:
+      url: https://github.com/flutter/flutter_web
+      path: packages/flutter_web
+  flutter_web_test:
+    git:
+      url: https://github.com/flutter/flutter_web
+      path: packages/flutter_web_test
+  flutter_web_ui:
+    git:
+      url: https://github.com/flutter/flutter_web
+      path: packages/flutter_web_ui
 
 flutter:
-
   uses-material-design: true
-
-  fonts:
-    - family: CrimsonPro
-      fonts:
-        - asset: web/assets/fonts/CrimsonPro/CrimsonPro-Light.ttf
-          weight: 300
-        - asset: web/assets/fonts/CrimsonPro/CrimsonPro-Regular.ttf
-          weight: 400
-        - asset: web/assets/fonts/CrimsonPro/CrimsonPro-Medium.ttf
-          weight: 500
-        - asset: web/assets/fonts/CrimsonPro/CrimsonPro-Bold.ttf
-          weight: 700
-        - asset: web/assets/fonts/CrimsonPro/CrimsonPro-Black.ttf
-          weight: 900
-    - family: Roboto
-      fonts:
-        - asset: fonts/Roboto/Roboto-Thin.ttf
-          weight: 100
-        - asset: fonts/Roboto/Roboto-Light.ttf
-          weight: 300
-        - asset: fonts/Roboto/Roboto-Regular.ttf
-          weight: 400
-        - asset: fonts/Roboto/Roboto-Medium.ttf
-          weight: 500
-        - asset: fonts/Roboto/Roboto-Bold.ttf
-          weight: 700
-        - asset: fonts/Roboto/Roboto-Black.ttf
-          weight: 900
-    - family: Montserrat
-      fonts:
-        - asset: fonts/Monoserrat/Montserrat-Thin.ttf
-          weight: 100
-        - asset: fonts/Monoserrat/Montserrat-Light.ttf
-          weight: 300
-        - asset: fonts/Monoserrat/Montserrat-Regular.ttf
-          weight: 400
-        - asset: fonts/Monoserrat/Montserrat-Medium.ttf
-          weight: 500
-        - asset: fonts/Monoserrat/Montserrat-Bold.ttf
-          weight: 700
-        - asset: fonts/Monoserrat/Montserrat-Black.ttf
-          weight: 900

@@ -25,7 +25,7 @@ class NewSection extends StatelessWidget {
     ]
         .map((example) => Text(
               '    • ${example.title}',
-              style: Theme.of(context).textTheme.title,
+              style: Theme.of(context).textTheme.title.copyWith(fontSize: 25),
             ))
         .toList(growable: false);
     return children.isNotEmpty

@@ -10,7 +10,7 @@ class Description extends StatelessWidget {
       width: 640,
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: DefaultTextStyle.merge(
-        style: Theme.of(context).textTheme.subhead,
+        style: Theme.of(context).textTheme.subhead.copyWith(fontSize: 25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
