@@ -7,7 +7,7 @@ class NewLabel extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 6),
       decoration: BoxDecoration(
         color: Theme.of(context).accentColor,
-        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        borderRadius: const BorderRadius.all(Radius.circular(15)),
       ),
       child: Padding(
         padding: const EdgeInsets.only(left: 8, right: 11),
