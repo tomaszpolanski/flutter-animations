@@ -19,7 +19,7 @@ class PhoneFrame extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       child: DefaultTextStyle.merge(
-        style: TextStyle(
+        style: const TextStyle(
           fontFamily: 'Roboto',
         ),
         child: WrappedAnimatedBuilder(
@@ -43,7 +43,7 @@ class PhoneFrame extends StatelessWidget {
                       primary: true,
                       title: Text(
                         title,
-                        style: TextStyle(fontFamily: 'Roboto'),
+                        style: const TextStyle(fontFamily: 'Roboto'),
                       ),
                     ),
                     body: Align(child: child),
