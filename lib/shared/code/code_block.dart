@@ -21,7 +21,7 @@ class CodeBlock extends StatelessWidget {
         code,
         style: TextStyle(
           fontSize: 16,
-          fontFamily: 'Montserrat',
+          fontFamily: 'RobotoMono',
           fontWeight: FontWeight.w500,
         ),
       ),

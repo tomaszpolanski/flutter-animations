@@ -22,27 +22,29 @@ class _CodeButtonState extends State<CodeButton> {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: _isLoading
-          ? const SizedBox(
-              height: 20,
-              width: 20,
-              child: CircularProgressIndicator(),
-            )
-          : Icon(Icons.code),
-      tooltip: 'Show code',
-      onPressed: () async {
-        setState(() => _isLoading = true);
-        final code = await http.get(widget.url);
-        setState(() => _isLoading = false);
-        widget.onFetched(
-          code.body
-              .replaceAll(
-                  "import 'package:animation_cheat_page/shared/material_import.dart';",
-                  '')
-              .trim(),
-        );
-      },
+    return DefaultTextStyle.merge(
+      child: IconButton(
+        icon: _isLoading
+            ? const SizedBox(
+                height: 20,
+                width: 20,
+                child: CircularProgressIndicator(),
+              )
+            : Icon(Icons.code),
+        tooltip: 'Show code',
+        onPressed: () async {
+          setState(() => _isLoading = true);
+          final code = await http.get(widget.url);
+          setState(() => _isLoading = false);
+          widget.onFetched(
+            code.body
+                .replaceAll(
+                    "import 'package:animation_cheat_page/shared/material_import.dart';",
+                    '')
+                .trim(),
+          );
+        },
+      ),
     );
   }
 }

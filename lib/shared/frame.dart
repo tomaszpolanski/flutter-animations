@@ -18,58 +18,66 @@ class PhoneFrame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      child: WrappedAnimatedBuilder(
-        animation: elevation,
-        builder: (context, animation, child) {
-          return Card(
-            clipBehavior: Clip.antiAlias,
-            elevation: elevation.value,
-            child: child,
-          );
-        },
-        child: SizedBox(
-          width: 300,
-          height: 400,
-          child: Stack(
-            children: <Widget>[
-              MediaQuery(
-                data: const MediaQueryData(padding: EdgeInsets.only(top: 20)),
-                child: Scaffold(
-                  appBar: AppBar(
-                    primary: true,
-                    title: Text(title),
+      child: DefaultTextStyle.merge(
+        style: TextStyle(
+          fontFamily: 'Roboto',
+        ),
+        child: WrappedAnimatedBuilder(
+          animation: elevation,
+          builder: (context, animation, child) {
+            return Card(
+              clipBehavior: Clip.antiAlias,
+              elevation: elevation.value,
+              child: child,
+            );
+          },
+          child: SizedBox(
+            width: 300,
+            height: 400,
+            child: Stack(
+              children: <Widget>[
+                MediaQuery(
+                  data: const MediaQueryData(padding: EdgeInsets.only(top: 20)),
+                  child: Scaffold(
+                    appBar: AppBar(
+                      primary: true,
+                      title: Text(
+                        title,
+                        style: TextStyle(fontFamily: 'Roboto'),
+                      ),
+                    ),
+                    body: Align(child: child),
                   ),
-                  body: Align(child: child),
                 ),
-              ),
-              Container(
-                height: 28,
-                color: Colors.black.withOpacity(0.2),
-                padding: const EdgeInsets.symmetric(horizontal: 4),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Icon(
-                      Icons.signal_cellular_4_bar,
-                      color: Colors.white,
-                      size: 18,
-                    ),
-                    Icon(
-                      Icons.battery_charging_full,
-                      color: Colors.white,
-                      size: 18,
-                    ),
-                    Text(
-                      DateFormat.Hm().format(DateTime.now()),
-                      style: Theme.of(context)
-                          .textTheme
-                          .body2
-                          .copyWith(color: Colors.white, fontSize: 16),
-                    ),
-                  ],
+                Container(
+                  height: 28,
+                  color: Colors.black.withOpacity(0.2),
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Icon(
+                        Icons.signal_cellular_4_bar,
+                        color: Colors.white,
+                        size: 18,
+                      ),
+                      Icon(
+                        Icons.battery_charging_full,
+                        color: Colors.white,
+                        size: 18,
+                      ),
+                      Text(
+                        DateFormat.Hm().format(DateTime.now()),
+                        style: Theme.of(context).textTheme.body2.copyWith(
+                              color: Colors.white,
+                              fontFamily: 'Roboto',
+                            ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

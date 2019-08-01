@@ -25,31 +25,41 @@ flutter:
   uses-material-design: true
 
   fonts:
+    - family: CrimsonPro
+      fonts:
+        - asset: web/assets/fonts/CrimsonPro/CrimsonPro-Light.ttf
+          weight: 300
+        - asset: web/assets/fonts/CrimsonPro/CrimsonPro-Regular.ttf
+          weight: 400
+        - asset: web/assets/fonts/CrimsonPro/CrimsonPro-Medium.ttf
+          weight: 500
+        - asset: web/assets/fonts/CrimsonPro/CrimsonPro-Bold.ttf
+          weight: 700
+        - asset: web/assets/fonts/CrimsonPro/CrimsonPro-Black.ttf
+          weight: 900
     - family: Roboto
       fonts:
-        - asset: fonts/Roboto/Roboto-Thin.ttf
+        - asset: web/assets/fonts/Roboto/Roboto-Thin.ttf
           weight: 100
-        - asset: fonts/Roboto/Roboto-Light.ttf
+        - asset: web/assets/fonts/Roboto/Roboto-Light.ttf
           weight: 300
-        - asset: fonts/Roboto/Roboto-Regular.ttf
+        - asset: web/assets/fonts/Roboto/Roboto-Regular.ttf
           weight: 400
-        - asset: fonts/Roboto/Roboto-Medium.ttf
+        - asset: web/assets/fonts/Roboto/Roboto-Medium.ttf
           weight: 500
-        - asset: fonts/Roboto/Roboto-Bold.ttf
+        - asset: web/assets/fonts/Roboto/Roboto-Bold.ttf
           weight: 700
-        - asset: fonts/Roboto/Roboto-Black.ttf
+        - asset: web/assets/fonts/Roboto/Roboto-Black.ttf
           weight: 900
-    - family: Montserrat
+    - family: RobotoMono
       fonts:
-        - asset: fonts/Monoserrat/Montserrat-Thin.ttf
+        - asset: web/assets/fonts/RobotoMono/RobotoMono-Thin.ttf
           weight: 100
-        - asset: fonts/Monoserrat/Montserrat-Light.ttf
+        - asset: web/assets/fonts/RobotoMono/RobotoMono-Light.ttf
           weight: 300
-        - asset: fonts/Monoserrat/Montserrat-Regular.ttf
+        - asset: web/assets/fonts/RobotoMono/RobotoMono-Regular.ttf
           weight: 400
-        - asset: fonts/Monoserrat/Montserrat-Medium.ttf
+        - asset: web/assets/fonts/RobotoMono/RobotoMono-Medium.ttf
           weight: 500
-        - asset: fonts/Monoserrat/Montserrat-Bold.ttf
+        - asset: web/assets/fonts/RobotoMono/RobotoMono-Bold.ttf
           weight: 700
-        - asset: fonts/Monoserrat/Montserrat-Black.ttf
-          weight: 900
