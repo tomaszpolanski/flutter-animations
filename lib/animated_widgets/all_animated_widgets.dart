@@ -1,7 +1,9 @@
 import 'package:animation_cheat_page/animated_widgets/align.dart';
 import 'package:animation_cheat_page/animated_widgets/container.dart';
+import 'package:animation_cheat_page/animated_widgets/opacity.dart';
 import 'package:animation_cheat_page/animated_widgets/padding.dart';
 import 'package:animation_cheat_page/animated_widgets/positioned.dart';
+import 'package:animation_cheat_page/animated_widgets/positioned_directional.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart';
 
@@ -79,5 +81,24 @@ final allAnimatedWidgets = [
         'like SlideTransition which only does repaint during the animation.'),
     url: 'master/lib/animated_widgets/positioned.dart',
     builder: (_, child) => const PositionedExample(),
+  ),
+  Example(
+    released: DateTime.utc(2019, 8, 2),
+    title: 'AnimatedPositionedDirectional',
+    body: const Text(
+        'Similar widget to AnimatedPositioned but takes into account '
+        'direction of the language. The order would be reversed in Arabic '
+        'Hebrew and other Right-to-Left languages'),
+    url: 'master/lib/animated_widgets/positioned_directional.dart',
+    builder: (_, child) => const PositionedDirectionalExample(),
+  ),
+  Example(
+    released: DateTime.utc(2019, 8, 2),
+    title: 'AnimatedOpacity',
+    body: const Text('Simply animates the opacity. It\'s more performant '
+        'than just using Opacity widget as AnimatedOpacity does not need '
+        'to rebuild the widget when animating'),
+    url: 'master/lib/animated_widgets/opacity.dart',
+    builder: (_, child) => AnimatedOpacityExample(child: child),
   ),
 ];
