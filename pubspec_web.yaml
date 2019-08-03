@@ -1,0 +1,34 @@
+name: animation_cheat_page
+description: Presentations made with Flutter
+
+environment:
+  sdk: ">=2.3.0-dev.0.3.flutter-c46deebfb6 <3.0.0"
+
+dependencies:
+  flutter_web: any
+  flutter_web_ui: any
+
+dev_dependencies:
+  flutter_web_test: any
+  build_runner: ^1.6.2
+  build_daemon: ^2.0.0
+  build_web_compilers: ^1.0.0
+  test: ^1.6.3
+
+
+dependency_overrides:
+  flutter_web:
+    git:
+      url: https://github.com/flutter/flutter_web
+      path: packages/flutter_web
+  flutter_web_test:
+    git:
+      url: https://github.com/flutter/flutter_web
+      path: packages/flutter_web_test
+  flutter_web_ui:
+    git:
+      url: https://github.com/flutter/flutter_web
+      path: packages/flutter_web_ui
+
+flutter:
+  uses-material-design: true

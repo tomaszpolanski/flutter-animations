@@ -1,5 +1,7 @@
 import 'package:animation_cheat_page/animated_widgets/all_animated_widgets.dart'
     as animated;
+import 'package:animation_cheat_page/curves/curves.dart' as curves;
+import 'package:animation_cheat_page/curves/curves.dart';
 import 'package:animation_cheat_page/shared/interop.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:animation_cheat_page/shared/ui/description.dart';
@@ -127,6 +129,15 @@ class __AnimationProviderState extends State<_AnimationProvider>
               transitions: transitions.allTransitions,
               animated: animated.allAnimatedWidgets,
             ),
+          ),
+          const SectionHeader(
+            title: Text('Curves'),
+            child: Text(curves.description),
+          ),
+          CurvesSection(
+            animation: _controller,
+            onPressed: (url) => _handleUrl(context, url),
+            child: child,
           ),
           const SectionHeader(
             title: Text('Transitions'),
