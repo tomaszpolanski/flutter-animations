@@ -73,7 +73,7 @@ class __AnimationProviderState extends State<_AnimationProvider>
   void initState() {
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 4),
+      duration: const Duration(seconds: 3),
     )..repeat(reverse: true);
     _headerController = AnimationController(
       vsync: this,
@@ -128,6 +128,7 @@ class __AnimationProviderState extends State<_AnimationProvider>
             child: NewSection(
               transitions: transitions.allTransitions,
               animated: animated.allAnimatedWidgets,
+              curves: [curves.singleCurveExample],
             ),
           ),
           const SectionHeader(

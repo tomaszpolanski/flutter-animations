@@ -3,14 +3,14 @@ import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart';
 
 const description = '''
-TODO
+Integral part of animations are Curves. They allow to specify when animation speeds up and when it slows down.
 ''';
 
-final c = Example(
+final singleCurveExample = Example(
   released: DateTime.utc(2019, 8, 3),
-  title: 'Comparison',
+  title: 'Compare curves',
   body: const Text('Compare how differenc curves behave'),
-  url: 'master/lib/transitions/slide.dart',
+  url: 'master/lib/curves/curves.dart',
   builder: (animation, child) => child,
 );
 
@@ -84,50 +84,57 @@ class _CurvesSectionState extends State<CurvesSection> {
   @override
   Widget build(BuildContext context) {
     return Section(
-      title: c.title,
-      url: c.fileUrl,
-      released: c.released,
+      title: singleCurveExample.title,
+      url: singleCurveExample.fileUrl,
+      released: singleCurveExample.released,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          c.body,
+          singleCurveExample.body,
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              DropdownButton(
-                value: _leftCurve,
-                onChanged: (curve) {
-                  setState(() => _leftCurve = curve);
-                },
-                items: [
-                  for (final curve in _allCurves.keys)
-                    DropdownMenuItem<Curve>(
-                      value: curve,
-                      child: Text(_allCurves[curve]),
-                    ),
-                ],
+              Expanded(
+                child: DropdownButton(
+                  isExpanded: true,
+                  value: _leftCurve,
+                  onChanged: (curve) {
+                    setState(() => _leftCurve = curve);
+                  },
+                  items: [
+                    for (final curve in _allCurves.keys)
+                      DropdownMenuItem<Curve>(
+                        value: curve,
+                        child: Text(_allCurves[curve]),
+                      ),
+                  ],
+                ),
               ),
-              DropdownButton(
-                value: _rightCurve,
-                onChanged: (curve) {
-                  setState(() => _rightCurve = curve);
-                },
-                items: [
-                  for (final curve in _allCurves.keys)
-                    DropdownMenuItem<Curve>(
-                      value: curve,
-                      child: Text(_allCurves[curve]),
-                    ),
-                ],
+              const SizedBox(width: 8),
+              Expanded(
+                child: DropdownButton(
+                  isExpanded: true,
+                  value: _rightCurve,
+                  onChanged: (curve) {
+                    setState(() => _rightCurve = curve);
+                  },
+                  items: [
+                    for (final curve in _allCurves.keys)
+                      DropdownMenuItem<Curve>(
+                        value: curve,
+                        child: Text(_allCurves[curve]),
+                      ),
+                  ],
+                ),
               ),
             ],
           )
         ],
       ),
-      onPressed: () => widget.onPressed(c.pageUrl),
-      child: CurvesExample(
+      onPressed: () => widget.onPressed(singleCurveExample.pageUrl),
+      child: _CurvesExample(
         leftCurve: _leftCurve,
         rightCurve: _rightCurve,
         animation: widget.animation,
@@ -137,8 +144,8 @@ class _CurvesSectionState extends State<CurvesSection> {
   }
 }
 
-class CurvesExample extends StatelessWidget {
-  const CurvesExample({
+class _CurvesExample extends StatelessWidget {
+  const _CurvesExample({
     @required this.leftCurve,
     @required this.rightCurve,
     @required this.animation,

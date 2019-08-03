@@ -1,21 +1,5 @@
-export 'package:flutter/foundation.dart';
-export 'package:flutter/gestures.dart';
-export 'package:flutter/material.dart';
-export 'package:flutter/services.dart';
+export 'dart:html' show window;
 
-Future<void> webOnlyInitializePlatform() async {}
-
-final Window window = Window();
-
-class Window {
-  void open(String url, String name) {}
-  _Navigator get navigator => _Navigator();
-}
-
-class _Navigator {
-  _Clipboard get clipboard => _Clipboard();
-}
-
-class _Clipboard {
-  Future<void> writeText(String text) async {}
-}
+export 'package:flutter_web/gestures.dart';
+export 'package:flutter_web/material.dart';
+export 'package:flutter_web_ui/ui.dart' show webOnlyInitializePlatform;
