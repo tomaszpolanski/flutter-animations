@@ -8,13 +8,10 @@ TODO
 
 final c = Example(
   released: DateTime.utc(2019, 8, 3),
-  title: 'SlideTransition',
-  body: const Text("Slide transition moves widget X times of it's dimention."),
+  title: 'Comparison',
+  body: const Text('Compare how differenc curves behave'),
   url: 'master/lib/transitions/slide.dart',
-  builder: (animation, child) => CurvesExample(
-    animation: animation,
-    child: child,
-  ),
+  builder: (animation, child) => child,
 );
 
 class CurvesSection extends StatefulWidget {
@@ -36,37 +33,91 @@ class CurvesSection extends StatefulWidget {
   _CurvesSectionState createState() => _CurvesSectionState();
 }
 
+const _allCurves = {
+  Curves.linear: 'linear',
+  Curves.decelerate: 'decelerate',
+  Curves.fastLinearToSlowEaseIn: 'fastLinearToSlowEaseIn',
+  Curves.ease: 'ease',
+};
+
 class _CurvesSectionState extends State<CurvesSection> {
+  Curve _leftCurve = Curves.linear;
+  Curve _rightCurve = Curves.linear;
+
   @override
   Widget build(BuildContext context) {
     return Section(
       title: c.title,
       url: c.fileUrl,
       released: c.released,
-      body: c.body,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          c.body,
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              DropdownButton(
+                value: _leftCurve,
+                onChanged: (curve) {
+                  setState(() => _leftCurve = curve);
+                },
+                items: [
+                  for (final curve in _allCurves.keys)
+                    DropdownMenuItem<Curve>(
+                      value: curve,
+                      child: Text(_allCurves[curve]),
+                    ),
+                ],
+              ),
+              DropdownButton(
+                value: _rightCurve,
+                onChanged: (curve) {
+                  setState(() => _rightCurve = curve);
+                },
+                items: [
+                  for (final curve in _allCurves.keys)
+                    DropdownMenuItem<Curve>(
+                      value: curve,
+                      child: Text(_allCurves[curve]),
+                    ),
+                ],
+              ),
+            ],
+          )
+        ],
+      ),
       onPressed: () => widget.onPressed(c.pageUrl),
-      child: c.builder(widget.animation, widget.child),
+      child: CurvesExample(
+        leftCurve: _leftCurve,
+        rightCurve: _rightCurve,
+        animation: widget.animation,
+        child: widget.child,
+      ),
     );
   }
 }
 
-class CurvesExample extends StatefulWidget {
+class CurvesExample extends StatelessWidget {
   const CurvesExample({
+    @required this.leftCurve,
+    @required this.rightCurve,
     @required this.animation,
     @required this.child,
     Key key,
-  })  : assert(animation != null),
+  })  : assert(leftCurve != null),
+        assert(rightCurve != null),
+        assert(animation != null),
         assert(child != null),
         super(key: key);
 
+  final Curve leftCurve;
+  final Curve rightCurve;
   final Widget child;
   final Animation<double> animation;
 
-  @override
-  _CurvesExampleState createState() => _CurvesExampleState();
-}
-
-class _CurvesExampleState extends State<CurvesExample> {
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -75,20 +126,22 @@ class _CurvesExampleState extends State<CurvesExample> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           SlideTransition(
-            position: widget.animation
-                .drive(CurveTween(curve: Curves.easeIn))
+            position: animation
+                .drive(CurveTween(curve: leftCurve))
                 .drive(Tween<Offset>(
                   begin: const Offset(0, 0),
                   end: const Offset(0, 1),
                 )),
-            child: widget.child,
+            child: child,
           ),
           SlideTransition(
-            position: widget.animation.drive(Tween<Offset>(
-              begin: const Offset(0, 0),
-              end: const Offset(0, 1),
-            )),
-            child: widget.child,
+            position: animation
+                .drive(CurveTween(curve: rightCurve))
+                .drive(Tween<Offset>(
+                  begin: const Offset(0, 0),
+                  end: const Offset(0, 1),
+                )),
+            child: child,
           ),
         ],
       ),
