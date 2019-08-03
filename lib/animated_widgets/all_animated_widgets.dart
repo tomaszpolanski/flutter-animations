@@ -3,6 +3,7 @@ import 'package:animation_cheat_page/animated_widgets/container.dart';
 import 'package:animation_cheat_page/animated_widgets/default_text_style.dart';
 import 'package:animation_cheat_page/animated_widgets/opacity.dart';
 import 'package:animation_cheat_page/animated_widgets/padding.dart';
+import 'package:animation_cheat_page/animated_widgets/physical_model.dart';
 import 'package:animation_cheat_page/animated_widgets/positioned.dart';
 import 'package:animation_cheat_page/animated_widgets/positioned_directional.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
@@ -110,5 +111,13 @@ final allAnimatedWidgets = [
     body: const Text('Animates style of the Text widgets'),
     url: 'master/lib/animated_widgets/default_text_style.dart',
     builder: (_, child) => const AnimatedDefaultTextStyleExample(),
+  ),
+  Example(
+    released: DateTime.utc(2019, 8, 3),
+    title: 'AnimatedPhysicalModel',
+    body: const Text('This wiget can create shapes similar to Card widget '
+        'and can animate the elevation, color and border radius'),
+    url: 'master/lib/animated_widgets/physical_model.dart',
+    builder: (_, child) => const AnimatedPhysicalModelExample(),
   ),
 ];
