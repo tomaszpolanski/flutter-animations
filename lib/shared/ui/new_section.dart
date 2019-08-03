@@ -10,18 +10,22 @@ class NewSection extends StatelessWidget {
     Key key,
     @required this.transitions,
     @required this.animated,
+    @required this.curves,
   })  : assert(transitions != null),
         assert(animated != null),
+        assert(curves != null),
         super(key: key);
 
   final List<Example> transitions;
   final List<Example> animated;
+  final List<Example> curves;
 
   @override
   Widget build(BuildContext context) {
     final children = [
       ...transitions.where((example) => showNew(example.released)),
       ...animated.where((example) => showNew(example.released)),
+      ...curves.where((example) => showNew(example.released)),
     ]
         .map((example) => Text(
               '    • ${example.title}',
