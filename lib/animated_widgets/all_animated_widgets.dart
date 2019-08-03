@@ -9,9 +9,11 @@ import 'package:animation_cheat_page/transitions/all_transitions.dart';
 
 import 'cross_fade.dart';
 
-const description = 'Those animations are easier to use as and can perform '
-    'more advanced animations.\nThe downside of them is that they have to be '
-    'used in a StatefullWidget together with setState() method.';
+const description = '''
+are more compound, prebuild solution. They might integrate multiple animations - AnimatedContainer can animate size, colour, border, … at the same time. To create similar animation with Transitions it would require much more code.
+The downside of Animated Widgets is that they are much less flexible to change and they need to be in a StatefullWidget as setState() need to be called.
+Animated Widgets are in the created with Transition internally - in case you need more custom widget, just use Transitions.
+''';
 
 final allAnimatedWidgets = [
   Example(
