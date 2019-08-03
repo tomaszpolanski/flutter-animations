@@ -1,5 +1,6 @@
 import 'package:animation_cheat_page/animated_widgets/align.dart';
 import 'package:animation_cheat_page/animated_widgets/container.dart';
+import 'package:animation_cheat_page/animated_widgets/default_text_style.dart';
 import 'package:animation_cheat_page/animated_widgets/opacity.dart';
 import 'package:animation_cheat_page/animated_widgets/padding.dart';
 import 'package:animation_cheat_page/animated_widgets/positioned.dart';
@@ -102,5 +103,12 @@ final allAnimatedWidgets = [
         'to rebuild the widget when animating'),
     url: 'master/lib/animated_widgets/opacity.dart',
     builder: (_, child) => AnimatedOpacityExample(child: child),
+  ),
+  Example(
+    released: DateTime.utc(2019, 8, 3),
+    title: 'AnimatedDefaultTextStyle',
+    body: const Text('Animates style of the Text widgets'),
+    url: 'master/lib/animated_widgets/default_text_style.dart',
+    builder: (_, child) => const AnimatedDefaultTextStyleExample(),
   ),
 ];
