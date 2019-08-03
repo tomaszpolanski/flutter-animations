@@ -11,13 +11,10 @@ import 'package:animation_cheat_page/transitions/scale.dart';
 import 'package:animation_cheat_page/transitions/size.dart';
 import 'package:animation_cheat_page/transitions/slide.dart';
 
-const description = 'Transitions are in most cases the most performant way '
-    'for creating animations. '
-    'They required an Animation object to be passed to them '
-    '- this is usually just an AnimationController.'
-    '\nThe benefit of using Transitions it that they usually work on render '
-    'objects so the widgets and elements that are animated do not need '
-    'to perform rebuild.';
+const description = '''
+are lightweight and you and more clean to combine. They do not need to be placed it a StatefullWidget to work, but they need to have access Animation object (usually is an AnimationController). 
+In the beginning, Transitions might be harder to use vs Animated Widgets, but in the long run, they end up with cleaner code when creating more advanced animations.
+''';
 final released = DateTime.utc(2019, 7, 22);
 final allTransitions = [
   Example(

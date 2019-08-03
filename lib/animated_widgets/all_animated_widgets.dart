@@ -1,5 +1,6 @@
 import 'package:animation_cheat_page/animated_widgets/align.dart';
 import 'package:animation_cheat_page/animated_widgets/container.dart';
+import 'package:animation_cheat_page/animated_widgets/default_text_style.dart';
 import 'package:animation_cheat_page/animated_widgets/opacity.dart';
 import 'package:animation_cheat_page/animated_widgets/padding.dart';
 import 'package:animation_cheat_page/animated_widgets/positioned.dart';
@@ -9,9 +10,11 @@ import 'package:animation_cheat_page/transitions/all_transitions.dart';
 
 import 'cross_fade.dart';
 
-const description = 'Those animations are easier to use as and can perform '
-    'more advanced animations.\nThe downside of them is that they have to be '
-    'used in a StatefullWidget together with setState() method.';
+const description = '''
+are more compound, prebuild solution. They might integrate multiple animations - AnimatedContainer can animate size, colour, border, … at the same time. To create similar animation with Transitions it would require much more code.
+The downside of Animated Widgets is that they are much less flexible to change and they need to be in a StatefullWidget as setState() need to be called.
+Animated Widgets are in the created with Transition internally - in case you need more custom widget, just use Transitions.
+''';
 
 final allAnimatedWidgets = [
   Example(
@@ -100,5 +103,12 @@ final allAnimatedWidgets = [
         'to rebuild the widget when animating'),
     url: 'master/lib/animated_widgets/opacity.dart',
     builder: (_, child) => AnimatedOpacityExample(child: child),
+  ),
+  Example(
+    released: DateTime.utc(2019, 8, 3),
+    title: 'AnimatedDefaultTextStyle',
+    body: const Text('Animates style of the Text widgets'),
+    url: 'master/lib/animated_widgets/default_text_style.dart',
+    builder: (_, child) => const AnimatedDefaultTextStyleExample(),
   ),
 ];
