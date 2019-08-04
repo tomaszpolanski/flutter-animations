@@ -3,13 +3,12 @@ import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart';
 
 const description = '''
-Integral part of animations are Curves. They allow to specify when animation speeds up and when it slows down.
-''';
+An integral part of animations are Curves. They allow specifying when animation speeds up and when it slows down.''';
 
 final singleCurveExample = Example(
   released: DateTime.utc(2019, 8, 3),
   title: 'Compare curves',
-  body: const Text('Compare how differenc curves behave'),
+  body: const Text('Compare how different curves behave'),
   url: 'master/lib/curves/curves.dart',
   builder: (animation, child) => child,
 );
