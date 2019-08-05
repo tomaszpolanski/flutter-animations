@@ -96,36 +96,20 @@ class _CurvesSectionState extends State<CurvesSection> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Expanded(
-                child: DropdownButton(
-                  isExpanded: true,
-                  value: _leftCurve,
+                child: _DropdownCurve(
+                  _leftCurve,
                   onChanged: (curve) {
                     setState(() => _leftCurve = curve);
                   },
-                  items: [
-                    for (final curve in _allCurves.keys)
-                      DropdownMenuItem<Curve>(
-                        value: curve,
-                        child: Text(_allCurves[curve]),
-                      ),
-                  ],
                 ),
               ),
               const SizedBox(width: 8),
               Expanded(
-                child: DropdownButton(
-                  isExpanded: true,
-                  value: _rightCurve,
+                child: _DropdownCurve(
+                  _rightCurve,
                   onChanged: (curve) {
                     setState(() => _rightCurve = curve);
                   },
-                  items: [
-                    for (final curve in _allCurves.keys)
-                      DropdownMenuItem<Curve>(
-                        value: curve,
-                        child: Text(_allCurves[curve]),
-                      ),
-                  ],
                 ),
               ),
             ],
@@ -139,6 +123,38 @@ class _CurvesSectionState extends State<CurvesSection> {
         animation: widget.animation,
         child: widget.child,
       ),
+    );
+  }
+}
+
+class _DropdownCurve extends StatelessWidget {
+  const _DropdownCurve(
+    this.curve, {
+    Key key,
+    @required this.onChanged,
+  })  : assert(curve != null),
+        assert(onChanged != null),
+        super(key: key);
+
+  final Curve curve;
+  final ValueChanged<Curve> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton(
+      isExpanded: true,
+      value: curve,
+      onChanged: onChanged,
+      items: [
+        for (final curve in _allCurves.keys)
+          DropdownMenuItem<Curve>(
+            value: curve,
+            child: Text(
+              _allCurves[curve],
+              style: TextStyle(fontFamily: 'RobotoMono'),
+            ),
+          ),
+      ],
     );
   }
 }
