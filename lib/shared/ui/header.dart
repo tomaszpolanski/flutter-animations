@@ -5,12 +5,14 @@ class Header extends StatelessWidget {
   Header(
     String text, {
     @required this.animation,
+    this.onPressed,
     Key key,
   })  : letters = text.split(''),
         super(key: key);
 
   final Animation<double> animation;
   final List<String> letters;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -65,26 +67,29 @@ class Header extends StatelessWidget {
     ];
     final screenWidth = MediaQuery.of(context).size.width;
     final rowCount = screenWidth > 1080 ? 1 : screenWidth > 600 ? 2 : 5;
-    return Padding(
-      padding: const EdgeInsets.all(20),
-      child: Card(
-        clipBehavior: Clip.antiAlias,
-        child: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 20),
-              child: FlutterLogo(size: 140),
-            ),
-            for (int i = 0; i < rowCount; i++)
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: children.sublist(
-                  i * (children.length / rowCount).round(),
-                  (i + 1) * (children.length / rowCount).round(),
-                ),
+    return GestureDetector(
+      onTap: onPressed,
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Card(
+          clipBehavior: Clip.antiAlias,
+          child: Column(
+            children: [
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 20),
+                child: FlutterLogo(size: 140),
               ),
-          ],
+              for (int i = 0; i < rowCount; i++)
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: children.sublist(
+                    i * (children.length / rowCount).round(),
+                    (i + 1) * (children.length / rowCount).round(),
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );
