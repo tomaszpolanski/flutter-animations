@@ -22,16 +22,7 @@ class CurvesPage extends StatelessWidget {
             CurvesSection(
               animation: animation,
               onPressed: (url) {},
-              child: Card(
-                color: Colors.yellowAccent,
-                child: Padding(
-                  padding: const EdgeInsets.all(40),
-                  child: Icon(
-                    Icons.star,
-                    size: 50,
-                  ),
-                ),
-              ),
+              child: child,
             ),
           ],
         );
