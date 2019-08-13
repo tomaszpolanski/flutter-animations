@@ -129,6 +129,11 @@ final allTransitions = [
   ),
 ];
 
+typedef AnimatedWidgetBuilder = Widget Function(
+  Animation<double> animation,
+  Widget child,
+);
+
 class Example {
   const Example({
     @required this.released,
@@ -147,7 +152,7 @@ class Example {
   final String title;
   final Widget body;
   final String _url;
-  final Widget Function(Animation<double> animation, Widget child) builder;
+  final AnimatedWidgetBuilder builder;
 
   String get pageUrl => '$rootUrl/$_url';
 
