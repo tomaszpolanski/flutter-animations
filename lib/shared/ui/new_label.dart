@@ -1,4 +1,5 @@
-import 'package:animation_cheat_page/shared/material_import.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class NewLabel extends StatelessWidget {
   @override

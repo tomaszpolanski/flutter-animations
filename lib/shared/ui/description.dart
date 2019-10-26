@@ -1,6 +1,8 @@
-import 'dart:html';
-
-import 'package:animation_cheat_page/shared/material_import.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:universal_html/html.dart' as html;
 
 class Description extends StatelessWidget {
   const Description({Key key}) : super(key: key);
@@ -27,9 +29,10 @@ class Description extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     if (kIsWeb) {
-                      window.open(
-                          'https://github.com/tomaszpolanski/flutter-animations/issues',
-                          'Report an issue');
+                      html.window.open(
+                        'https://github.com/tomaszpolanski/flutter-animations/issues',
+                        'Report an issue',
+                      );
                     }
                   },
                   child: Text(
@@ -41,9 +44,10 @@ class Description extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     if (kIsWeb) {
-                      window.open(
-                          'https://medium.com/flutter-community/flutter-animations-cheat-sheet-7f8cebfb850c',
-                          'Flutter Animations Cheat Sheet');
+                      html.window.open(
+                        'https://medium.com/flutter-community/flutter-animations-cheat-sheet-7f8cebfb850c',
+                        'Flutter Animations Cheat Sheet',
+                      );
                     }
                   },
                   child: Text(
@@ -63,10 +67,11 @@ class Description extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     if (kIsWeb) {
-                      window.open(
-                          'https://medium.com/flutter-community/'
-                              'flutter-layout-cheat-sheet-5363348d037e',
-                          'Flutter Layout Cheat Sheet');
+                      html.window.open(
+                        'https://medium.com/flutter-community/'
+                            'flutter-layout-cheat-sheet-5363348d037e',
+                        'Flutter Layout Cheat Sheet',
+                      );
                     }
                   },
                   child: Text(
@@ -110,11 +115,12 @@ class _Description extends StatelessWidget {
             style: TextStyle(color: Theme.of(context).accentColor),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                // if (isBrowser) {
-                window.open(
+                if (kIsWeb) {
+                  html.window.open(
                     'https://github.com/tomaszpolanski/flutter-animations/issues',
-                    'Report an issue');
-                // }
+                    'Report an issue',
+                  );
+                }
               },
           ),
           const TextSpan(text: ' or '),
@@ -124,9 +130,10 @@ class _Description extends StatelessWidget {
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 if (kIsWeb) {
-                  window.open(
-                      'https://medium.com/flutter-community/flutter-animations-cheat-sheet-7f8cebfb850c',
-                      'Flutter Animations Cheat Sheet');
+                  html.window.open(
+                    'https://medium.com/flutter-community/flutter-animations-cheat-sheet-7f8cebfb850c',
+                    'Flutter Animations Cheat Sheet',
+                  );
                 }
               },
           ),
@@ -139,9 +146,10 @@ class _Description extends StatelessWidget {
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 if (kIsWeb) {
-                  window.open(
-                      'https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e',
-                      'Flutter Layout Cheat Sheet');
+                  html.window.open(
+                    'https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e',
+                    'Flutter Layout Cheat Sheet',
+                  );
                 }
               },
           ),

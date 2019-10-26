@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:animation_cheat_page/shared/material_import.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class AnimatedPhysicalModelExample extends StatefulWidget {
   const AnimatedPhysicalModelExample({

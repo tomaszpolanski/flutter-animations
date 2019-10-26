@@ -1,11 +1,8 @@
-import 'dart:html';
-
 import 'package:animation_cheat_page/animated_widgets/all_animated_widgets.dart'
     as animated;
 import 'package:animation_cheat_page/curves/curves.dart' as curves;
 import 'package:animation_cheat_page/curves/curves.dart';
 import 'package:animation_cheat_page/curves/curves_page.dart';
-import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:animation_cheat_page/shared/ui/description.dart';
 import 'package:animation_cheat_page/shared/ui/header.dart';
 import 'package:animation_cheat_page/shared/ui/new_section.dart';
@@ -13,6 +10,11 @@ import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:animation_cheat_page/shared/ui/separator.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart'
     as transitions;
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:universal_html/html.dart' as html;
 
 class AnimationCheatSheet extends StatelessWidget {
   const AnimationCheatSheet({Key key}) : super(key: key);
@@ -57,8 +59,8 @@ class _PresentationList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const _AnimationProvider(),
+    return const Scaffold(
+      body: _AnimationProvider(),
     );
   }
 }
@@ -97,7 +99,7 @@ class __AnimationProviderState extends State<_AnimationProvider>
 
   void _handleUrl(BuildContext context, String url) {
     if (kIsWeb) {
-      window.open(url, 'Source Code');
+      html.window.open(url, 'Source Code');
     } else {
       Clipboard.setData(ClipboardData(text: url));
       final snackBar = SnackBar(

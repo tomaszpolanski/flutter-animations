@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:animation_cheat_page/animated_widgets/align.dart';
 import 'package:animation_cheat_page/animated_widgets/container.dart';
 import 'package:animation_cheat_page/animated_widgets/default_text_style.dart';
@@ -8,8 +6,9 @@ import 'package:animation_cheat_page/animated_widgets/padding.dart';
 import 'package:animation_cheat_page/animated_widgets/physical_model.dart';
 import 'package:animation_cheat_page/animated_widgets/positioned.dart';
 import 'package:animation_cheat_page/animated_widgets/positioned_directional.dart';
-import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart';
+import 'package:flutter/widgets.dart';
+import 'package:universal_html/html.dart' as html;
 
 import 'cross_fade.dart';
 
@@ -43,7 +42,7 @@ final allAnimatedWidgets = [
     title: 'AnimatedPadding',
     body: GestureDetector(
       onTap: () {
-        window.open(
+        html.window.open(
           'https://www.youtube.com/playlist?list=PL--PgETgAz5FGoatB9KQzbnpv0bgZqU2l',
           'Super Easy',
         );
@@ -63,10 +62,10 @@ final allAnimatedWidgets = [
     title: 'AnimatedAlign',
     body: GestureDetector(
       onTap: () {
-        window.open(
-          'https://www.youtube.com/playlist?list=PL--PgETgAz5FGoatB9KQzbnpv0bgZqU2l',
-          'Super Easy',
-        );
+//        window.open(
+//          'https://www.youtube.com/playlist?list=PL--PgETgAz5FGoatB9KQzbnpv0bgZqU2l',
+//          'Super Easy',
+//        );
       },
       child: const Text(
         'Animating alignment? Super Easy, Barely An Inconvenience.',

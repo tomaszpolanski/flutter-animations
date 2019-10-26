@@ -1,4 +1,5 @@
-import 'package:animation_cheat_page/shared/material_import.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 
 class CodeButton extends StatefulWidget {
@@ -38,9 +39,7 @@ class _CodeButtonState extends State<CodeButton> {
           setState(() => _isLoading = false);
           widget.onFetched(
             code.body
-                .replaceAll(
-                    "import 'package:animation_cheat_page/shared/material_import.dart';",
-                    '')
+                .replaceAll("import 'package:flutter/widgets.dart';", '')
                 .trim(),
           );
         },
