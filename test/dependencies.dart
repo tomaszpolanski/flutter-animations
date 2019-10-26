@@ -1,1 +1,1 @@
-export 'package:flutter_web_test/flutter_web_test.dart';
+export 'package:flutter_test/flutter_test.dart';

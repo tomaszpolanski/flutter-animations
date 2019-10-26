@@ -22,3 +22,8 @@ res/
 android/local.properties
 /android/.gradle
 ios/Flutter/Generated.xcconfig
+android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+ios/Runner/GeneratedPluginRegistrant.m
+ios/Runner/GeneratedPluginRegistrant.h
+linux/flutter/generated_plugin_registrant.cc
+linux/flutter/generated_plugin_registrant.h
