@@ -76,7 +76,7 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
               child: MouseRegion(
                 onEnter: (_) => _controller.forward(),
                 onExit: (_) => _controller.reverse(),
-                child: PhoneFrame(
+                child: ElevatedAppFrame(
                   title: widget.title,
                   elevation: _controller.drive(
                     Tween<double>(begin: 1, end: 3),

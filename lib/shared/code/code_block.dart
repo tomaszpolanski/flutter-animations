@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:presentation/presentation.dart';
 
 class CodeBlock extends StatelessWidget {
   const CodeBlock(
@@ -17,14 +18,11 @@ class CodeBlock extends StatelessWidget {
         border: Border.all(color: Colors.grey, width: 2),
         borderRadius: const BorderRadius.all(Radius.circular(5)),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: Text(
+      child: Editor(
         code,
-        style: TextStyle(
-          fontSize: 16,
-          fontFamily: 'RobotoMono',
-          fontWeight: FontWeight.w500,
-        ),
+        brightness: Brightness.light,
+        nested: true,
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       ),
     );
   }
