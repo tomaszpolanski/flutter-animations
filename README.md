@@ -8,11 +8,8 @@ List of animations and transitions that you can used in Flutter.
 Available as a [webpage](https://flutter-animations-cheat-sheet.codemagic.app/#/).
 
 # Building
-By default the project is setup to be built for web. 
-To toggle build configuration run `toggle.sh` on Linux/Mac and `toggle.bat` on Windows.
-
-* Last tested version of Flutter that works with this repo is `v1.7.8+hotfix.3`:
-  * **Important**: Use `version` otherwise desktop won't be picked up: `flutter version v1.7.8+hotfix.3`
+Last tested version of Flutter that works with this repo is `1.10.14`:
+  * **Important**: Use `version` otherwise desktop won't be picked up: `1.10.14`
 
 ## Building for Mobile
 Run `toggle` script and proceed the same way as with a normal Flutter.
@@ -26,7 +23,6 @@ flutter run -d chrome -v
 ```
 
 ## Building for Desktop
-* First enable desktop imports (defaults are web) buy running `./toggle.sh` script
 ### Linux
 - Add the following to `.bash_profile` but replace `$HOME/flutter/` with path to your Flutter folder
 ```
@@ -65,6 +61,3 @@ OR
 Open in your ide `flutter-animations` 
 In IntelliJ/VS Code select appropriate device via device picker and run tha app
 
-
-## Testing
-Testing on web can be run with `flutter pub run test -p chrome`
