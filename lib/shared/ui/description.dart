@@ -1,4 +1,5 @@
-import 'package:animation_cheat_page/shared/interop.dart';
+import 'dart:html';
+
 import 'package:animation_cheat_page/shared/material_import.dart';
 
 class Description extends StatelessWidget {
@@ -25,7 +26,7 @@ class Description extends StatelessWidget {
                     .map((word) => Text('$word ')),
                 GestureDetector(
                   onTap: () {
-                    if (isBrowser) {
+                    if (kIsWeb) {
                       window.open(
                           'https://github.com/tomaszpolanski/flutter-animations/issues',
                           'Report an issue');
@@ -39,7 +40,7 @@ class Description extends StatelessWidget {
                 ...' or'.split(' ').map((word) => Text('$word ')),
                 GestureDetector(
                   onTap: () {
-                    if (isBrowser) {
+                    if (kIsWeb) {
                       window.open(
                           'https://medium.com/flutter-community/flutter-animations-cheat-sheet-7f8cebfb850c',
                           'Flutter Animations Cheat Sheet');
@@ -61,7 +62,7 @@ class Description extends StatelessWidget {
                     .map((word) => Text('$word ')),
                 GestureDetector(
                   onTap: () {
-                    if (isBrowser) {
+                    if (kIsWeb) {
                       window.open(
                           'https://medium.com/flutter-community/'
                               'flutter-layout-cheat-sheet-5363348d037e',
@@ -122,7 +123,7 @@ class _Description extends StatelessWidget {
             style: TextStyle(color: Theme.of(context).accentColor),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                if (isBrowser) {
+                if (kIsWeb) {
                   window.open(
                       'https://medium.com/flutter-community/flutter-animations-cheat-sheet-7f8cebfb850c',
                       'Flutter Animations Cheat Sheet');
@@ -137,7 +138,7 @@ class _Description extends StatelessWidget {
             style: TextStyle(color: Theme.of(context).accentColor),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                if (isBrowser) {
+                if (kIsWeb) {
                   window.open(
                       'https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e',
                       'Flutter Layout Cheat Sheet');

@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:animation_cheat_page/animated_widgets/align.dart';
 import 'package:animation_cheat_page/animated_widgets/container.dart';
 import 'package:animation_cheat_page/animated_widgets/default_text_style.dart';

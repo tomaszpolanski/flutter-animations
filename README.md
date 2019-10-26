@@ -11,9 +11,6 @@ Available as a [webpage](https://flutter-animations-cheat-sheet.codemagic.app/#/
 Last tested version of Flutter that works with this repo is `1.10.14`:
   * **Important**: Use `version` otherwise desktop won't be picked up: `1.10.14`
 
-## Building for Mobile
-Run `toggle` script and proceed the same way as with a normal Flutter.
-
 ## Building for Web
 Upgrade flutter to minimum `1.10.14`, enable web compilation and run:
 ```

@@ -1,9 +1,10 @@
+import 'dart:html';
+
 import 'package:animation_cheat_page/animated_widgets/all_animated_widgets.dart'
     as animated;
 import 'package:animation_cheat_page/curves/curves.dart' as curves;
 import 'package:animation_cheat_page/curves/curves.dart';
 import 'package:animation_cheat_page/curves/curves_page.dart';
-import 'package:animation_cheat_page/shared/interop.dart';
 import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:animation_cheat_page/shared/ui/description.dart';
 import 'package:animation_cheat_page/shared/ui/header.dart';
@@ -95,7 +96,7 @@ class __AnimationProviderState extends State<_AnimationProvider>
   }
 
   void _handleUrl(BuildContext context, String url) {
-    if (isBrowser) {
+    if (kIsWeb) {
       window.open(url, 'Source Code');
     } else {
       Clipboard.setData(ClipboardData(text: url));
