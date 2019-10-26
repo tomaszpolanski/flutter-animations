@@ -20,6 +20,10 @@ flutter run -d chrome -v
 ```
 
 ## Building for Desktop
+Enable desktop builds by running in the terminal:
+```
+flutter config --enable-linux-desktop --enable-macos-desktop --enable-windows-desktop
+```
 ### Linux
 - Add the following to `.bash_profile` but replace `$HOME/flutter/` with path to your Flutter folder
 ```
@@ -27,7 +31,6 @@ flutter run -d chrome -v
 export PATH="$PATH:$HOME/flutter/bin"
 # Add Dart
 export PATH="$PATH:$HOME/flutter/bin/cache/dart-sdk/bin"
-export ENABLE_FLUTTER_DESKTOP=true
 ```
 ### Mac
 - Add the following to `.bash_profile` but replace `$HOME/flutter/` with path to your Flutter folder
@@ -36,7 +39,6 @@ export ENABLE_FLUTTER_DESKTOP=true
 export PATH="$PATH:$HOME/flutter/bin"
 # Add Dart
 export PATH="$PATH:$HOME/flutter/bin/cache/dart-sdk/bin"
-export ENABLE_FLUTTER_DESKTOP=true
 ```
 - Update CocoaPods:
 ```
@@ -45,10 +47,10 @@ pod setup
 gem install cocoapods
 ```
 ### Windows
-- Install Visual Studio Community 2019 with [Desktop development with C++](https://devblogs.microsoft.com/cppblog/windows-desktop-development-with-c-in-visual-studio/#installation)
-- Add to PATH paths to dart and flutter and add `ENABLE_FLUTTER_DESKTOP` to env variables
-
-* Check if `flutter devices` now shows your desktop device
+- Install Visual Studio Community 2019 with [Desktop development with C++](https://devblogs.microsoft.com/cppblog/windows-desktop-development-with-c-in-visual-studio/#installation). 
+Make sure that those components are installed:
+* `MSVC v142 - VS 2019 C++ x64/x86 build tools (v14.23)`	
+* `Windows 10 SDK (10.0.17763.0)` 
 
 ## Running on Desktop
 Enter `flutter-animations` in your terminal and run `flutter run`. 
