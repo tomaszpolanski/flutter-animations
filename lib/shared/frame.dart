@@ -1,10 +1,9 @@
-import 'package:animation_cheat_page/shared/animation_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:intl/intl.dart';
+import 'package:presentation/presentation.dart';
 
-class PhoneFrame extends StatelessWidget {
-  const PhoneFrame({
+class ElevatedAppFrame extends StatelessWidget {
+  const ElevatedAppFrame({
     Key key,
     @required this.title,
     @required this.elevation,
@@ -35,49 +34,12 @@ class PhoneFrame extends StatelessWidget {
           child: SizedBox(
             width: 300,
             height: 400,
-            child: Stack(
-              children: <Widget>[
-                MediaQuery(
-                  data: const MediaQueryData(padding: EdgeInsets.only(top: 20)),
-                  child: Scaffold(
-                    appBar: AppBar(
-                      primary: true,
-                      title: Text(
-                        title,
-                        style: const TextStyle(fontFamily: 'Roboto'),
-                      ),
-                    ),
-                    body: Align(child: child),
-                  ),
-                ),
-                Container(
-                  height: 28,
-                  color: Colors.black.withOpacity(0.2),
-                  padding: const EdgeInsets.symmetric(horizontal: 4),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      Icon(
-                        Icons.signal_cellular_4_bar,
-                        color: Colors.white,
-                        size: 18,
-                      ),
-                      Icon(
-                        Icons.battery_charging_full,
-                        color: Colors.white,
-                        size: 18,
-                      ),
-                      Text(
-                        DateFormat.Hm().format(DateTime.now()),
-                        style: Theme.of(context).textTheme.body2.copyWith(
-                              color: Colors.white,
-                              fontFamily: 'Roboto',
-                            ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+            child: AppFrame(
+              title: Text(
+                title,
+                style: const TextStyle(fontFamily: 'Roboto'),
+              ),
+              child: child,
             ),
           ),
         ),

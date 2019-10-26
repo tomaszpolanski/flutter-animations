@@ -10,6 +10,8 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  presentation:
+    path: ../presentation/
 
   http: ^0.12.0+1
   universal_html: ^1.1.6

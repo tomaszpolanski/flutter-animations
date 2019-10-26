@@ -62,10 +62,10 @@ final allAnimatedWidgets = [
     title: 'AnimatedAlign',
     body: GestureDetector(
       onTap: () {
-//        window.open(
-//          'https://www.youtube.com/playlist?list=PL--PgETgAz5FGoatB9KQzbnpv0bgZqU2l',
-//          'Super Easy',
-//        );
+        html.window.open(
+          'https://www.youtube.com/playlist?list=PL--PgETgAz5FGoatB9KQzbnpv0bgZqU2l',
+          'Super Easy',
+        );
       },
       child: const Text(
         'Animating alignment? Super Easy, Barely An Inconvenience.',
