@@ -1,8 +1,8 @@
 import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:animation_cheat_page/shared/ui/separator.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart';
+import 'package:flutter/material.dart';
 
-import '../material_import.dart';
 import 'new_label.dart';
 
 class NewSection extends StatelessWidget {

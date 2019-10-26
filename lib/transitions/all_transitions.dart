@@ -1,4 +1,4 @@
-import 'package:animation_cheat_page/shared/material_import.dart';
+import 'package:flutter/widgets.dart';
 import 'package:animation_cheat_page/shared/network/urls.dart';
 import 'package:animation_cheat_page/transitions/align.dart';
 import 'package:animation_cheat_page/transitions/decorated_box.dart';

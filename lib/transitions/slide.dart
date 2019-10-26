@@ -1,4 +1,4 @@
-import 'package:animation_cheat_page/shared/material_import.dart';
+import 'package:flutter/widgets.dart';
 
 class SlideExample extends StatelessWidget {
   const SlideExample({

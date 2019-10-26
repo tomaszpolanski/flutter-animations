@@ -8,51 +8,22 @@ List of animations and transitions that you can used in Flutter.
 Available as a [webpage](https://flutter-animations-cheat-sheet.codemagic.app/#/).
 
 # Building
-By default the project is setup to be built for web. 
-To toggle build configuration run `toggle.sh` on Linux/Mac and `toggle.bat` on Windows.
-
-* Last tested version of Flutter that works with this repo is `v1.7.8+hotfix.3`:
-  * **Important**: Use `version` otherwise desktop won't be picked up: `flutter version v1.7.8+hotfix.3`
-
-## Building for Mobile
-Run `toggle` script and proceed the same way as with a normal Flutter.
+Last tested version of Flutter that works with this repo is `1.10.14`:
+  * **Important**: Use `version` otherwise desktop won't be picked up: `1.10.14`
 
 ## Building for Web
-1. To install the
-    [`webdev` package](https://pub.dartlang.org/packages/webdev),
-    which provides the build tools for Flutter for web, run the following:
-
-    ```console
-    $ flutter pub global activate webdev
-    ```
-
-    Ensure that the `$HOME/.pub-cache/bin` directory
-    [is in your path](https://www.dartlang.org/tools/pub/cmd/pub-global#running-a-script-from-your-path),
-    and then you may use the `webdev` command directly from your terminal.
-
-    > Note: if you have problems configuring `webdev` to run directly, try:<br>
-      `flutter pub global run webdev [command]`.
-  
-2. Update packages
-    ```console
-    $ flutter pub upgrade
-    ```
-3. Build and serve the example locally.
-    ```console
-    $ webdev serve
-    [INFO] Generating build script completed, took 331ms
-    ...
-    [INFO] Building new asset graph completed, took 1.4s
-    ...
-    [INFO] Running build completed, took 27.9s
-    ...
-    [INFO] Succeeded after 28.1s with 618 outputs (3233 actions)
-    Serving `web` on http://localhost:8080
-    ```
-    Open <http://localhost:8080> in Chrome
+Upgrade flutter to minimum `1.10.14`, enable web compilation and run:
+```
+flutter version 1.10.14
+flutter config --enable-web
+flutter run -d chrome -v
+```
 
 ## Building for Desktop
-* First enable desktop imports (defaults are web) buy running `./toggle.sh` script
+Enable desktop builds by running in the terminal:
+```
+flutter config --enable-linux-desktop --enable-macos-desktop --enable-windows-desktop
+```
 ### Linux
 - Add the following to `.bash_profile` but replace `$HOME/flutter/` with path to your Flutter folder
 ```
@@ -60,7 +31,6 @@ Run `toggle` script and proceed the same way as with a normal Flutter.
 export PATH="$PATH:$HOME/flutter/bin"
 # Add Dart
 export PATH="$PATH:$HOME/flutter/bin/cache/dart-sdk/bin"
-export ENABLE_FLUTTER_DESKTOP=true
 ```
 ### Mac
 - Add the following to `.bash_profile` but replace `$HOME/flutter/` with path to your Flutter folder
@@ -69,7 +39,6 @@ export ENABLE_FLUTTER_DESKTOP=true
 export PATH="$PATH:$HOME/flutter/bin"
 # Add Dart
 export PATH="$PATH:$HOME/flutter/bin/cache/dart-sdk/bin"
-export ENABLE_FLUTTER_DESKTOP=true
 ```
 - Update CocoaPods:
 ```
@@ -78,9 +47,10 @@ pod setup
 gem install cocoapods
 ```
 ### Windows
-- Add to PATH paths to dart and flutter and add `ENABLE_FLUTTER_DESKTOP` to env variables
-
-* Check if `flutter devices` now shows your desktop device
+- Install Visual Studio Community 2019 with [Desktop development with C++](https://devblogs.microsoft.com/cppblog/windows-desktop-development-with-c-in-visual-studio/#installation). 
+Make sure that those components are installed:
+* `MSVC v142 - VS 2019 C++ x64/x86 build tools (v14.23)`	
+* `Windows 10 SDK (10.0.17763.0)` 
 
 ## Running on Desktop
 Enter `flutter-animations` in your terminal and run `flutter run`. 
@@ -91,6 +61,3 @@ OR
 Open in your ide `flutter-animations` 
 In IntelliJ/VS Code select appropriate device via device picker and run tha app
 
-
-## Testing
-Testing on web can be run with `flutter pub run test -p chrome`

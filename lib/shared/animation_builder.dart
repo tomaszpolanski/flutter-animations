@@ -1,4 +1,6 @@
-import 'package:animation_cheat_page/shared/material_import.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class WrappedAnimatedBuilder<T> extends StatelessWidget {
   const WrappedAnimatedBuilder({

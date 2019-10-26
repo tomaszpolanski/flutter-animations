@@ -1,10 +1,9 @@
-import 'package:animation_cheat_page/shared/material_import.dart';
-
-const bool isBrowser = identical(0, 0.0);
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 
 Future<void> copyText(String text) async {
-  if (isBrowser) {
-    await window.navigator.clipboard.writeText(text);
+  if (kIsWeb) {
+    // await window.navigator.clipboard.writeText(text);
   } else {
     await Clipboard.setData(ClipboardData(text: text));
   }

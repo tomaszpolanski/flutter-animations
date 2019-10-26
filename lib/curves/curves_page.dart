@@ -1,7 +1,7 @@
 import 'package:animation_cheat_page/curves/curves.dart';
 import 'package:animation_cheat_page/curves/curves.dart' as curves;
 import 'package:animation_cheat_page/shared/header_page.dart';
-import 'package:animation_cheat_page/shared/material_import.dart';
+import 'package:flutter/widgets.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
 
 class CurvesPage extends StatelessWidget {

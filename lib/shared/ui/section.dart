@@ -2,9 +2,9 @@ import 'package:animation_cheat_page/shared/code/code_block.dart';
 import 'package:animation_cheat_page/shared/code/code_button.dart';
 import 'package:animation_cheat_page/shared/frame.dart';
 import 'package:animation_cheat_page/shared/interop.dart';
-import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:animation_cheat_page/shared/ui/new_label.dart';
 import 'package:animation_cheat_page/shared/ui/separator.dart';
+import 'package:flutter/material.dart';
 
 class Section extends StatefulWidget {
   const Section({
@@ -73,9 +73,9 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
             const SizedBox(height: 20),
             GestureDetector(
               onTap: widget.onPressed,
-              child: Listener(
-                onPointerEnter: (_) => _controller.forward(),
-                onPointerExit: (_) => _controller.reverse(),
+              child: MouseRegion(
+                onEnter: (_) => _controller.forward(),
+                onExit: (_) => _controller.reverse(),
                 child: PhoneFrame(
                   title: widget.title,
                   elevation: _controller.drive(

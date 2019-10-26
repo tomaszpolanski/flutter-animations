@@ -1,6 +1,6 @@
-import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:animation_cheat_page/shared/ui/header.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart';
+import 'package:flutter/material.dart';
 
 class HeaderPage extends StatefulWidget {
   const HeaderPage({
