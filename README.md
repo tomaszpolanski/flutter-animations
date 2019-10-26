@@ -18,38 +18,12 @@ To toggle build configuration run `toggle.sh` on Linux/Mac and `toggle.bat` on W
 Run `toggle` script and proceed the same way as with a normal Flutter.
 
 ## Building for Web
-1. To install the
-    [`webdev` package](https://pub.dartlang.org/packages/webdev),
-    which provides the build tools for Flutter for web, run the following:
-
-    ```console
-    $ flutter pub global activate webdev
-    ```
-
-    Ensure that the `$HOME/.pub-cache/bin` directory
-    [is in your path](https://www.dartlang.org/tools/pub/cmd/pub-global#running-a-script-from-your-path),
-    and then you may use the `webdev` command directly from your terminal.
-
-    > Note: if you have problems configuring `webdev` to run directly, try:<br>
-      `flutter pub global run webdev [command]`.
-  
-2. Update packages
-    ```console
-    $ flutter pub upgrade
-    ```
-3. Build and serve the example locally.
-    ```console
-    $ webdev serve
-    [INFO] Generating build script completed, took 331ms
-    ...
-    [INFO] Building new asset graph completed, took 1.4s
-    ...
-    [INFO] Running build completed, took 27.9s
-    ...
-    [INFO] Succeeded after 28.1s with 618 outputs (3233 actions)
-    Serving `web` on http://localhost:8080
-    ```
-    Open <http://localhost:8080> in Chrome
+Upgrade flutter to minimum `1.10.14`, enable web compilation and run:
+```
+flutter version 1.10.14
+flutter config --enable-web
+flutter run -d chrome -v
+```
 
 ## Building for Desktop
 * First enable desktop imports (defaults are web) buy running `./toggle.sh` script
