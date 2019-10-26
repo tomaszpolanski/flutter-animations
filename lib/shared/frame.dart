@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 import 'package:presentation/presentation.dart';
 
 class ElevatedAppFrame extends StatelessWidget {
@@ -39,6 +40,7 @@ class ElevatedAppFrame extends StatelessWidget {
                 title,
                 style: const TextStyle(fontFamily: 'Roboto'),
               ),
+              time: Text(DateFormat.Hm().format(DateTime.now())),
               child: child,
             ),
           ),
