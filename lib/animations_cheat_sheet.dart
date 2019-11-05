@@ -10,6 +10,7 @@ import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:animation_cheat_page/shared/ui/separator.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart'
     as transitions;
+import 'package:animation_cheat_page/widgets/sliver_fill_remaining.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -36,8 +37,9 @@ class AnimationCheatSheet extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const _PresentationList(),
-        CurvesPage.route: (context) => const CurvesPage(),
+        '/': (_) => const _PresentationList(),
+        CurvesPage.route: (_) => const CurvesPage(),
+        SliverFillRemainingPage.route: (_) => const SliverFillRemainingPage(),
       },
     );
   }
