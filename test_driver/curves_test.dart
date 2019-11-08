@@ -30,6 +30,9 @@ void main(List<String> args) {
 
     test('shows curves', () async {
       await driver.waitFor(find.byType('CurvesPage'));
+    });
+
+    test('scroll', () async {
       await driver.scroll(
         find.byType('CurvesPage'),
         0,
