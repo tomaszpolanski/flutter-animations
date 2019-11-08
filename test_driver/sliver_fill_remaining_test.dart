@@ -6,7 +6,7 @@ import 'package:test/test.dart';
 import 'tools/driver.dart';
 
 void main(List<String> args) {
-  group('Root', () {
+  group('Sliver Fill Remaining', () {
     FlutterDriver driver;
     final properties = TestProperties(args);
 
@@ -22,14 +22,14 @@ void main(List<String> args) {
       await restart(
         driver,
         config: const Configuration(
-          route: Routes.root,
+          route: Routes.sliver_fill_remaining,
           repeatAnimations: false,
         ),
       );
     });
 
-    test('shows root', () async {
-      await driver.waitFor(find.byType('PresentationList'));
+    test('shows sliver', () async {
+      await driver.waitFor(find.byType('SliverFillRemainingPage'));
     });
   });
 }

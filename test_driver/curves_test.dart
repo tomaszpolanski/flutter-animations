@@ -6,7 +6,7 @@ import 'package:test/test.dart';
 import 'tools/driver.dart';
 
 void main(List<String> args) {
-  group('Root', () {
+  group('Curves', () {
     FlutterDriver driver;
     final properties = TestProperties(args);
 
@@ -22,14 +22,21 @@ void main(List<String> args) {
       await restart(
         driver,
         config: const Configuration(
-          route: Routes.root,
+          route: Routes.curves,
           repeatAnimations: false,
         ),
       );
     });
 
-    test('shows root', () async {
-      await driver.waitFor(find.byType('PresentationList'));
+    test('shows curves', () async {
+      await driver.waitFor(find.byType('CurvesPage'));
+      await driver.scroll(
+        find.byType('CurvesPage'),
+        0,
+        -400,
+        const Duration(milliseconds: 100),
+      );
+      await driver.waitFor(find.byType('CurvesSection'));
     });
   });
 }

@@ -46,9 +46,15 @@ class AnimationCheatSheet extends StatelessWidget {
         builder: (_) => const Placeholder(),
       ),
       routes: {
-        Routes.root: (_) => const PresentationList(),
-        Routes.curves: (_) => const CurvesPage(),
-        Routes.sliver_fill_remaining: (_) => const SliverFillRemainingPage(),
+        Routes.root: (_) => PresentationList(
+              repeatAnimations: config.repeatAnimations,
+            ),
+        Routes.curves: (_) => CurvesPage(
+              repeatAnimations: config.repeatAnimations,
+            ),
+        Routes.sliver_fill_remaining: (_) => SliverFillRemainingPage(
+              repeatAnimations: config.repeatAnimations,
+            ),
       },
     );
   }
@@ -65,18 +71,28 @@ class NoOverflow extends ScrollBehavior {
 }
 
 class PresentationList extends StatelessWidget {
-  const PresentationList({Key key}) : super(key: key);
+  const PresentationList({
+    Key key,
+    this.repeatAnimations = true,
+  }) : super(key: key);
+
+  final bool repeatAnimations;
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: _AnimationProvider(),
+    return Scaffold(
+      body: _AnimationProvider(repeatAnimations: repeatAnimations),
     );
   }
 }
 
 class _AnimationProvider extends StatefulWidget {
-  const _AnimationProvider({Key key}) : super(key: key);
+  const _AnimationProvider({
+    Key key,
+    @required this.repeatAnimations,
+  }) : super(key: key);
+
+  final bool repeatAnimations;
 
   @override
   __AnimationProviderState createState() => __AnimationProviderState();
@@ -92,7 +108,10 @@ class __AnimationProviderState extends State<_AnimationProvider>
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 3),
-    )..repeat(reverse: true);
+    );
+    if (widget.repeatAnimations) {
+      _controller.repeat(reverse: true);
+    }
     _headerController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 3),

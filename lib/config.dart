@@ -1,18 +1,22 @@
 class Configuration {
   const Configuration({
     this.route = '404',
+    this.repeatAnimations = true,
   });
 
   factory Configuration.fromJson(Map<String, dynamic> json) {
     return Configuration(
       route: json['route'],
+      repeatAnimations: json['enableAnimations'],
     );
   }
 
   final String route;
+  final bool repeatAnimations;
 
   Map<String, dynamic> toJson() => {
         'route': route,
+        'enableAnimations': repeatAnimations,
       };
 }
 

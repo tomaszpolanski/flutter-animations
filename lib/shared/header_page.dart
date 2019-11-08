@@ -6,9 +6,11 @@ class HeaderPage extends StatefulWidget {
   const HeaderPage({
     Key key,
     @required this.builder,
+    @required this.repeatAnimations,
   }) : super(key: key);
 
   final AnimatedWidgetBuilder builder;
+  final bool repeatAnimations;
 
   @override
   _HeaderPageState createState() => _HeaderPageState();
@@ -23,7 +25,10 @@ class _HeaderPageState extends State<HeaderPage> with TickerProviderStateMixin {
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 3),
-    )..repeat(reverse: true);
+    );
+    if (widget.repeatAnimations) {
+      _controller.repeat(reverse: true);
+    }
     _headerController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 3),

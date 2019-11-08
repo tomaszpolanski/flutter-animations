@@ -5,11 +5,14 @@ import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:flutter/widgets.dart';
 
 class CurvesPage extends StatelessWidget {
-  const CurvesPage({Key key}) : super(key: key);
+  const CurvesPage({Key key, @required this.repeatAnimations})
+      : super(key: key);
+  final bool repeatAnimations;
 
   @override
   Widget build(BuildContext context) {
     return HeaderPage(
+      repeatAnimations: repeatAnimations,
       builder: (animation, child) {
         return Column(
           children: [
