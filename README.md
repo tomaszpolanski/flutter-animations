@@ -61,3 +61,13 @@ OR
 Open in your ide `flutter-animations` 
 In IntelliJ/VS Code select appropriate device via device picker and run tha app
 
+# Running Flutter Driver tests on Desktop
+### Windows
+```
+dart .\lib\tests\test.dart -r 800x800
+```
+
+### MacOs/Linux
+```
+dart ./lib/tests/test.dart -r 800x800
+```
