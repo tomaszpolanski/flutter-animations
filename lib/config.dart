@@ -22,6 +22,6 @@ class Configuration {
 
 class Routes {
   static const root = '/';
-  static const curves = '$root/curves';
-  static const sliver_fill_remaining = '$root/sliver-fill-remaining';
+  static const curves = '/curves';
+  static const sliver_fill_remaining = '/sliver-fill-remaining';
 }
