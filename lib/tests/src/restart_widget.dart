@@ -1,47 +1,40 @@
-import 'package:animation_cheat_page/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class RestartWidget extends StatefulWidget {
+class RestartWidget<T> extends StatelessWidget {
   const RestartWidget({
-    @required this.builder,
     Key key,
+    @required this.stream,
+    this.builder,
+    this.initialData,
   }) : super(key: key);
 
-  final Widget Function(BuildContext, Configuration) builder;
+  final T initialData;
+  final Stream<T> stream;
+  final Widget Function(BuildContext, T) builder;
 
-  static Future<void> restartApp(Configuration configuration) {
-    final _RestartWidgetState state = _RestartWidgetState.global.currentContext
-        .ancestorStateOfType(const TypeMatcher<_RestartWidgetState>());
-    return state.restartApp(configuration);
-  }
-
-  @override
-  _RestartWidgetState createState() => _RestartWidgetState();
-}
-
-class _RestartWidgetState extends State<RestartWidget> {
-  bool _restarting = false;
-  Configuration _configuration = const Configuration();
-  static final global = GlobalKey<_RestartWidgetState>();
-
-  Future<void> restartApp(Configuration configuration) async {
-    setState(() {
-      _restarting = true;
-      _configuration = configuration;
-    });
-
-    await Future.delayed(const Duration(milliseconds: 100));
-    setState(() => _restarting = false);
+  Stream<T> _invalidate(T config) async* {
+    yield null;
+    await Future.delayed(const Duration(milliseconds: 16));
+    yield config;
   }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      key: global,
-      child: _restarting
-          ? const SizedBox()
-          : widget.builder(context, _configuration),
+    return StreamBuilder<T>(
+      stream: stream,
+      initialData: initialData,
+      builder: (context, snapshot) {
+        return StreamBuilder(
+          initialData: snapshot.data,
+          stream: _invalidate(snapshot.data),
+          builder: (context, snapshot) {
+            return snapshot.data != null
+                ? builder(context, snapshot.data)
+                : const SizedBox();
+          },
+        );
+      },
     );
   }
 }
