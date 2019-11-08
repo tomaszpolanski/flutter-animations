@@ -5,8 +5,8 @@ class RestartWidget<T> extends StatelessWidget {
   const RestartWidget({
     Key key,
     @required this.stream,
-    this.builder,
-    this.initialData,
+    @required this.builder,
+    @required this.initialData,
   }) : super(key: key);
 
   final T initialData;
