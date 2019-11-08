@@ -8,8 +8,6 @@ import 'package:flutter/widgets.dart';
 class SliverFillRemainingPage extends StatelessWidget {
   const SliverFillRemainingPage({Key key}) : super(key: key);
 
-  static const String route = '/sliver-fill-remaining';
-
   @override
   Widget build(BuildContext context) {
     return HeaderPage(

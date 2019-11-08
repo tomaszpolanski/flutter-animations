@@ -1,5 +1,6 @@
 import 'package:animation_cheat_page/animated_widgets/all_animated_widgets.dart'
     as animated;
+import 'package:animation_cheat_page/config.dart';
 import 'package:animation_cheat_page/curves/curves.dart' as curves;
 import 'package:animation_cheat_page/curves/curves.dart';
 import 'package:animation_cheat_page/curves/curves_page.dart';
@@ -17,7 +18,12 @@ import 'package:flutter/services.dart';
 import 'package:universal_html/html.dart' as html;
 
 class AnimationCheatSheet extends StatelessWidget {
-  const AnimationCheatSheet({Key key}) : super(key: key);
+  const AnimationCheatSheet({
+    Key key,
+    @required this.config,
+  }) : super(key: key);
+
+  final Configuration config;
 
   static final GlobalKey gKey = GlobalKey<NavigatorState>();
 
@@ -35,11 +41,14 @@ class AnimationCheatSheet extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'CrimsonPro',
       ),
-      initialRoute: '/',
+      initialRoute: config.route,
+      onUnknownRoute: (settings) => MaterialPageRoute(
+        builder: (_) => const Placeholder(),
+      ),
       routes: {
-        '/': (_) => const _PresentationList(),
-        CurvesPage.route: (_) => const CurvesPage(),
-        SliverFillRemainingPage.route: (_) => const SliverFillRemainingPage(),
+        Routes.root: (_) => const PresentationList(),
+        Routes.curves: (_) => const CurvesPage(),
+        Routes.sliver_fill_remaining: (_) => const SliverFillRemainingPage(),
       },
     );
   }
@@ -55,8 +64,8 @@ class NoOverflow extends ScrollBehavior {
       child;
 }
 
-class _PresentationList extends StatelessWidget {
-  const _PresentationList({Key key}) : super(key: key);
+class PresentationList extends StatelessWidget {
+  const PresentationList({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
