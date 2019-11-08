@@ -1,5 +1,6 @@
 import 'package:animation_cheat_page/animated_widgets/all_animated_widgets.dart'
     as animated;
+import 'package:animation_cheat_page/config.dart';
 import 'package:animation_cheat_page/curves/curves.dart' as curves;
 import 'package:animation_cheat_page/curves/curves.dart';
 import 'package:animation_cheat_page/curves/curves_page.dart';
@@ -17,7 +18,12 @@ import 'package:flutter/services.dart';
 import 'package:universal_html/html.dart' as html;
 
 class AnimationCheatSheet extends StatelessWidget {
-  const AnimationCheatSheet({Key key}) : super(key: key);
+  const AnimationCheatSheet({
+    Key key,
+    @required this.config,
+  }) : super(key: key);
+
+  final Configuration config;
 
   static final GlobalKey gKey = GlobalKey<NavigatorState>();
 
@@ -35,11 +41,20 @@ class AnimationCheatSheet extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'CrimsonPro',
       ),
-      initialRoute: '/',
+      initialRoute: config.route,
+      onUnknownRoute: (settings) => MaterialPageRoute(
+        builder: (_) => const Placeholder(),
+      ),
       routes: {
-        '/': (_) => const _PresentationList(),
-        CurvesPage.route: (_) => const CurvesPage(),
-        SliverFillRemainingPage.route: (_) => const SliverFillRemainingPage(),
+        Routes.root: (_) => PresentationList(
+              repeatAnimations: config.repeatAnimations,
+            ),
+        Routes.curves: (_) => CurvesPage(
+              repeatAnimations: config.repeatAnimations,
+            ),
+        Routes.sliver_fill_remaining: (_) => SliverFillRemainingPage(
+              repeatAnimations: config.repeatAnimations,
+            ),
       },
     );
   }
@@ -55,19 +70,29 @@ class NoOverflow extends ScrollBehavior {
       child;
 }
 
-class _PresentationList extends StatelessWidget {
-  const _PresentationList({Key key}) : super(key: key);
+class PresentationList extends StatelessWidget {
+  const PresentationList({
+    Key key,
+    this.repeatAnimations = true,
+  }) : super(key: key);
+
+  final bool repeatAnimations;
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: _AnimationProvider(),
+    return Scaffold(
+      body: _AnimationProvider(repeatAnimations: repeatAnimations),
     );
   }
 }
 
 class _AnimationProvider extends StatefulWidget {
-  const _AnimationProvider({Key key}) : super(key: key);
+  const _AnimationProvider({
+    Key key,
+    @required this.repeatAnimations,
+  }) : super(key: key);
+
+  final bool repeatAnimations;
 
   @override
   __AnimationProviderState createState() => __AnimationProviderState();
@@ -83,7 +108,10 @@ class __AnimationProviderState extends State<_AnimationProvider>
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 3),
-    )..repeat(reverse: true);
+    );
+    if (widget.repeatAnimations) {
+      _controller.repeat(reverse: true);
+    }
     _headerController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 3),
