@@ -2,7 +2,7 @@ name: animation_cheat_page
 description: Presentations made with Flutter
 
 environment:
-  sdk: ">=2.6.0-dev.5.0.flutter-d6c6d12ebf <3.0.0"
+  sdk: ">=2.5.0 <3.0.0"
 
 
 dependencies:

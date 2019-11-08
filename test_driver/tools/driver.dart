@@ -9,10 +9,3 @@ Future<void> restart(
 }) {
   return driver.requestData(config != null ? json.encode(config) : '{}');
 }
-//extension FlutterDriverEx on FlutterDriver {
-//  Future<void> restart({
-//    Configuration config,
-//  }) {
-//    return this.requestData(config != null ? json.encode(config) : '{}');
-//  }
-//}

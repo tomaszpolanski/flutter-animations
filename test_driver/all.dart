@@ -13,7 +13,7 @@ void main() {
   // ignore: close_sinks
   final PublishSubject<Configuration> configStream = PublishSubject();
   debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
-  timeDilation = 0.2;
+  timeDilation = 0.1;
   enableFlutterDriverExtension(
     handler: (request) async {
       final Configuration config = Configuration.fromJson(json.decode(request));
