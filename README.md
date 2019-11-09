@@ -64,10 +64,12 @@ In IntelliJ/VS Code select appropriate device via device picker and run tha app
 # Running Flutter Driver tests on Desktop
 ### Windows
 ```
+flutter packages get
 dart .\lib\tests\test.dart -r 800x800
 ```
 
 ### MacOs/Linux
 ```
+flutter packages get
 dart ./lib/tests/test.dart -r 800x800
 ```
