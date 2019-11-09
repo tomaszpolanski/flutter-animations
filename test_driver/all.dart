@@ -18,6 +18,7 @@ void main() {
     handler: (request) async {
       final Configuration config = Configuration.fromJson(json.decode(request));
       configStream.add(config);
+      await Future.delayed(const Duration(milliseconds: 200));
       return null;
     },
   );
