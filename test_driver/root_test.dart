@@ -31,5 +31,18 @@ void main(List<String> args) {
     test('shows root', () async {
       await driver.waitFor(find.byType('PresentationList'));
     });
+
+    test('scrolls to bottom', () async {
+      await driver.scroll(
+        find.byType('ListView'),
+        0,
+        -40000,
+        const Duration(milliseconds: 100),
+      );
+      await driver.scrollUntilVisible(
+        find.byType('ListView'),
+        find.byType('AnimatedPhysicalModelExample'),
+      );
+    });
   });
 }

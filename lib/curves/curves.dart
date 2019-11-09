@@ -102,6 +102,7 @@ class _CurvesSectionState extends State<CurvesSection> {
                   onChanged: (curve) {
                     setState(() => _leftCurve = curve);
                   },
+                  key: const Key('left-curve'),
                 ),
               ),
               const SizedBox(width: 8),
@@ -111,6 +112,7 @@ class _CurvesSectionState extends State<CurvesSection> {
                   onChanged: (curve) {
                     setState(() => _rightCurve = curve);
                   },
+                  key: const Key('right-curve'),
                 ),
               ),
             ],
@@ -119,6 +121,7 @@ class _CurvesSectionState extends State<CurvesSection> {
       ),
       onPressed: () => widget.onPressed(singleCurveExample.pageUrl),
       child: _CurvesExample(
+        key: const Key('curved-examples'),
         leftCurve: _leftCurve,
         rightCurve: _rightCurve,
         animation: widget.animation,

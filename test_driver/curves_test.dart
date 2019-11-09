@@ -32,14 +32,15 @@ void main(List<String> args) {
       await driver.waitFor(find.byType('CurvesPage'));
     });
 
-    test('scroll', () async {
-      await driver.scroll(
+    test('scroll and interact', () async {
+      await driver.scrollUntilVisible(
         find.byType('CurvesPage'),
-        0,
-        -400,
-        const Duration(milliseconds: 100),
+        find.byValueKey('curved-examples'),
       );
-      await driver.waitFor(find.byType('CurvesSection'));
+      await driver.tap(find.byValueKey('left-curve'));
+      await driver.tap(find.text('easeIn'));
+      await driver.tap(find.byValueKey('right-curve'));
+      await driver.tap(find.text('fastLinearToSlowEaseIn'));
     });
   });
 }
