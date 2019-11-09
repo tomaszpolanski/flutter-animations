@@ -8,7 +8,7 @@ class Flutter {
   const Flutter._();
 
   String run(String target) {
-    return 'flutter run -d $_device --target=$target';
+    return 'flutter run -d $_device --target=$target -v';
   }
 
   String attach(String debugUri) {
