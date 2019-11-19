@@ -9,6 +9,7 @@ import 'package:animation_cheat_page/shared/ui/header.dart';
 import 'package:animation_cheat_page/shared/ui/new_section.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:animation_cheat_page/shared/ui/separator.dart';
+import 'package:animation_cheat_page/slivers/slivers_page.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart'
     as transitions;
 import 'package:animation_cheat_page/widgets/sliver_fill_remaining.dart';
@@ -53,6 +54,9 @@ class AnimationCheatSheet extends StatelessWidget {
               repeatAnimations: config.repeatAnimations,
             ),
         Routes.sliver_fill_remaining: (_) => SliverFillRemainingPage(
+              repeatAnimations: config.repeatAnimations,
+            ),
+        Routes.slivers: (_) => SliversPage(
               repeatAnimations: config.repeatAnimations,
             ),
       },
