@@ -22,8 +22,8 @@ class SliversPage extends StatelessWidget {
         return Column(
           children: [
             const SectionHeader(
-              title: Text('Slivers'),
-              child: Text('Explenation how slivers work'),
+              title: Text('Constraints'),
+              child: Text('Explenation how Slivers\' constraints work'),
             ),
             SliverSection(
               title: 'scrollOffset',
