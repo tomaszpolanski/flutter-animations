@@ -39,7 +39,7 @@ class ElevatedAppFrame extends StatelessWidget {
               title: Text(
                 title,
                 style: const TextStyle(fontFamily: 'Roboto'),
-                overflow: TextOverflow.fade,
+                overflow: TextOverflow.clip,
               ),
               time: Text(DateFormat.Hm().format(DateTime.now())),
               child: child,
