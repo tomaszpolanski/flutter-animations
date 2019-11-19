@@ -6,8 +6,8 @@ const description = '''Explenation how slivers work''';
 final scrollOffsetExample = SliverExample(
   released: DateTime.utc(2019, 8, 3),
   title: 'scrollOffset',
-  body: const Text('scrollOffset'),
-  url: 'master/lib/curves/curves.dart',
+  body: const Text('TODO scrollOffset'),
+  url: 'master/lib/slivers/examples/scroll_offset.dart',
 );
 
 class SliverExample {
