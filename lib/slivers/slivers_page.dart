@@ -40,7 +40,7 @@ class SliversPage extends StatelessWidget {
             ),
             SliverSection(
               title: 'remainingPaintExtent',
-              body: const Text(slivers.scrollOffsetExample),
+              body: const Text(slivers.remainingPaintExtent),
               builder: (context, onChanged) {
                 return SliverConstraintsExample(
                   onChanged: (constraints) {
