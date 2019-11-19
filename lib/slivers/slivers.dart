@@ -1,33 +1,8 @@
-import 'package:animation_cheat_page/shared/network/urls.dart';
-import 'package:flutter/widgets.dart';
-
+// ignore_for_file: prefer_single_quotes
 const description = '''Explenation how slivers work''';
 
-final scrollOffsetExample = SliverExample(
-  released: DateTime.utc(2019, 8, 3),
-  title: 'scrollOffset',
-  body: const Text('TODO scrollOffset'),
-  url: 'master/lib/slivers/examples/scroll_constraints.dart',
-);
-
-class SliverExample {
-  const SliverExample({
-    @required this.released,
-    @required this.title,
-    @required this.body,
-    @required String url,
-  })  : assert(released != null),
-        assert(title != null),
-        assert(url != null),
-        assert(body != null),
-        _url = url;
-
-  final DateTime released;
-  final String title;
-  final Widget body;
-  final String _url;
-
-  String get pageUrl => '$rootUrl/$_url';
-
-  String get fileUrl => '$rawUrl/$_url';
-}
+const scrollOffsetExample = "The scroll offset, in this sliver's coordinate "
+    "system, that corresponds to the earliest visible part of this sliver in "
+    "the [AxisDirection] if [growthDirection] is [GrowthDirection.forward] "
+    "or in the opposite [AxisDirection] direction if [growthDirection] "
+    "is [GrowthDirection.reverse].";

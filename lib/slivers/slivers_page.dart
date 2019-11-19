@@ -1,4 +1,5 @@
 import 'package:animation_cheat_page/shared/header_page.dart';
+import 'package:animation_cheat_page/shared/network/urls.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:animation_cheat_page/slivers/examples/scroll_constraints.dart';
 import 'package:animation_cheat_page/slivers/slivers.dart' as slivers;
@@ -20,15 +21,32 @@ class SliversPage extends StatelessWidget {
           children: [
             const SectionHeader(
               title: Text('Slivers'),
-              child: Text(slivers.description),
+              child: Text('Explenation how slivers work'),
             ),
             SliverSection(
-              title: slivers.scrollOffsetExample.title,
-              body: slivers.scrollOffsetExample.body,
+              title: 'scrollOffset',
+              body: const Text(slivers.scrollOffsetExample),
               builder: (context, onChanged) {
                 return SliverConstraintsExample(
                   onChanged: (constraints) {
                     onChanged(constraints.scrollOffset.round().toString());
+                  },
+                  child: Container(
+                    height: 100,
+                    color: Colors.red,
+                  ),
+                );
+              },
+            ),
+            SliverSection(
+              title: 'remainingPaintExtent',
+              body: const Text(slivers.scrollOffsetExample),
+              builder: (context, onChanged) {
+                return SliverConstraintsExample(
+                  onChanged: (constraints) {
+                    onChanged(
+                      constraints.remainingPaintExtent.round().toString(),
+                    );
                   },
                   child: Container(
                     height: 100,
@@ -69,13 +87,13 @@ class _SliverSectionState extends State<SliverSection> {
   @override
   Widget build(BuildContext context) {
     return Section(
-      title: '${widget.title} $_value',
-      url: slivers.scrollOffsetExample.fileUrl,
-      released: slivers.scrollOffsetExample.released,
+      title: '$_value ${widget.title}',
+      url: '$rawUrl/master/lib/slivers/examples/scroll_constraints.dart',
+      released: DateTime(2000),
       body: widget.body,
       onPressed: () {},
       child: CustomScrollView(
-        slivers: <Widget>[
+        slivers: [
           const SliverToBoxAdapter(
             child: Placeholder(fallbackHeight: 500),
           ),
