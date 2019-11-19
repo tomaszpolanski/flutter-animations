@@ -1,8 +1,9 @@
 import 'package:animation_cheat_page/shared/header_page.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
-import 'package:animation_cheat_page/slivers/examples/scroll_offset.dart';
+import 'package:animation_cheat_page/slivers/examples/scroll_constraints.dart';
 import 'package:animation_cheat_page/slivers/slivers.dart' as slivers;
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 class SliversPage extends StatelessWidget {
@@ -25,8 +26,10 @@ class SliversPage extends StatelessWidget {
               title: slivers.scrollOffsetExample.title,
               body: slivers.scrollOffsetExample.body,
               builder: (context, onChanged) {
-                return SliverOffset(
-                  onChanged: onChanged,
+                return SliverConstraintsExample(
+                  onChanged: (constraints) {
+                    onChanged(constraints.scrollOffset.round().toString());
+                  },
                   child: Container(
                     height: 100,
                     color: Colors.red,
@@ -54,7 +57,7 @@ class SliverSection extends StatefulWidget {
 
   final String title;
   final Widget body;
-  final Widget Function(BuildContext, ValueChanged<String> onCanged) builder;
+  final Widget Function(BuildContext, ValueChanged<String> onChanged) builder;
 
   @override
   _SliverSectionState createState() => _SliverSectionState();

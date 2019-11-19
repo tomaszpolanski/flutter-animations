@@ -7,7 +7,7 @@ final scrollOffsetExample = SliverExample(
   released: DateTime.utc(2019, 8, 3),
   title: 'scrollOffset',
   body: const Text('TODO scrollOffset'),
-  url: 'master/lib/slivers/examples/scroll_offset.dart',
+  url: 'master/lib/slivers/examples/scroll_constraints.dart',
 );
 
 class SliverExample {

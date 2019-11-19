@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class SliverOffset extends SingleChildRenderObjectWidget {
-  const SliverOffset({
+class SliverConstraintsExample extends SingleChildRenderObjectWidget {
+  const SliverConstraintsExample({
     Key key,
     Widget child,
     @required this.onChanged,
   }) : super(key: key, child: child);
 
-  final ValueChanged<String> onChanged;
+  final ValueChanged<SliverConstraints> onChanged;
 
   @override
-  RenderSliverOffset createRenderObject(BuildContext context) =>
-      RenderSliverOffset(onChanged: onChanged);
+  RenderSliverConstraints createRenderObject(BuildContext context) =>
+      RenderSliverConstraints(onChanged: onChanged);
 }
 
-class RenderSliverOffset extends RenderSliverSingleBoxAdapter {
-  RenderSliverOffset({
+class RenderSliverConstraints extends RenderSliverSingleBoxAdapter {
+  RenderSliverConstraints({
     @required this.onChanged,
     RenderBox child,
   }) : super(child: child);
 
-  ValueChanged<String> onChanged;
+  final ValueChanged<SliverConstraints> onChanged;
 
   @override
   void performLayout() {
-    onChanged(constraints.scrollOffset.round().toString());
+    onChanged(constraints);
     if (child == null) {
       geometry = SliverGeometry.zero;
       return;
