@@ -1,6 +1,6 @@
 class Configuration {
   const Configuration({
-    this.route = '404',
+    this.route,
     this.repeatAnimations = true,
   });
 
