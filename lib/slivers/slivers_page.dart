@@ -8,8 +8,10 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 class SliversPage extends StatelessWidget {
-  const SliversPage({Key key, @required this.repeatAnimations})
-      : super(key: key);
+  const SliversPage({
+    Key key,
+    @required this.repeatAnimations,
+  }) : super(key: key);
   final bool repeatAnimations;
 
   @override
