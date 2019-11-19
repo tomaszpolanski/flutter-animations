@@ -7,7 +7,7 @@ void main() {
   debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
   runApp(
     const AnimationCheatSheet(
-      config: Configuration(route: Routes.curves),
+      config: Configuration(route: Routes.root),
     ),
   );
 }
