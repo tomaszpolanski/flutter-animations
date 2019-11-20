@@ -17,6 +17,10 @@ class SliversPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final body = Container(
+      height: 100,
+      color: Colors.red,
+    );
     return HeaderPage(
       repeatAnimations: repeatAnimations,
       header: AnimatedHeader(
@@ -30,38 +34,19 @@ class SliversPage extends StatelessWidget {
               title: Text('Constraints'),
               child: Text('Explenation how Slivers\' constraints work'),
             ),
-            SliverSection(
-              title: 'scrollOffset',
-              body: const Text(slivers.scrollOffsetExample),
-              builder: (context, onChanged) {
-                return SliverConstraintsExample(
-                  onChanged: (constraints) {
-                    onChanged(constraints.scrollOffset.round().toString());
-                  },
-                  child: Container(
-                    height: 100,
-                    color: Colors.red,
-                  ),
-                );
-              },
-            ),
-            SliverSection(
-              title: 'remainingPaintExtent',
-              body: const Text(slivers.remainingPaintExtent),
-              builder: (context, onChanged) {
-                return SliverConstraintsExample(
-                  onChanged: (constraints) {
-                    onChanged(
-                      constraints.remainingPaintExtent.round().toString(),
-                    );
-                  },
-                  child: Container(
-                    height: 100,
-                    color: Colors.red,
-                  ),
-                );
-              },
-            ),
+            for (final sliverData in slivers.sliverExamples)
+              SliverSection(
+                title: sliverData.title,
+                body: Text(sliverData.description),
+                builder: (context, onChanged) {
+                  return SliverConstraintsExample(
+                    onChanged: (constraints) {
+                      onChanged(sliverData.mapper(constraints));
+                    },
+                    child: body,
+                  );
+                },
+              ),
           ],
         );
       },
@@ -74,6 +59,7 @@ class SliverSection extends StatefulWidget {
     Key key,
     @required this.title,
     @required this.body,
+    this.leading,
     @required this.builder,
   })  : assert(title != null),
         assert(body != null),
@@ -82,7 +68,8 @@ class SliverSection extends StatefulWidget {
 
   final String title;
   final Widget body;
-  final Widget Function(BuildContext, ValueChanged<String> onChanged) builder;
+  final Widget leading;
+  final Widget Function(BuildContext, ValueChanged<Object> onChanged) builder;
 
   @override
   _SliverSectionState createState() => _SliverSectionState();
@@ -101,12 +88,13 @@ class _SliverSectionState extends State<SliverSection> {
       onPressed: () {},
       child: CustomScrollView(
         slivers: [
-          const SliverToBoxAdapter(
-            child: Placeholder(fallbackHeight: 500),
-          ),
+          widget.leading ??
+              const SliverToBoxAdapter(
+                child: Placeholder(fallbackHeight: 500),
+              ),
           widget.builder(context, (value) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
-              setState(() => _value = value);
+              setState(() => _value = value.toString());
             });
           }),
           const SliverToBoxAdapter(
