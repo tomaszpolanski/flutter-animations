@@ -6,10 +6,12 @@ class HeaderPage extends StatefulWidget {
   const HeaderPage({
     Key key,
     @required this.builder,
+    this.header,
     @required this.repeatAnimations,
   }) : super(key: key);
 
   final AnimatedWidgetBuilder builder;
+  final Widget header;
   final bool repeatAnimations;
 
   @override
@@ -50,13 +52,14 @@ class _HeaderPageState extends State<HeaderPage> with TickerProviderStateMixin {
         child: ListView(
           children: <Widget>[
             Align(
-              child: Header(
-                'Animations',
-                onPressed: () {
-                  Navigator.pushNamed(context, '/');
-                },
-                animation: _headerController,
-              ),
+              child: widget.header ??
+                  Header(
+                    'Animations',
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/');
+                    },
+                    animation: _headerController,
+                  ),
             ),
             widget.builder(
               _controller,

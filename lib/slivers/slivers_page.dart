@@ -1,5 +1,6 @@
 import 'package:animation_cheat_page/shared/header_page.dart';
 import 'package:animation_cheat_page/shared/network/urls.dart';
+import 'package:animation_cheat_page/shared/ui/header.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:animation_cheat_page/slivers/examples/scroll_constraints.dart';
 import 'package:animation_cheat_page/slivers/slivers.dart' as slivers;
@@ -18,6 +19,10 @@ class SliversPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return HeaderPage(
       repeatAnimations: repeatAnimations,
+      header: AnimatedHeader(
+        'Sliver',
+        onPressed: () => Navigator.pushNamed(context, '/'),
+      ),
       builder: (animation, child) {
         return Column(
           children: [

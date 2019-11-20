@@ -2,6 +2,49 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:presentation/presentation.dart';
 
+class AnimatedHeader extends StatefulWidget {
+  const AnimatedHeader(
+    this.text, {
+    this.onPressed,
+    Key key,
+  }) : super(key: key);
+
+  final String text;
+  final VoidCallback onPressed;
+
+  @override
+  _AnimatedHeaderState createState() => _AnimatedHeaderState();
+}
+
+class _AnimatedHeaderState extends State<AnimatedHeader>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    )..forward();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Header(
+      widget.text,
+      onPressed: widget.onPressed,
+      animation: _controller,
+    );
+  }
+}
+
 class Header extends StatelessWidget {
   Header(
     String text, {
@@ -14,6 +57,15 @@ class Header extends StatelessWidget {
   final Animation<double> animation;
   final List<String> letters;
   final VoidCallback onPressed;
+
+  int calculateRowCount(double screenWidth) {
+    if (screenWidth > 1080) {
+      return 1;
+    } else if (screenWidth > 700) {
+      return letters.length > 6 ? 2 : 1;
+    }
+    return (letters.length / 2).ceil();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +119,7 @@ class Header extends StatelessWidget {
         ),
     ];
     final screenWidth = MediaQuery.of(context).size.width;
-    final rowCount = screenWidth > 1080 ? 1 : screenWidth > 600 ? 2 : 5;
+    final rowCount = calculateRowCount(screenWidth);
     return GestureDetector(
       onTap: onPressed,
       child: Padding(
