@@ -9,24 +9,6 @@ const description = '''Explenation how slivers work''';
 
 final sliverExamples = [
   SliverSectionData(
-    title: 'scrollOffsetExample',
-    description: "The scroll offset, in this sliver's coordinate "
-        "system, that corresponds to the earliest visible part of this sliver in "
-        "the [AxisDirection] if [growthDirection] is [GrowthDirection.forward] "
-        "or in the opposite [AxisDirection] direction if [growthDirection] "
-        "is [GrowthDirection.reverse].",
-    mapper: (constraints) => constraints.scrollOffset.round(),
-  ),
-  SliverSectionData(
-    title: 'remainingPaintExtent',
-    description:
-        "The number of pixels of content that the sliver should consider providing."
-        "\n(Providing more pixels than this is inefficient.)\n"
-        "The actual number of pixels provided should be specified in the"
-        "[RenderSliver.geometry] as [SliverGeometry.paintExtent].",
-    mapper: (constraints) => constraints.remainingPaintExtent.round(),
-  ),
-  SliverSectionData(
     title: 'userScrollDirection',
     description:
         "The scroll offset, in this sliver's coordinate system, that corresponds to "
@@ -34,6 +16,15 @@ final sliverExamples = [
         "[growthDirection] is [GrowthDirection.forward] or in the opposite "
         "[AxisDirection] direction if [growthDirection] is [GrowthDirection.reverse].",
     mapper: (constraints) => fromEnum(constraints.userScrollDirection),
+  ),
+  SliverSectionData(
+    title: 'scrollOffsetExample',
+    description: "The scroll offset, in this sliver's coordinate "
+        "system, that corresponds to the earliest visible part of this sliver in "
+        "the [AxisDirection] if [growthDirection] is [GrowthDirection.forward] "
+        "or in the opposite [AxisDirection] direction if [growthDirection] "
+        "is [GrowthDirection.reverse].",
+    mapper: (constraints) => constraints.scrollOffset.round(),
   ),
   SliverSectionData(
     title: 'precedingScrollExtent',
@@ -53,6 +44,33 @@ final sliverExamples = [
       child: Placeholder(fallbackHeight: 100),
     ),
     mapper: (constraints) => constraints.overlap.round(),
+  ),
+  SliverSectionData(
+    title: 'remainingPaintExtent',
+    description:
+        "The number of pixels of content that the sliver should consider providing."
+        "\n(Providing more pixels than this is inefficient.)\n"
+        "The actual number of pixels provided should be specified in the"
+        "[RenderSliver.geometry] as [SliverGeometry.paintExtent].",
+    mapper: (constraints) => constraints.remainingPaintExtent.round(),
+  ),
+  SliverSectionData(
+    title: 'viewportMainAxisExtent',
+    description:
+        "The number of pixels the viewport can display in the main axis.",
+    mapper: (constraints) => constraints.viewportMainAxisExtent.round(),
+  ),
+  SliverSectionData(
+    title: 'cacheOrigin',
+    description: "Where the cache area starts relative to the [scrollOffset]",
+    mapper: (constraints) => constraints.cacheOrigin.round(),
+  ),
+  SliverSectionData(
+    title: 'remainingCacheExtent',
+    description:
+        "Describes how much content the sliver should provide starting from the"
+        "[cacheOrigin].",
+    mapper: (constraints) => constraints.remainingCacheExtent.round(),
   ),
 ];
 
