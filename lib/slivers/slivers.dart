@@ -17,7 +17,7 @@ final sliverExamples = [
     mapper: (constraints) => fromEnum(constraints.userScrollDirection),
   ),
   SliverSectionData(
-    title: 'scrollOffsetExample',
+    title: 'scrollOffset',
     description: "The scroll offset, in this sliver's coordinate "
         "system, that corresponds to the earliest visible part of this sliver in "
         "the **AxisDirection** if **growthDirection** is **GrowthDirection.forward** "

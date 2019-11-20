@@ -29,40 +29,37 @@ class SliversPage extends StatelessWidget {
         onPressed: () => Navigator.pushNamed(context, '/'),
       ),
       builder: (animation, child) {
-        return DefaultTextStyle.merge(
-          style: TextStyle(fontWeight: FontWeight.bold),
-          child: Column(
-            children: [
-              const SectionHeader(
-                title: Text('Constraints'),
-                child: Markdown(
-                  slivers.description,
-                  style: TextStyle(
+        return Column(
+          children: [
+            const SectionHeader(
+              title: Text('Constraints'),
+              child: Markdown(
+                slivers.description,
+                style: TextStyle(
+                  fontFamily: 'CrimsonPro',
+                ),
+              ),
+            ),
+            for (final sliverData in slivers.sliverExamples)
+              SliverSection(
+                title: sliverData.title,
+                body: Markdown(
+                  sliverData.description,
+                  style: const TextStyle(
                     fontFamily: 'CrimsonPro',
                   ),
                 ),
+                leading: sliverData.leading,
+                builder: (context, onChanged) {
+                  return SliverConstraintsExample(
+                    onChanged: (constraints) {
+                      onChanged(sliverData.mapper(constraints));
+                    },
+                    child: body,
+                  );
+                },
               ),
-              for (final sliverData in slivers.sliverExamples)
-                SliverSection(
-                  title: sliverData.title,
-                  body: Markdown(
-                    sliverData.description,
-                    style: const TextStyle(
-                      fontFamily: 'CrimsonPro',
-                    ),
-                  ),
-                  leading: sliverData.leading,
-                  builder: (context, onChanged) {
-                    return SliverConstraintsExample(
-                      onChanged: (constraints) {
-                        onChanged(sliverData.mapper(constraints));
-                      },
-                      child: body,
-                    );
-                  },
-                ),
-            ],
-          ),
+          ],
         );
       },
     );
