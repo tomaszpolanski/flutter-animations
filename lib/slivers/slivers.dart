@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_single_quotes
 import 'package:animation_cheat_page/shared/enum.dart';
+import 'package:animation_cheat_page/slivers/examples/overlapping.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:meta/meta.dart';
 
 const description = '''Explenation how slivers work''';
@@ -46,6 +48,10 @@ final sliverExamples = [
         "The number of pixels from where the pixels corresponding to the "
         "[scrollOffset] will be painted up to the first pixel that has not yet been "
         "painted on by an earlier sliver, in the [axisDirection].",
+    leading: const SliverOverlappingExample(
+      layoutPercentage: 0.8,
+      child: Placeholder(fallbackHeight: 100),
+    ),
     mapper: (constraints) => constraints.overlap.round(),
   ),
 ];
@@ -55,9 +61,11 @@ class SliverSectionData {
     @required this.title,
     @required this.description,
     @required this.mapper,
+    this.leading,
   });
 
   final String title;
   final String description;
+  final Widget leading;
   final Object Function(SliverConstraints) mapper;
 }

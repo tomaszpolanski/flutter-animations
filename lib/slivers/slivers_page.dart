@@ -32,12 +32,13 @@ class SliversPage extends StatelessWidget {
           children: [
             const SectionHeader(
               title: Text('Constraints'),
-              child: Text('Explenation how Slivers\' constraints work'),
+              child: Text('Explenation how Slivers\'s constraints work'),
             ),
             for (final sliverData in slivers.sliverExamples)
               SliverSection(
                 title: sliverData.title,
                 body: Text(sliverData.description),
+                leading: sliverData.leading,
                 builder: (context, onChanged) {
                   return SliverConstraintsExample(
                     onChanged: (constraints) {
