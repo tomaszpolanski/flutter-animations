@@ -7,6 +7,7 @@ import 'package:animation_cheat_page/slivers/slivers.dart' as slivers;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:presentation/presentation.dart';
 
 class SliversPage extends StatelessWidget {
   const SliversPage({
@@ -32,12 +33,22 @@ class SliversPage extends StatelessWidget {
           children: [
             const SectionHeader(
               title: Text('Constraints'),
-              child: Text(slivers.description),
+              child: Markdown(
+                slivers.description,
+                style: TextStyle(
+                  fontFamily: 'CrimsonPro',
+                ),
+              ),
             ),
             for (final sliverData in slivers.sliverExamples)
               SliverSection(
                 title: sliverData.title,
-                body: Text(sliverData.description),
+                body: Markdown(
+                  sliverData.description,
+                  style: const TextStyle(
+                    fontFamily: 'CrimsonPro',
+                  ),
+                ),
                 leading: sliverData.leading,
                 builder: (context, onChanged) {
                   return SliverConstraintsExample(
