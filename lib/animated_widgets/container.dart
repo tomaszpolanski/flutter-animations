@@ -41,9 +41,7 @@ class _ContainerExampleState extends State<ContainerExample> {
       duration: const Duration(seconds: 4),
       padding: _showFirst ? const EdgeInsets.all(40) : const EdgeInsets.all(80),
       decoration: _showFirst
-          ? BoxDecoration(
-              color: Colors.yellowAccent,
-            )
+          ? const BoxDecoration(color: Colors.yellowAccent)
           : BoxDecoration(
               color: Colors.blue,
               border: Border.all(color: Colors.black, width: 5),
