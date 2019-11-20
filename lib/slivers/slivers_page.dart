@@ -32,7 +32,7 @@ class SliversPage extends StatelessWidget {
           children: [
             const SectionHeader(
               title: Text('Constraints'),
-              child: Text('Explenation how Slivers\'s constraints work'),
+              child: Text(slivers.description),
             ),
             for (final sliverData in slivers.sliverExamples)
               SliverSection(
@@ -83,7 +83,7 @@ class _SliverSectionState extends State<SliverSection> {
   Widget build(BuildContext context) {
     return Section(
       title: '$_value ${widget.title}',
-      url: '$rawUrl/master/lib/slivers/examples/scroll_constraints.dart',
+      url: '$rawUrl/master/lib/slivers/slivers_page.dart',
       released: DateTime(2000),
       body: widget.body,
       onPressed: () {},
