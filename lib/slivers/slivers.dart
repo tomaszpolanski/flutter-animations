@@ -5,7 +5,8 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:meta/meta.dart';
 
-const description = '''Explenation how slivers work''';
+const description = '''This page explains in an interactive way how 
+different [SliverConstraints] describe Slivers.''';
 
 final sliverExamples = [
   SliverSectionData(
