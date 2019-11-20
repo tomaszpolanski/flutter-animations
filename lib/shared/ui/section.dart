@@ -79,7 +79,7 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
                 child: ElevatedAppFrame(
                   title: widget.title,
                   elevation: _controller.drive(
-                    Tween<double>(begin: 1, end: 3),
+                    Tween<double>(begin: 1, end: 1.5),
                   ),
                   child: widget.child,
                 ),
