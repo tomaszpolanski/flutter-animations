@@ -42,7 +42,7 @@ class AnimationCheatSheet extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'CrimsonPro',
       ),
-      initialRoute: config.route,
+      initialRoute: Routes.slivers_constraints ?? config.route,
       onUnknownRoute: (settings) => MaterialPageRoute(
         builder: (_) => const Placeholder(),
       ),

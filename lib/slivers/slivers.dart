@@ -6,40 +6,40 @@ import 'package:flutter/widgets.dart';
 import 'package:meta/meta.dart';
 
 const description = '''This page explains in an interactive way how 
-different [SliverConstraints] describe Slivers.''';
+different **SliverConstraints** describe Slivers.''';
 
 final sliverExamples = [
   SliverSectionData(
     title: 'userScrollDirection',
     description:
         "The scroll offset, in this sliver's coordinate system, that corresponds to "
-        "the earliest visible part of this sliver in the [AxisDirection] if "
-        "[growthDirection] is [GrowthDirection.forward] or in the opposite "
-        "[AxisDirection] direction if [growthDirection] is [GrowthDirection.reverse].",
+        "the earliest visible part of this sliver in the **AxisDirection** if "
+        "**growthDirection** is **GrowthDirection.forward** or in the opposite "
+        "**AxisDirection** direction if **growthDirection** is **GrowthDirection.reverse**.",
     mapper: (constraints) => fromEnum(constraints.userScrollDirection),
   ),
   SliverSectionData(
     title: 'scrollOffsetExample',
     description: "The scroll offset, in this sliver's coordinate "
         "system, that corresponds to the earliest visible part of this sliver in "
-        "the [AxisDirection] if [growthDirection] is [GrowthDirection.forward] "
-        "or in the opposite [AxisDirection] direction if [growthDirection] "
-        "is [GrowthDirection.reverse].",
+        "the **AxisDirection** if **growthDirection** is **GrowthDirection.forward** "
+        "or in the opposite **AxisDirection** direction if **growthDirection** "
+        "is **GrowthDirection.reverse**.",
     mapper: (constraints) => constraints.scrollOffset.round(),
   ),
   SliverSectionData(
     title: 'precedingScrollExtent',
     description:
-        "The scroll distance that has been consumed by all [Sliver]s that came "
-        "before this [Sliver].",
+        "The scroll distance that has been consumed by all **Sliver**s that came "
+        "before this **Sliver**.",
     mapper: (constraints) => constraints.precedingScrollExtent.round(),
   ),
   SliverSectionData(
     title: 'overlap',
     description:
         "The number of pixels from where the pixels corresponding to the "
-        "[scrollOffset] will be painted up to the first pixel that has not yet been "
-        "painted on by an earlier sliver, in the [axisDirection].",
+        "**scrollOffset** will be painted up to the first pixel that has not yet been "
+        "painted on by an earlier sliver, in the **axisDirection**.",
     leading: const SliverOverlappingExample(
       layoutPercentage: 0.8,
       child: Placeholder(fallbackHeight: 100),
@@ -52,7 +52,7 @@ final sliverExamples = [
         "The number of pixels of content that the sliver should consider providing."
         "\n(Providing more pixels than this is inefficient.)\n"
         "The actual number of pixels provided should be specified in the"
-        "[RenderSliver.geometry] as [SliverGeometry.paintExtent].",
+        "**RenderSliver.geometry** as **SliverGeometry.paintExtent**.",
     mapper: (constraints) => constraints.remainingPaintExtent.round(),
   ),
   SliverSectionData(
@@ -63,14 +63,14 @@ final sliverExamples = [
   ),
   SliverSectionData(
     title: 'cacheOrigin',
-    description: "Where the cache area starts relative to the [scrollOffset]",
+    description: "Where the cache area starts relative to the **scrollOffset**",
     mapper: (constraints) => constraints.cacheOrigin.round(),
   ),
   SliverSectionData(
     title: 'remainingCacheExtent',
     description:
         "Describes how much content the sliver should provide starting from the"
-        "[cacheOrigin].",
+        "**cacheOrigin**.",
     mapper: (constraints) => constraints.remainingCacheExtent.round(),
   ),
 ];

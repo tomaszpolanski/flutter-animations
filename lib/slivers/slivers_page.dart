@@ -1,4 +1,5 @@
 import 'package:animation_cheat_page/shared/header_page.dart';
+import 'package:animation_cheat_page/shared/markdown.dart';
 import 'package:animation_cheat_page/shared/network/urls.dart';
 import 'package:animation_cheat_page/shared/ui/header.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
@@ -32,12 +33,12 @@ class SliversPage extends StatelessWidget {
           children: [
             const SectionHeader(
               title: Text('Constraints'),
-              child: Text(slivers.description),
+              child: Markdown(slivers.description),
             ),
             for (final sliverData in slivers.sliverExamples)
               SliverSection(
                 title: sliverData.title,
-                body: Text(sliverData.description),
+                body: Markdown(sliverData.description),
                 leading: sliverData.leading,
                 builder: (context, onChanged) {
                   return SliverConstraintsExample(
