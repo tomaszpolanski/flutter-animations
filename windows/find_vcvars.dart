@@ -16,6 +16,7 @@
 // path and returns 0. Otherwise, it prints nothing and returns 1.
 import 'dart:io';
 
+// ignore_for_file: avoid_print
 int main() {
   final programDir = Platform.environment['PROGRAMFILES(X86)'];
   final pathPrefix = '$programDir\\Microsoft Visual Studio';
