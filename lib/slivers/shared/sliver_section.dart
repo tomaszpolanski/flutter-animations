@@ -31,7 +31,7 @@ class _SliverSectionState extends State<SliverSection> {
   Widget build(BuildContext context) {
     return Section(
       title: '$_value ${widget.title}',
-      url: '$rawUrl/master/lib/slivers/slivers_constraints_page.dart',
+      url: '$rawUrl/master/lib/slivers/shared/scroll_constraints.dart',
       released: DateTime(2000),
       body: widget.body,
       onPressed: () {},
