@@ -1,14 +1,14 @@
 // ignore_for_file: prefer_single_quotes
 import 'package:animation_cheat_page/shared/enum.dart';
-import 'package:animation_cheat_page/slivers/examples/overlapping.dart';
+import 'package:animation_cheat_page/slivers/shared/overlapping.dart';
+import 'package:animation_cheat_page/slivers/shared/sliver_section.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:meta/meta.dart';
 
 const description = '''This page explains in an interactive way how 
 different **SliverConstraints** describe Slivers.''';
 
-final sliverExamples = [
+final sliverExamples = <SliverSectionData<SliverConstraints>>[
   SliverSectionData(
     title: 'userScrollDirection',
     description:
@@ -72,17 +72,3 @@ final sliverExamples = [
     mapper: (constraints) => constraints.remainingCacheExtent.round(),
   ),
 ];
-
-class SliverSectionData {
-  const SliverSectionData({
-    @required this.title,
-    @required this.description,
-    @required this.mapper,
-    this.leading,
-  });
-
-  final String title;
-  final String description;
-  final Widget leading;
-  final Object Function(SliverConstraints) mapper;
-}

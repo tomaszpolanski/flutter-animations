@@ -1,31 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class SliverConstraintsExample extends SingleChildRenderObjectWidget {
-  const SliverConstraintsExample({
+class SliverExample extends SingleChildRenderObjectWidget {
+  const SliverExample({
     Key key,
     Widget child,
-    @required this.onChanged,
-  }) : super(key: key, child: child);
+    this.onConstraintsChanged,
+    this.onGeometryChanged,
+  })  : assert(onConstraintsChanged != null || onGeometryChanged != null),
+        super(key: key, child: child);
 
-  final ValueChanged<SliverConstraints> onChanged;
+  final ValueChanged<SliverConstraints> onConstraintsChanged;
+  final ValueChanged<SliverGeometry> onGeometryChanged;
 
   @override
-  RenderSliverConstraints createRenderObject(BuildContext context) =>
-      RenderSliverConstraints(onChanged: onChanged);
+  RenderSliverExample createRenderObject(BuildContext context) =>
+      RenderSliverExample(
+        onConstraintsChanged: onConstraintsChanged,
+        onGeometryChanged: onGeometryChanged,
+      );
 }
 
-class RenderSliverConstraints extends RenderSliverSingleBoxAdapter {
-  RenderSliverConstraints({
-    @required this.onChanged,
+class RenderSliverExample extends RenderSliverSingleBoxAdapter {
+  RenderSliverExample({
+    @required this.onConstraintsChanged,
+    @required this.onGeometryChanged,
     RenderBox child,
   }) : super(child: child);
 
-  final ValueChanged<SliverConstraints> onChanged;
+  final ValueChanged<SliverConstraints> onConstraintsChanged;
+  final ValueChanged<SliverGeometry> onGeometryChanged;
 
   @override
   void performLayout() {
-    onChanged(constraints);
     if (child == null) {
       geometry = SliverGeometry.zero;
       return;
@@ -57,6 +64,12 @@ class RenderSliverConstraints extends RenderSliverSingleBoxAdapter {
       hasVisualOverflow: childExtent > constraints.remainingPaintExtent ||
           constraints.scrollOffset > 0.0,
     );
+    if (onConstraintsChanged != null) {
+      onConstraintsChanged(constraints);
+    }
+    if (onGeometryChanged != null) {
+      onGeometryChanged(geometry);
+    }
     setChildParentData(child, constraints, geometry);
   }
 }
