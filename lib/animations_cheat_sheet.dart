@@ -60,7 +60,7 @@ class AnimationCheatSheet extends StatelessWidget {
         Routes.slivers_constraints: (_) => SliversConstraintsPage(
               repeatAnimations: config.repeatAnimations,
             ),
-        Routes.slivers_constraints: (_) => SliversGeometryPage(
+        Routes.slivers_geometry: (_) => SliversGeometryPage(
               repeatAnimations: config.repeatAnimations,
             ),
       },
