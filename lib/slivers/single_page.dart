@@ -1,3 +1,4 @@
+import 'package:animation_cheat_page/config.dart';
 import 'package:animation_cheat_page/shared/header_page.dart';
 import 'package:animation_cheat_page/shared/ui/header.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
@@ -20,10 +21,86 @@ class SingleSliverConstraintsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final body = Container(
-      height: 100,
-      color: Colors.red,
+    return _SingleSliverPage(
+      data,
+      title: const Text('Constraints'),
+      repeatAnimations: repeatAnimations,
+      builder: (context, ValueChanged<Object> onChanged) {
+        return SliverValueChanged(
+          onConstraintsChanged: (constraints) {
+            onChanged(data.mapper(constraints));
+          },
+          child: Container(
+            height: 100,
+            color: Colors.red,
+          ),
+        );
+      },
     );
+  }
+}
+
+class SingleSliverGeometryPage extends StatelessWidget {
+  const SingleSliverGeometryPage(
+    this.data, {
+    Key key,
+    @required this.repeatAnimations,
+  }) : super(key: key);
+
+  final SliverSectionData<SliverGeometry> data;
+  final bool repeatAnimations;
+
+  @override
+  Widget build(BuildContext context) {
+    return _SingleSliverPage(
+      data,
+      title: const Text('Geometry'),
+      repeatAnimations: repeatAnimations,
+      builder: (context, ValueChanged<Object> onChanged) {
+        return SliverValueChanged(
+          onGeometryChanged: (geometry) {
+            onChanged(data.mapper(geometry));
+          },
+          child: Container(
+            height: 100,
+            color: Colors.red,
+          ),
+        );
+      },
+    );
+  }
+}
+
+Map<String, WidgetBuilder> singlePages<T>(
+  List<SliverSectionData<T>> examples, {
+  Widget Function(SliverSectionData<T> data) builder,
+}) {
+  return Map.fromEntries(
+    examples.map((example) {
+      return MapEntry(
+        '${Routes.slivers}/${example.title}',
+        (_) => builder(example),
+      );
+    }),
+  );
+}
+
+class _SingleSliverPage<T> extends StatelessWidget {
+  const _SingleSliverPage(
+    this.data, {
+    Key key,
+    @required this.title,
+    @required this.builder,
+    @required this.repeatAnimations,
+  }) : super(key: key);
+
+  final SliverSectionData<T> data;
+  final Widget title;
+  final Widget Function(BuildContext, ValueChanged<Object> onChanged) builder;
+  final bool repeatAnimations;
+
+  @override
+  Widget build(BuildContext context) {
     return HeaderPage(
       repeatAnimations: repeatAnimations,
       header: AnimatedHeader(
@@ -33,15 +110,13 @@ class SingleSliverConstraintsPage extends StatelessWidget {
       builder: (animation, child) {
         return Column(
           children: [
-            const SectionHeader(
-              title: SizedBox(),
-              child: Markdown(
+            SectionHeader(
+              title: title,
+              child: const Markdown(
                 'This example is **interactable**.\n'
                 'You can scroll it to see how the value changes with '
                 'different scroll position.',
-                style: TextStyle(
-                  fontFamily: 'CrimsonPro',
-                ),
+                style: TextStyle(fontFamily: 'CrimsonPro'),
               ),
             ),
             SliverSection(
@@ -53,14 +128,7 @@ class SingleSliverConstraintsPage extends StatelessWidget {
                 ),
               ),
               leading: data.leading,
-              builder: (context, ValueChanged<Object> onChanged) {
-                return SliverExample(
-                  onConstraintsChanged: (constraints) {
-                    onChanged(data.mapper(constraints));
-                  },
-                  child: body,
-                );
-              },
+              builder: builder,
             ),
           ],
         );

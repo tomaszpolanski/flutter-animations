@@ -52,7 +52,7 @@ class SliversConstraintsPage extends StatelessWidget {
                 ),
                 leading: sliverData.leading,
                 builder: (context, onChanged) {
-                  return SliverExample(
+                  return SliverValueChanged(
                     onConstraintsChanged: (constraints) {
                       onChanged(sliverData.mapper(constraints));
                     },

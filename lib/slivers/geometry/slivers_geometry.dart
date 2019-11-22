@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_single_quotes
 import 'package:animation_cheat_page/slivers/shared/sliver_section.dart';
+import 'package:animation_cheat_page/slivers/single_page.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 
 const description = '''This page explains in an interactive way how 
 different **SliverGeometry** describe Slivers.''';
@@ -82,16 +84,14 @@ final sliverExamples = <SliverSectionData<SliverGeometry>>[
   ),
 ];
 
-//Map<String, WidgetBuilder> singlePages({bool repeatAnimations = true}) {
-//  return Map.fromEntries(
-//    sliverExamples.map((example) {
-//      return MapEntry(
-//        '${Routes.slivers}/${example.title}',
-//        (_) => SingleSliverConstraintsPage(
-//          example,
-//          repeatAnimations: repeatAnimations,
-//        ),
-//      );
-//    }),
-//  );
-//}
+Map<String, WidgetBuilder> geometryPages({bool repeatAnimations = true}) {
+  return singlePages(
+    sliverExamples,
+    builder: (example) {
+      return SingleSliverGeometryPage(
+        example,
+        repeatAnimations: repeatAnimations,
+      );
+    },
+  );
+}

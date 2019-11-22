@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_single_quotes
-import 'package:animation_cheat_page/config.dart';
 import 'package:animation_cheat_page/shared/enum.dart';
 import 'package:animation_cheat_page/slivers/shared/overlapping.dart';
 import 'package:animation_cheat_page/slivers/shared/sliver_section.dart';
@@ -75,16 +74,14 @@ final sliverExamples = <SliverSectionData<SliverConstraints>>[
   ),
 ];
 
-Map<String, WidgetBuilder> singlePages({bool repeatAnimations = true}) {
-  return Map.fromEntries(
-    sliverExamples.map((example) {
-      return MapEntry(
-        '${Routes.slivers}/${example.title}',
-        (_) => SingleSliverConstraintsPage(
-          example,
-          repeatAnimations: repeatAnimations,
-        ),
+Map<String, WidgetBuilder> constraintsPages({bool repeatAnimations = true}) {
+  return singlePages(
+    sliverExamples,
+    builder: (example) {
+      return SingleSliverConstraintsPage(
+        example,
+        repeatAnimations: repeatAnimations,
       );
-    }),
+    },
   );
 }

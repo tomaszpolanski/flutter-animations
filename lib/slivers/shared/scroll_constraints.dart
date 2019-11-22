@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class SliverExample extends SingleChildRenderObjectWidget {
-  const SliverExample({
+class SliverValueChanged extends SingleChildRenderObjectWidget {
+  const SliverValueChanged({
     Key key,
     Widget child,
     this.onConstraintsChanged,
