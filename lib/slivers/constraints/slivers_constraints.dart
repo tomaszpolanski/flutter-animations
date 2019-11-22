@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_single_quotes
+import 'package:animation_cheat_page/config.dart';
 import 'package:animation_cheat_page/shared/enum.dart';
 import 'package:animation_cheat_page/slivers/shared/overlapping.dart';
 import 'package:animation_cheat_page/slivers/shared/sliver_section.dart';
+import 'package:animation_cheat_page/slivers/single_page.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
@@ -49,7 +51,7 @@ final sliverExamples = <SliverSectionData<SliverConstraints>>[
     description:
         "The number of pixels of content that the sliver should consider providing."
         "\n(Providing more pixels than this is inefficient.)\n"
-        "The actual number of pixels provided should be specified in the"
+        "The actual number of pixels provided should be specified in the "
         "**RenderSliver.geometry** as **SliverGeometry.paintExtent**.",
     mapper: (constraints) => constraints.remainingPaintExtent.round(),
   ),
@@ -72,3 +74,17 @@ final sliverExamples = <SliverSectionData<SliverConstraints>>[
     mapper: (constraints) => constraints.remainingCacheExtent.round(),
   ),
 ];
+
+Map<String, WidgetBuilder> singlePages({bool repeatAnimations = true}) {
+  return Map.fromEntries(
+    sliverExamples.map((example) {
+      return MapEntry(
+        '${Routes.slivers}/${example.title}',
+        (_) => SingleSliverConstraintsPage(
+          example,
+          repeatAnimations: repeatAnimations,
+        ),
+      );
+    }),
+  );
+}

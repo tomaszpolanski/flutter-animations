@@ -9,6 +9,8 @@ import 'package:animation_cheat_page/shared/ui/header.dart';
 import 'package:animation_cheat_page/shared/ui/new_section.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:animation_cheat_page/shared/ui/separator.dart';
+import 'package:animation_cheat_page/slivers/constraints/slivers_constraints.dart'
+    as slivers_constraints;
 import 'package:animation_cheat_page/slivers/constraints/slivers_constraints_page.dart';
 import 'package:animation_cheat_page/slivers/geometry/slivers_geomerty_page.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart'
@@ -16,6 +18,7 @@ import 'package:animation_cheat_page/transitions/all_transitions.dart'
 import 'package:animation_cheat_page/widgets/sliver_fill_remaining.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:universal_html/html.dart' as html;
 
@@ -43,7 +46,7 @@ class AnimationCheatSheet extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'CrimsonPro',
       ),
-      initialRoute: config.route,
+      initialRoute: '/slivers/userScrollDirection' ?? config.route,
       onUnknownRoute: (settings) => MaterialPageRoute(
         builder: (_) => const Placeholder(),
       ),
@@ -63,6 +66,13 @@ class AnimationCheatSheet extends StatelessWidget {
         Routes.slivers_geometry: (_) => SliversGeometryPage(
               repeatAnimations: config.repeatAnimations,
             ),
+        ...slivers_constraints.singlePages(
+          repeatAnimations: config.repeatAnimations,
+        ),
+        ...slivers_constraints.singlePages(
+          repeatAnimations: config.repeatAnimations,
+        ),
+        // .
       },
     );
   }

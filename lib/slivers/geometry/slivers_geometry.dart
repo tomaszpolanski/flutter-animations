@@ -81,3 +81,17 @@ final sliverExamples = <SliverSectionData<SliverGeometry>>[
     mapper: (geometry) => geometry.cacheExtent.round(),
   ),
 ];
+
+//Map<String, WidgetBuilder> singlePages({bool repeatAnimations = true}) {
+//  return Map.fromEntries(
+//    sliverExamples.map((example) {
+//      return MapEntry(
+//        '${Routes.slivers}/${example.title}',
+//        (_) => SingleSliverConstraintsPage(
+//          example,
+//          repeatAnimations: repeatAnimations,
+//        ),
+//      );
+//    }),
+//  );
+//}
