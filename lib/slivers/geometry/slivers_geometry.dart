@@ -84,14 +84,9 @@ final sliverExamples = <SliverSectionData<SliverGeometry>>[
   ),
 ];
 
-Map<String, WidgetBuilder> geometryPages({bool repeatAnimations = true}) {
+Map<String, WidgetBuilder> geometryPages() {
   return singlePages(
     sliverExamples,
-    builder: (example) {
-      return SingleSliverGeometryPage(
-        example,
-        repeatAnimations: repeatAnimations,
-      );
-    },
+    builder: (example) => SingleSliverGeometryPage(example),
   );
 }

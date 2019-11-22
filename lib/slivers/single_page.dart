@@ -10,21 +10,15 @@ import 'package:flutter/widgets.dart';
 import 'package:presentation/presentation.dart';
 
 class SingleSliverConstraintsPage extends StatelessWidget {
-  const SingleSliverConstraintsPage(
-    this.data, {
-    Key key,
-    @required this.repeatAnimations,
-  }) : super(key: key);
+  const SingleSliverConstraintsPage(this.data, {Key key}) : super(key: key);
 
   final SliverSectionData<SliverConstraints> data;
-  final bool repeatAnimations;
 
   @override
   Widget build(BuildContext context) {
     return _SingleSliverPage(
       data,
       title: const Text('Constraints'),
-      repeatAnimations: repeatAnimations,
       builder: (context, ValueChanged<Object> onChanged) {
         return SliverValueChanged(
           onConstraintsChanged: (constraints) {
@@ -41,21 +35,15 @@ class SingleSliverConstraintsPage extends StatelessWidget {
 }
 
 class SingleSliverGeometryPage extends StatelessWidget {
-  const SingleSliverGeometryPage(
-    this.data, {
-    Key key,
-    @required this.repeatAnimations,
-  }) : super(key: key);
+  const SingleSliverGeometryPage(this.data, {Key key}) : super(key: key);
 
   final SliverSectionData<SliverGeometry> data;
-  final bool repeatAnimations;
 
   @override
   Widget build(BuildContext context) {
     return _SingleSliverPage(
       data,
       title: const Text('Geometry'),
-      repeatAnimations: repeatAnimations,
       builder: (context, ValueChanged<Object> onChanged) {
         return SliverValueChanged(
           onGeometryChanged: (geometry) {
@@ -91,18 +79,16 @@ class _SingleSliverPage<T> extends StatelessWidget {
     Key key,
     @required this.title,
     @required this.builder,
-    @required this.repeatAnimations,
   }) : super(key: key);
 
   final SliverSectionData<T> data;
   final Widget title;
   final Widget Function(BuildContext, ValueChanged<Object> onChanged) builder;
-  final bool repeatAnimations;
 
   @override
   Widget build(BuildContext context) {
     return HeaderPage(
-      repeatAnimations: repeatAnimations,
+      repeatAnimations: false,
       header: AnimatedHeader(
         'Sliver',
         onPressed: () => Navigator.pushNamed(context, '/'),

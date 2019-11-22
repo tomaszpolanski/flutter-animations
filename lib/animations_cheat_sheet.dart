@@ -48,7 +48,7 @@ class AnimationCheatSheet extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'CrimsonPro',
       ),
-      initialRoute: '/slivers/userScrollDirection' ?? config.route,
+      initialRoute: config.route,
       onUnknownRoute: (settings) => MaterialPageRoute(
         builder: (_) => const Placeholder(),
       ),
@@ -62,18 +62,10 @@ class AnimationCheatSheet extends StatelessWidget {
         Routes.sliver_fill_remaining: (_) => SliverFillRemainingPage(
               repeatAnimations: config.repeatAnimations,
             ),
-        Routes.slivers_constraints: (_) => SliversConstraintsPage(
-              repeatAnimations: config.repeatAnimations,
-            ),
-        Routes.slivers_geometry: (_) => SliversGeometryPage(
-              repeatAnimations: config.repeatAnimations,
-            ),
-        ...slivers_constraints.constraintsPages(
-          repeatAnimations: config.repeatAnimations,
-        ),
-        ...slivers_geometry.geometryPages(
-          repeatAnimations: config.repeatAnimations,
-        ),
+        Routes.slivers_constraints: (_) => const SliversConstraintsPage(),
+        Routes.slivers_geometry: (_) => const SliversGeometryPage(),
+        ...slivers_constraints.constraintsPages(),
+        ...slivers_geometry.geometryPages(),
         // .
       },
     );

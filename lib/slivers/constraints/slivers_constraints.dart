@@ -74,14 +74,9 @@ final sliverExamples = <SliverSectionData<SliverConstraints>>[
   ),
 ];
 
-Map<String, WidgetBuilder> constraintsPages({bool repeatAnimations = true}) {
+Map<String, WidgetBuilder> constraintsPages() {
   return singlePages(
     sliverExamples,
-    builder: (example) {
-      return SingleSliverConstraintsPage(
-        example,
-        repeatAnimations: repeatAnimations,
-      );
-    },
+    builder: (example) => SingleSliverConstraintsPage(example),
   );
 }
