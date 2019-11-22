@@ -24,6 +24,7 @@ class Routes {
   static const root = '/';
   static const curves = '/curves';
   static const sliver_fill_remaining = '/sliver-fill-remaining';
-  static const slivers_constraints = '/slivers/constraints';
-  static const slivers_geometry = '/slivers/geometry';
+  static const slivers = '/slivers';
+  static const slivers_constraints = '$slivers/constraints';
+  static const slivers_geometry = '$slivers/geometry';
 }

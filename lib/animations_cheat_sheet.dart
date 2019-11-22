@@ -9,13 +9,18 @@ import 'package:animation_cheat_page/shared/ui/header.dart';
 import 'package:animation_cheat_page/shared/ui/new_section.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:animation_cheat_page/shared/ui/separator.dart';
+import 'package:animation_cheat_page/slivers/constraints/slivers_constraints.dart'
+    as slivers_constraints;
 import 'package:animation_cheat_page/slivers/constraints/slivers_constraints_page.dart';
 import 'package:animation_cheat_page/slivers/geometry/slivers_geomerty_page.dart';
+import 'package:animation_cheat_page/slivers/geometry/slivers_geometry.dart'
+    as slivers_geometry;
 import 'package:animation_cheat_page/transitions/all_transitions.dart'
     as transitions;
 import 'package:animation_cheat_page/widgets/sliver_fill_remaining.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:universal_html/html.dart' as html;
 
@@ -57,12 +62,11 @@ class AnimationCheatSheet extends StatelessWidget {
         Routes.sliver_fill_remaining: (_) => SliverFillRemainingPage(
               repeatAnimations: config.repeatAnimations,
             ),
-        Routes.slivers_constraints: (_) => SliversConstraintsPage(
-              repeatAnimations: config.repeatAnimations,
-            ),
-        Routes.slivers_geometry: (_) => SliversGeometryPage(
-              repeatAnimations: config.repeatAnimations,
-            ),
+        Routes.slivers_constraints: (_) => const SliversConstraintsPage(),
+        Routes.slivers_geometry: (_) => const SliversGeometryPage(),
+        ...slivers_constraints.constraintsPages(),
+        ...slivers_geometry.geometryPages(),
+        // .
       },
     );
   }

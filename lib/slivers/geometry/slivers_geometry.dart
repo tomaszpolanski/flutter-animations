@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_single_quotes
 import 'package:animation_cheat_page/slivers/shared/sliver_section.dart';
+import 'package:animation_cheat_page/slivers/single_page.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 
 const description = '''This page explains in an interactive way how 
 different **SliverGeometry** describe Slivers.''';
@@ -81,3 +83,10 @@ final sliverExamples = <SliverSectionData<SliverGeometry>>[
     mapper: (geometry) => geometry.cacheExtent.round(),
   ),
 ];
+
+Map<String, WidgetBuilder> geometryPages() {
+  return singlePages(
+    sliverExamples,
+    builder: (example) => SingleSliverGeometryPage(example),
+  );
+}

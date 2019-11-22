@@ -11,11 +11,7 @@ import 'package:flutter/widgets.dart';
 import 'package:presentation/presentation.dart';
 
 class SliversConstraintsPage extends StatelessWidget {
-  const SliversConstraintsPage({
-    Key key,
-    @required this.repeatAnimations,
-  }) : super(key: key);
-  final bool repeatAnimations;
+  const SliversConstraintsPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +20,7 @@ class SliversConstraintsPage extends StatelessWidget {
       color: Colors.red,
     );
     return HeaderPage(
-      repeatAnimations: repeatAnimations,
+      repeatAnimations: false,
       header: AnimatedHeader(
         'Sliver',
         onPressed: () => Navigator.pushNamed(context, '/'),
@@ -52,7 +48,7 @@ class SliversConstraintsPage extends StatelessWidget {
                 ),
                 leading: sliverData.leading,
                 builder: (context, onChanged) {
-                  return SliverExample(
+                  return SliverValueChanged(
                     onConstraintsChanged: (constraints) {
                       onChanged(sliverData.mapper(constraints));
                     },
