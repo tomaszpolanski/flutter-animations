@@ -114,6 +114,7 @@ class _SingleSliverPage<T> extends StatelessWidget {
                 ),
               ),
               leading: data.leading,
+              trailing: data.trailing,
               builder: builder,
             ),
           ],

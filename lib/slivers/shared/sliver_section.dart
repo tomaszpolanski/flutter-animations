@@ -9,6 +9,7 @@ class SliverSection extends StatefulWidget {
     @required this.title,
     @required this.body,
     this.leading,
+    this.trailing,
     @required this.builder,
   })  : assert(title != null),
         assert(body != null),
@@ -18,6 +19,7 @@ class SliverSection extends StatefulWidget {
   final String title;
   final Widget body;
   final Widget leading;
+  final Widget trailing;
   final Widget Function(BuildContext, ValueChanged<Object> onChanged) builder;
 
   @override
@@ -46,9 +48,10 @@ class _SliverSectionState extends State<SliverSection> {
               setState(() => _value = value.toString());
             });
           }),
-          const SliverToBoxAdapter(
-            child: Placeholder(fallbackHeight: 500),
-          ),
+          widget.trailing ??
+              const SliverToBoxAdapter(
+                child: Placeholder(fallbackHeight: 500),
+              ),
         ],
       ),
     );
@@ -61,10 +64,12 @@ class SliverSectionData<T> {
     @required this.description,
     @required this.mapper,
     this.leading,
+    this.trailing,
   });
 
   final String title;
   final String description;
   final Widget leading;
+  final Widget trailing;
   final Object Function(T) mapper;
 }

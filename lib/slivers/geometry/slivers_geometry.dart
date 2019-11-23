@@ -80,6 +80,12 @@ final sliverExamples = <SliverSectionData<SliverGeometry>>[
     title: 'cacheExtent',
     description: "How many pixels the sliver has consumed in the "
         "**SliverConstraints.remainingCacheExtent**.",
+    leading: const SliverToBoxAdapter(
+      child: Placeholder(fallbackHeight: 1000),
+    ),
+    trailing: const SliverToBoxAdapter(
+      child: Placeholder(fallbackHeight: 1000),
+    ),
     mapper: (geometry) => geometry.cacheExtent.round(),
   ),
 ];
