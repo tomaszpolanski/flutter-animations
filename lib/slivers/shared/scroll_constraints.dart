@@ -60,7 +60,6 @@ class RenderSliverExample extends RenderSliverSingleBoxAdapter {
       paintExtent: paintedChildSize,
       cacheExtent: cacheExtent,
       maxPaintExtent: childExtent,
-      hitTestExtent: paintedChildSize,
       hasVisualOverflow: childExtent > constraints.remainingPaintExtent ||
           constraints.scrollOffset > 0.0,
     );
