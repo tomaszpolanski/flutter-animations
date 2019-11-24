@@ -10,8 +10,7 @@ different **SliverGeometry** describe Slivers.''';
 final sliverExamples = <SliverSectionData<SliverGeometry>>[
   SliverSectionData(
     title: 'scrollExtent',
-    description:
-        "The (estimated) total scrollable extent that this sliver has content for.",
+    description: "Total size of the sliver",
     mapper: (geometry) => geometry.scrollExtent.round(),
   ),
   SliverSectionData(
@@ -24,9 +23,8 @@ final sliverExamples = <SliverSectionData<SliverGeometry>>[
   SliverSectionData(
     title: 'paintExtent',
     description:
-        "The amount of currently visible visual space that was taken by the sliver "
-        "to render the subset of the sliver that covers all or part of the "
-        "**SliverConstraints.remainingPaintExtent** in the current viewport.",
+        "The visible size of the sliver. If only 50% of the sliver is visible "
+        "then **paintExtent** is 50% of **Geometry.scrollExtent**",
     mapper: (geometry) => geometry.paintExtent.round(),
   ),
   SliverSectionData(
@@ -55,7 +53,7 @@ final sliverExamples = <SliverSectionData<SliverGeometry>>[
     title: 'hitTestExtent',
     description:
         "The distance from where this sliver started painting to the bottom of "
-        "where it should accept hits.",
+        "where it should accept touch events.",
     mapper: (geometry) => geometry.hitTestExtent.round(),
   ),
   SliverSectionData(
@@ -80,6 +78,12 @@ final sliverExamples = <SliverSectionData<SliverGeometry>>[
     title: 'cacheExtent',
     description: "How many pixels the sliver has consumed in the "
         "**SliverConstraints.remainingCacheExtent**.",
+    leading: const SliverToBoxAdapter(
+      child: Placeholder(fallbackHeight: 1000),
+    ),
+    trailing: const SliverToBoxAdapter(
+      child: Placeholder(fallbackHeight: 1000),
+    ),
     mapper: (geometry) => geometry.cacheExtent.round(),
   ),
 ];

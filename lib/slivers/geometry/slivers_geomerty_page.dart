@@ -47,6 +47,7 @@ class SliversGeometryPage extends StatelessWidget {
                   ),
                 ),
                 leading: sliverData.leading,
+                trailing: sliverData.trailing,
                 builder: (context, onChanged) {
                   return SliverValueChanged(
                     onGeometryChanged: (geometry) {

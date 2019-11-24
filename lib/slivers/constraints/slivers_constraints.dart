@@ -68,7 +68,7 @@ final sliverExamples = <SliverSectionData<SliverConstraints>>[
   SliverSectionData(
     title: 'remainingCacheExtent',
     description:
-        "Describes how much content the sliver should provide starting from the"
+        "Describes how much content the sliver should provide starting from the "
         "**cacheOrigin**.",
     mapper: (constraints) => constraints.remainingCacheExtent.round(),
   ),

@@ -47,6 +47,7 @@ class SliversConstraintsPage extends StatelessWidget {
                   ),
                 ),
                 leading: sliverData.leading,
+                trailing: sliverData.trailing,
                 builder: (context, onChanged) {
                   return SliverValueChanged(
                     onConstraintsChanged: (constraints) {
