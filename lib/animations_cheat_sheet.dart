@@ -12,6 +12,7 @@ import 'package:animation_cheat_page/shared/ui/separator.dart';
 import 'package:animation_cheat_page/slivers/constraints/slivers_constraints.dart'
     as slivers_constraints;
 import 'package:animation_cheat_page/slivers/constraints/slivers_constraints_page.dart';
+import 'package:animation_cheat_page/slivers/fill_remaining/fill_remaining_page.dart';
 import 'package:animation_cheat_page/slivers/geometry/slivers_geomerty_page.dart';
 import 'package:animation_cheat_page/slivers/geometry/slivers_geometry.dart'
     as slivers_geometry;
@@ -48,7 +49,7 @@ class AnimationCheatSheet extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'CrimsonPro',
       ),
-      initialRoute: config.route,
+      initialRoute: Routes.slivers_fill_remaining_example ?? config.route,
       onUnknownRoute: (settings) => MaterialPageRoute(
         builder: (_) => const Placeholder(),
       ),
@@ -64,6 +65,7 @@ class AnimationCheatSheet extends StatelessWidget {
             ),
         Routes.slivers_constraints: (_) => const SliversConstraintsPage(),
         Routes.slivers_geometry: (_) => const SliversGeometryPage(),
+        Routes.slivers_fill_remaining_example: (_) => const FillRemainingPage(),
         ...slivers_constraints.constraintsPages(),
         ...slivers_geometry.geometryPages(),
         // .

@@ -27,4 +27,5 @@ class Routes {
   static const slivers = '/slivers';
   static const slivers_constraints = '$slivers/constraints';
   static const slivers_geometry = '$slivers/geometry';
+  static const slivers_fill_remaining_example = '$slivers/fill-remaining';
 }
