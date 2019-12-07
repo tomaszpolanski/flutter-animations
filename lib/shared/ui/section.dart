@@ -157,13 +157,7 @@ class DoubleSection extends StatelessWidget {
             const SizedBox(height: 20),
             Wrap(
               alignment: WrapAlignment.center,
-              children: <Widget>[
-                for (final child in children)
-                  AppFrameCard(
-                    title: title,
-                    child: child,
-                  ),
-              ],
+              children: children,
             ),
           ],
         ),
