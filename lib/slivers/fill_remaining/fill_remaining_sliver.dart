@@ -46,10 +46,19 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
   @override
   void performLayout() {
     double childExtent;
-    // how big is the viewport - where in the scrollview the sliver is positioned
+
+    /// viewportMainAxisExtent size of the viewport
+    /// precedingScrollExtent how far is the sliver in the scrollview
+    /// Check how many pixels the has until it's not visible
+    /// The value is negative when sliver is no yet visible without scrolling (how many pixels to be visible)
+    /// and positive if it's withing the view port without scrolling
     double extent =
         constraints.viewportMainAxisExtent - constraints.precedingScrollExtent;
-    // remaining starts with 0 until a first pixel is visible, then goes upt to viewport size
+
+    /// remainingPaintExtent starts with 0 until a first pixel of the sliver is visible,
+    /// then goes up to viewport size
+    /// This is the maximum size how big can be our widget - it cannot be bigger
+    /// than the viewport
     double maxExtent =
         constraints.remainingPaintExtent - math.min(constraints.overlap, 0.0);
 
@@ -65,19 +74,29 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
         );
       }
     } else if (child != null) {
+      /// Body is not scrollable
       switch (constraints.axis) {
         case Axis.horizontal:
+
+          /// crossAxisExtent is here ScrollView's height
           childExtent = child.getMaxIntrinsicWidth(constraints.crossAxisExtent);
           break;
         case Axis.vertical:
+
+          /// crossAxisExtent is here ScrollView's width
           childExtent =
               child.getMaxIntrinsicHeight(constraints.crossAxisExtent);
           break;
       }
 
+      /// precedingScrollExtent how far is the sliver in the scrollview
+      /// viewportMainAxisExtent size of the viewport
+      /// Checks if the sliver is outside of the visible viewport
+      /// OR sliver's size is smaller than it's child's size (is that needed?)
       if (constraints.precedingScrollExtent >
               constraints.viewportMainAxisExtent ||
           childExtent > extent) {
+        /// Make the sliver as big as the child
         extent = childExtent;
       }
       if (maxExtent < extent) {
