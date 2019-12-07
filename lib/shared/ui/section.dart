@@ -76,11 +76,8 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
               child: MouseRegion(
                 onEnter: (_) => _controller.forward(),
                 onExit: (_) => _controller.reverse(),
-                child: ElevatedAppFrame(
+                child: AppFrameCard(
                   title: widget.title,
-                  elevation: _controller.drive(
-                    Tween<double>(begin: 1, end: 1.5),
-                  ),
                   child: widget.child,
                 ),
               ),
@@ -111,6 +108,63 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
             ),
             if (_code != null) CodeBlock(_code),
             const Align(child: Separator())
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class DoubleSection extends StatelessWidget {
+  const DoubleSection({
+    Key key,
+    @required this.title,
+    @required this.url,
+    @required this.released,
+    @required this.body,
+    @required this.children,
+    this.onPressed,
+  })  : assert(title != null),
+        assert(url != null),
+        assert(released != null),
+        assert(body != null),
+        assert(children != null),
+        super(key: key);
+
+  final String title;
+  final String url;
+  final DateTime released;
+  final Widget body;
+  final List<Widget> children;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: ListView(
+          children: <Widget>[
+            SectionTitle(
+              title: title,
+              released: released,
+            ),
+            const SizedBox(height: 20),
+            DefaultTextStyle.merge(
+              style: Theme.of(context).textTheme.subhead.copyWith(fontSize: 25),
+              child: body,
+            ),
+            const SizedBox(height: 20),
+            Wrap(
+              alignment: WrapAlignment.center,
+              children: <Widget>[
+                for (final child in children)
+                  AppFrameCard(
+                    title: title,
+                    child: child,
+                  ),
+              ],
+            ),
           ],
         ),
       ),
