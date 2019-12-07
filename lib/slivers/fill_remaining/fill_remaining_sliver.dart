@@ -13,6 +13,8 @@ class CustomSliverFillRemaining extends SingleChildRenderObjectWidget {
         super(key: key, child: child);
 
   final bool hasScrollBody;
+
+  /// This allows on iOS for the child to grow when you do an over-scroll
   final bool fillOverscroll;
 
   @override
@@ -45,6 +47,7 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
 
   @override
   void performLayout() {
+    /// The size of the child
     double childExtent;
 
     /// viewportMainAxisExtent size of the viewport
@@ -52,6 +55,11 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
     /// Check how many pixels the has until it's not visible
     /// The value is negative when sliver is no yet visible without scrolling (how many pixels to be visible)
     /// and positive if it's withing the view port without scrolling
+    /// This is the smallest size of the sliver:
+    /// - if sliver won't fit the visible space because either child is bigger
+    ///   than available space
+    /// - OR previous slivers push the sliver outside so it's fills the ramaining
+    ///   space which is zero but still it needs to display the child
     double extent =
         constraints.viewportMainAxisExtent - constraints.precedingScrollExtent;
 
@@ -59,6 +67,7 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
     /// then goes up to viewport size
     /// This is the maximum size how big can be our widget - it cannot be bigger
     /// than the viewport
+    /// In case of iOS over-scroll it can grow to be bigger than the extent
     double maxExtent =
         constraints.remainingPaintExtent - math.min(constraints.overlap, 0.0);
 
@@ -92,16 +101,23 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
       /// precedingScrollExtent how far is the sliver in the scrollview
       /// viewportMainAxisExtent size of the viewport
       /// Checks if the sliver is outside of the visible viewport
-      /// OR sliver's size is smaller than it's child's size (is that needed?)
+      /// OR sliver's size is smaller than it's child's size
       if (constraints.precedingScrollExtent >
               constraints.viewportMainAxisExtent ||
           childExtent > extent) {
         /// Make the sliver as big as the child
         extent = childExtent;
       }
+
+      /// Checks if sliver's maximum size is smaller than it's minimum size
+      /// This allows the sliver to go outside the viewport if child does not fit
+      /// the viewport
       if (maxExtent < extent) {
         maxExtent = extent;
       }
+      print('Extent: $extent, max: ${maxExtent.round()}, child: $childExtent');
+      // Extent cannot be grater then child due to the assignment before
+      // Can be replaced with fillOverscroll && maxExtent > childExtent
       if ((fillOverscroll ? maxExtent : extent) > childExtent) {
         child.layout(
           constraints.asBoxConstraints(

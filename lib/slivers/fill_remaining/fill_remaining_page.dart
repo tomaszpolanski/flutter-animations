@@ -39,16 +39,23 @@ class _SliverFillRemainingContent extends StatelessWidget {
               ListTile(title: Text('Second item')),
               ListTile(title: Text('Third item')),
               ListTile(title: Text('Fourth item')),
+              ListTile(title: Text('Second item')),
+              ListTile(title: Text('Third item')),
+              ListTile(title: Text('Fourth item')),
+              ListTile(title: Text('Second item')),
+              ListTile(title: Text('Third item')),
+              ListTile(title: Text('Fourth item')),
             ]),
           ),
           CustomSliverFillRemaining(
             hasScrollBody: false,
+            fillOverscroll: true,
             child: Container(
               color: Colors.yellowAccent,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  FlutterLogo(size: 200),
+                  FlutterLogo(size: 5),
                   Text(
                     'This is some longest text that should be centered'
                     'together with the logo',
