@@ -68,7 +68,6 @@ class AnimationCheatSheet extends StatelessWidget {
         Routes.slivers_fill_remaining_example: (_) => const FillRemainingPage(),
         ...slivers_constraints.constraintsPages(),
         ...slivers_geometry.geometryPages(),
-        // .
       },
     );
   }
