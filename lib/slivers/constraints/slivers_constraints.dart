@@ -55,6 +55,12 @@ final sliverExamples = <SliverSectionData<SliverConstraints>>[
     mapper: (constraints) => constraints.remainingPaintExtent.round(),
   ),
   SliverSectionData(
+    title: 'crossAxisExtent',
+    description: 'The number of pixels in the cross-axis.\n'
+        'For a vertical list, this is the width of the sliver.',
+    mapper: (constraints) => constraints.crossAxisExtent.round(),
+  ),
+  SliverSectionData(
     title: 'viewportMainAxisExtent',
     description:
         "The number of pixels the viewport can display in the main axis.",
