@@ -30,3 +30,7 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
+  assets:
+    - assets/favicon.png
+    - assets/logo-192.png
+    - assets/manifest.json
