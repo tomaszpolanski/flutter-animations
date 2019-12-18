@@ -50,8 +50,7 @@ class AnimationCheatSheet extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'CrimsonPro',
       ),
-      initialRoute:
-          Routes.slivers_fill_remaining_fill_overscroll ?? config.route,
+      initialRoute: config.route,
       onUnknownRoute: (settings) => MaterialPageRoute(
         builder: (_) => const Placeholder(),
       ),
