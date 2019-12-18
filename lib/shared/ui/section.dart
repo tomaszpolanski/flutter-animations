@@ -71,14 +71,17 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
               child: widget.body,
             ),
             const SizedBox(height: 20),
-            GestureDetector(
-              onTap: widget.onPressed,
-              child: MouseRegion(
-                onEnter: (_) => _controller.forward(),
-                onExit: (_) => _controller.reverse(),
-                child: AppFrameCard(
-                  title: widget.title,
-                  child: widget.child,
+            Align(
+              alignment: Alignment.center,
+              child: GestureDetector(
+                onTap: widget.onPressed,
+                child: MouseRegion(
+                  onEnter: (_) => _controller.forward(),
+                  onExit: (_) => _controller.reverse(),
+                  child: AppFrameCard(
+                    title: widget.title,
+                    child: widget.child,
+                  ),
                 ),
               ),
             ),
