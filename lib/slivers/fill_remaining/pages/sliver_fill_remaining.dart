@@ -6,17 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class SliverFillRemainingPage extends StatelessWidget {
-  const SliverFillRemainingPage({
-    Key key,
-    @required this.repeatAnimations,
-  }) : super(key: key);
-
-  final bool repeatAnimations;
+  const SliverFillRemainingPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return HeaderPage(
-      repeatAnimations: repeatAnimations,
+      repeatAnimations: false,
       builder: (_, __) => const _SliverFillRemainingContent(),
     );
   }

@@ -1,4 +1,6 @@
 // ignore_for_file: prefer_single_quotes
+import 'package:animation_cheat_page/config.dart';
+import 'package:animation_cheat_page/slivers/geometry/slivers_geomerty_page.dart';
 import 'package:animation_cheat_page/slivers/shared/sliver_section.dart';
 import 'package:animation_cheat_page/slivers/single_page.dart';
 import 'package:flutter/rendering.dart';
@@ -89,8 +91,11 @@ final sliverExamples = <SliverSectionData<SliverGeometry>>[
 ];
 
 Map<String, WidgetBuilder> get pages {
-  return singlePages(
-    sliverExamples,
-    builder: (example) => SingleSliverGeometryPage(example),
-  );
+  return {
+    Routes.slivers_geometry: (_) => const SliversGeometryPage(),
+    ...singlePages(
+      sliverExamples,
+      builder: (example) => SingleSliverGeometryPage(example),
+    ),
+  };
 }
