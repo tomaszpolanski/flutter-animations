@@ -10,6 +10,7 @@ import 'package:animation_cheat_page/slivers/geometry/slivers_geometry.dart'
     as slivers_geometry;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AnimationCheatSheet extends StatelessWidget {
   const AnimationCheatSheet({
@@ -30,7 +31,7 @@ class AnimationCheatSheet extends StatelessWidget {
         return ScrollConfiguration(behavior: NoOverflow(), child: child);
       },
       theme: ThemeData(
-        fontFamily: 'CrimsonPro',
+        textTheme: GoogleFonts.crimsonProTextTheme(),
       ),
       initialRoute: config.route,
       onUnknownRoute: (settings) => MaterialPageRoute(

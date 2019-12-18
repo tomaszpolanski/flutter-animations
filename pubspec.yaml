@@ -10,8 +10,9 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  presentation: ^0.0.9+1
 
+  presentation: ^0.0.9+1
+  google_fonts: ^0.2.0
   http: ^0.12.0+1
   universal_html: ^1.1.6
 

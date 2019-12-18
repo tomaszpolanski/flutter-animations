@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:presentation/presentation.dart';
 
 class AnimatedHeader extends StatefulWidget {
@@ -108,11 +109,9 @@ class Header extends StatelessWidget {
               },
               child: Text(
                 letters[i],
-                style: TextStyle(
-                  color: Colors.white,
+                style: GoogleFonts.roboto(
                   fontSize: 44,
-                  fontFamily: 'Roboto',
-                ),
+                ).copyWith(color: Colors.white),
               ),
             ),
           ),

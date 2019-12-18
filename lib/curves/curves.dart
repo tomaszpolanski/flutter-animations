@@ -155,7 +155,7 @@ class _DropdownCurve extends StatelessWidget {
             value: curve,
             child: Text(
               _allCurves[curve],
-              style: const TextStyle(fontFamily: 'RobotoMono'),
+              //style: const TextStyle(fontFamily: 'RobotoMono'),
             ),
           ),
       ],
