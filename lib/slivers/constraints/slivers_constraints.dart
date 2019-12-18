@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_single_quotes
+import 'package:animation_cheat_page/config.dart';
 import 'package:animation_cheat_page/shared/enum.dart';
+import 'package:animation_cheat_page/slivers/constraints/slivers_constraints_page.dart';
 import 'package:animation_cheat_page/slivers/shared/overlapping.dart';
 import 'package:animation_cheat_page/slivers/shared/sliver_section.dart';
 import 'package:animation_cheat_page/slivers/single_page.dart';
@@ -80,9 +82,12 @@ final sliverExamples = <SliverSectionData<SliverConstraints>>[
   ),
 ];
 
-Map<String, WidgetBuilder> constraintsPages() {
-  return singlePages(
-    sliverExamples,
-    builder: (example) => SingleSliverConstraintsPage(example),
-  );
+Map<String, WidgetBuilder> get pages {
+  return {
+    Routes.slivers_constraints: (_) => const SliversConstraintsPage(),
+    ...singlePages(
+      sliverExamples,
+      builder: (example) => SingleSliverConstraintsPage(example),
+    )
+  };
 }
