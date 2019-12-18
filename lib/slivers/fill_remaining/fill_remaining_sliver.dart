@@ -118,6 +118,8 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
       print('Extent: $extent, max: ${maxExtent.round()}, child: $childExtent');
       // Extent cannot be grater then child due to the assignment before
       // Can be replaced with fillOverscroll && maxExtent > childExtent
+//      SliverFillRemaining - hasScrollBody child without size is sized by extent when false
+//      SliverFillRemaining - hasScrollBody child with size is sized by extent when false
       if ((fillOverscroll ? maxExtent : extent) > childExtent) {
         child.layout(
           constraints.asBoxConstraints(
