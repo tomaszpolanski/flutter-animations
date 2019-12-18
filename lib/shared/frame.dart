@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:presentation/presentation.dart';
 
@@ -17,9 +18,7 @@ class AppFrameCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle.merge(
-      style: const TextStyle(
-        fontFamily: 'Roboto',
-      ),
+      style: GoogleFonts.roboto(),
       child: SizedBox(
         width: 300,
         height: 400,
@@ -28,7 +27,7 @@ class AppFrameCard extends StatelessWidget {
           child: AppFrame(
             title: Text(
               title,
-              style: const TextStyle(fontFamily: 'Roboto'),
+              style: GoogleFonts.roboto(),
               overflow: TextOverflow.clip,
             ),
             time: Text(DateFormat.Hm().format(DateTime.now())),

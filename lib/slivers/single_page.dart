@@ -7,6 +7,7 @@ import 'package:animation_cheat_page/slivers/shared/sliver_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:presentation/presentation.dart';
 
 class SingleSliverConstraintsPage extends StatelessWidget {
@@ -98,20 +99,18 @@ class _SingleSliverPage<T> extends StatelessWidget {
           children: [
             SectionHeader(
               title: title,
-              child: const Markdown(
+              child: Markdown(
                 'This example is **interactable**.\n'
                 'You can scroll it to see how the value changes with '
                 'different scroll position.',
-                style: TextStyle(fontFamily: 'CrimsonPro'),
+                style: GoogleFonts.crimsonPro(),
               ),
             ),
             SliverSection(
               title: data.title,
               body: Markdown(
                 data.description,
-                style: const TextStyle(
-                  fontFamily: 'CrimsonPro',
-                ),
+                style: GoogleFonts.crimsonPro(),
               ),
               leading: data.leading,
               trailing: data.trailing,

@@ -6,8 +6,8 @@ import 'package:animation_cheat_page/slivers/geometry/slivers_geometry.dart'
 import 'package:animation_cheat_page/slivers/shared/scroll_constraints.dart';
 import 'package:animation_cheat_page/slivers/shared/sliver_section.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:presentation/presentation.dart';
 
 class SliversGeometryPage extends StatelessWidget {
@@ -28,13 +28,11 @@ class SliversGeometryPage extends StatelessWidget {
       builder: (animation, child) {
         return Column(
           children: [
-            const SectionHeader(
-              title: Text('Geometry'),
+            SectionHeader(
+              title: const Text('Geometry'),
               child: Markdown(
                 slivers.description,
-                style: TextStyle(
-                  fontFamily: 'CrimsonPro',
-                ),
+                style: GoogleFonts.crimsonPro(),
               ),
             ),
             for (final sliverData in slivers.sliverExamples)
@@ -42,9 +40,7 @@ class SliversGeometryPage extends StatelessWidget {
                 title: sliverData.title,
                 body: Markdown(
                   sliverData.description,
-                  style: const TextStyle(
-                    fontFamily: 'CrimsonPro',
-                  ),
+                  style: GoogleFonts.crimsonPro(),
                 ),
                 leading: sliverData.leading,
                 trailing: sliverData.trailing,

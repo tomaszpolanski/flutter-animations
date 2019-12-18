@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NewLabel extends StatelessWidget {
   @override
@@ -14,13 +15,11 @@ class NewLabel extends StatelessWidget {
         padding: const EdgeInsets.only(left: 8, right: 11),
         child: Text(
           'new',
-          style: Theme.of(context).textTheme.headline.copyWith(
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                fontStyle: FontStyle.italic,
-                fontFamily: 'Roboto',
-                fontSize: 30,
-              ),
+          style: GoogleFonts.roboto(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+            fontStyle: FontStyle.italic,
+          ).copyWith(color: Colors.white),
         ),
       ),
     );

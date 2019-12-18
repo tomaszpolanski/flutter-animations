@@ -10,8 +10,9 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  presentation: ^0.0.9+1
 
+  presentation: ^0.0.9+1
+  google_fonts: ^0.2.0
   http: ^0.12.0+1
   universal_html: ^1.1.6
 
@@ -29,43 +30,3 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
-
-  fonts:
-    - family: CrimsonPro
-      fonts:
-        - asset: web/assets/fonts/CrimsonPro/CrimsonPro-Light.ttf
-          weight: 300
-        - asset: web/assets/fonts/CrimsonPro/CrimsonPro-Regular.ttf
-          weight: 400
-        - asset: web/assets/fonts/CrimsonPro/CrimsonPro-Medium.ttf
-          weight: 500
-        - asset: web/assets/fonts/CrimsonPro/CrimsonPro-Bold.ttf
-          weight: 700
-        - asset: web/assets/fonts/CrimsonPro/CrimsonPro-Black.ttf
-          weight: 900
-    - family: Roboto
-      fonts:
-        - asset: web/assets/fonts/Roboto/Roboto-Thin.ttf
-          weight: 100
-        - asset: web/assets/fonts/Roboto/Roboto-Light.ttf
-          weight: 300
-        - asset: web/assets/fonts/Roboto/Roboto-Regular.ttf
-          weight: 400
-        - asset: web/assets/fonts/Roboto/Roboto-Medium.ttf
-          weight: 500
-        - asset: web/assets/fonts/Roboto/Roboto-Bold.ttf
-          weight: 700
-        - asset: web/assets/fonts/Roboto/Roboto-Black.ttf
-          weight: 900
-    - family: RobotoMono
-      fonts:
-        - asset: web/assets/fonts/RobotoMono/RobotoMono-Thin.ttf
-          weight: 100
-        - asset: web/assets/fonts/RobotoMono/RobotoMono-Light.ttf
-          weight: 300
-        - asset: web/assets/fonts/RobotoMono/RobotoMono-Regular.ttf
-          weight: 400
-        - asset: web/assets/fonts/RobotoMono/RobotoMono-Medium.ttf
-          weight: 500
-        - asset: web/assets/fonts/RobotoMono/RobotoMono-Bold.ttf
-          weight: 700
