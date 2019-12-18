@@ -99,11 +99,11 @@ class _SingleSliverPage<T> extends StatelessWidget {
           children: [
             SectionHeader(
               title: title,
-              child: const Markdown(
+              child: Markdown(
                 'This example is **interactable**.\n'
                 'You can scroll it to see how the value changes with '
                 'different scroll position.',
-                //       style: TextStyle(fontFamily: 'CrimsonPro'),
+                style: GoogleFonts.crimsonPro(),
               ),
             ),
             SliverSection(

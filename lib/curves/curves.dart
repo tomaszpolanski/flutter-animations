@@ -153,10 +153,7 @@ class _DropdownCurve extends StatelessWidget {
         for (final curve in _allCurves.keys)
           DropdownMenuItem<Curve>(
             value: curve,
-            child: Text(
-              _allCurves[curve],
-              //style: const TextStyle(fontFamily: 'RobotoMono'),
-            ),
+            child: Text(_allCurves[curve]),
           ),
       ],
     );
