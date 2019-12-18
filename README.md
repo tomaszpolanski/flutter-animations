@@ -8,13 +8,13 @@ List of animations and transitions that you can used in Flutter.
 Available as a [webpage](https://flutter-animations-cheat-sheet.codemagic.app/#/).
 
 # Building
-Last tested version of Flutter that works with this repo is `1.10.14`:
-  * **Important**: Use `version` otherwise desktop won't be picked up: `1.10.14`
+Last tested version of Flutter that works with this repo is `v1.12.13+hotfix.5`:
+  * **Important**: Use `version` otherwise desktop won't be picked up: `v1.12.13+hotfix.5`
 
 ## Building for Web
-Upgrade flutter to minimum `1.10.14`, enable web compilation and run:
+Upgrade flutter to minimum `v1.12.13+hotfix.5`, enable web compilation and run:
 ```
-flutter version 1.10.14
+flutter version v1.12.13+hotfix.5
 flutter config --enable-web
 flutter run -d chrome -v
 ```
