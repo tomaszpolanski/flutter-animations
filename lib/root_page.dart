@@ -1,23 +1,12 @@
 import 'package:animation_cheat_page/animated_widgets/all_animated_widgets.dart'
     as animated;
-import 'package:animation_cheat_page/config.dart';
 import 'package:animation_cheat_page/curves/curves.dart' as curves;
 import 'package:animation_cheat_page/curves/curves.dart';
-import 'package:animation_cheat_page/curves/curves_page.dart';
 import 'package:animation_cheat_page/shared/ui/description.dart';
 import 'package:animation_cheat_page/shared/ui/header.dart';
 import 'package:animation_cheat_page/shared/ui/new_section.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:animation_cheat_page/shared/ui/separator.dart';
-import 'package:animation_cheat_page/slivers/constraints/slivers_constraints.dart'
-    as slivers_constraints;
-import 'package:animation_cheat_page/slivers/constraints/slivers_constraints_page.dart';
-import 'package:animation_cheat_page/slivers/fill_remaining/pages.dart'
-    as fill_remaining;
-import 'package:animation_cheat_page/slivers/fill_remaining/pages/sliver_fill_remaining.dart';
-import 'package:animation_cheat_page/slivers/geometry/slivers_geomerty_page.dart';
-import 'package:animation_cheat_page/slivers/geometry/slivers_geometry.dart'
-    as slivers_geometry;
 import 'package:animation_cheat_page/transitions/all_transitions.dart'
     as transitions;
 import 'package:flutter/foundation.dart';
@@ -26,66 +15,8 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:universal_html/html.dart' as html;
 
-class AnimationCheatSheet extends StatelessWidget {
-  const AnimationCheatSheet({
-    Key key,
-    @required this.config,
-  }) : super(key: key);
-
-  final Configuration config;
-
-  static final GlobalKey gKey = GlobalKey<NavigatorState>();
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      navigatorKey: gKey,
-      builder: (context, child) {
-        return ScrollConfiguration(
-          behavior: NoOverflow(),
-          child: child,
-        );
-      },
-      theme: ThemeData(
-        fontFamily: 'CrimsonPro',
-      ),
-      initialRoute: config.route,
-      onUnknownRoute: (settings) => MaterialPageRoute(
-        builder: (_) => const Placeholder(),
-      ),
-      routes: {
-        Routes.root: (_) => PresentationList(
-              repeatAnimations: config.repeatAnimations,
-            ),
-        Routes.curves: (_) => CurvesPage(
-              repeatAnimations: config.repeatAnimations,
-            ),
-        Routes.sliver_fill_remaining: (_) => SliverFillRemainingPage(
-              repeatAnimations: config.repeatAnimations,
-            ),
-        Routes.slivers_constraints: (_) => const SliversConstraintsPage(),
-        Routes.slivers_geometry: (_) => const SliversGeometryPage(),
-        ...slivers_constraints.pages,
-        ...slivers_geometry.pages,
-        ...fill_remaining.pages,
-      },
-    );
-  }
-}
-
-class NoOverflow extends ScrollBehavior {
-  @override
-  Widget buildViewportChrome(
-    BuildContext context,
-    Widget child,
-    AxisDirection axisDirection,
-  ) =>
-      child;
-}
-
-class PresentationList extends StatelessWidget {
-  const PresentationList({
+class RootPage extends StatelessWidget {
+  const RootPage({
     Key key,
     this.repeatAnimations = true,
   }) : super(key: key);

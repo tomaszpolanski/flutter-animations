@@ -88,7 +88,7 @@ final sliverExamples = <SliverSectionData<SliverGeometry>>[
   ),
 ];
 
-Map<String, WidgetBuilder> geometryPages() {
+Map<String, WidgetBuilder> get pages {
   return singlePages(
     sliverExamples,
     builder: (example) => SingleSliverGeometryPage(example),

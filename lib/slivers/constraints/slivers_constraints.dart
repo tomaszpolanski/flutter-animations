@@ -80,7 +80,7 @@ final sliverExamples = <SliverSectionData<SliverConstraints>>[
   ),
 ];
 
-Map<String, WidgetBuilder> constraintsPages() {
+Map<String, WidgetBuilder> get pages {
   return singlePages(
     sliverExamples,
     builder: (example) => SingleSliverConstraintsPage(example),
