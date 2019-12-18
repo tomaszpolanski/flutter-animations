@@ -3,7 +3,7 @@
   "short_name": "Animations",
   "icons": [
     {
-      "src": "/assets/logo-192.png",
+      "src": "/assets/assets/logo-192.png",
       "type": "image/png",
       "sizes": "192x192"
     }
