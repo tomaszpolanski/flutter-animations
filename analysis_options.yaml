@@ -46,10 +46,10 @@ linter:
     - avoid_slow_async_io
     - avoid_types_as_parameter_names
     # - avoid_types_on_closure_parameters # conflicts with always_specify_types
-    # - avoid_unnecessary_containers #TODO(tomek): Do with new dart version
+    - avoid_unnecessary_containers
     - avoid_unused_constructor_parameters
     - avoid_void_async
-    # - avoid_web_libraries_in_flutter #TODO(tomek): Do with new dart version
+    - avoid_web_libraries_in_flutter
     - await_only_futures
     - camel_case_extensions
     - camel_case_types
@@ -60,7 +60,7 @@ linter:
     # - constant_identifier_names # we are using those all around
     - control_flow_in_finally
     - curly_braces_in_flow_control_structures
-    # - diagnostic_describe_all_properties # Not needed for application project (for a lib might be)
+    # - diagnostic_describe_all_properties # nice to have for libs but overkill for applications
     - directives_ordering
     - empty_catches
     - empty_constructor_bodies
@@ -118,7 +118,7 @@ linter:
     - prefer_interpolation_to_compose_strings
     - prefer_is_empty
     - prefer_is_not_empty
-    # - prefer_is_not_operator #TODO(tomek): Do with new dart version
+    - prefer_is_not_operator
     - prefer_iterable_whereType
     - prefer_mixin
     - prefer_null_aware_operators
@@ -143,7 +143,7 @@ linter:
     - unnecessary_await_in_return
     - unnecessary_brace_in_string_interps
     - unnecessary_const
-    # - unnecessary_final #TODO(tomek): Do with new dart version
+    # - unnecessary_final # having finals is the preferred approach
     - unnecessary_getters_setters
     - unnecessary_lambdas
     - unnecessary_new
