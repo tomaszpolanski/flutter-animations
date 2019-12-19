@@ -4,8 +4,7 @@ import 'package:animation_cheat_page/shared/ui/description.dart' as ui;
 import 'package:animation_cheat_page/shared/ui/header.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:flutter/widgets.dart';
-
-import 'dependencies.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   testWidgets('Header is rendered', (tester) async {
