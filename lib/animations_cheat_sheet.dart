@@ -34,7 +34,7 @@ class AnimationCheatSheet extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.crimsonProTextTheme(),
       ),
-      initialRoute: Routes.content ?? config.route,
+      initialRoute: config.route,
       onUnknownRoute: (settings) => MaterialPageRoute(
         settings: settings,
         builder: (_) => const NotFoundPage(),
