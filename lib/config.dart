@@ -23,6 +23,8 @@ class Configuration {
 class Routes {
   static const root = '/';
   static const curves = '/curves';
+  static const not_found = '/not-found';
+  static const content = '/content';
   static const sliver_fill_remaining = '/sliver-fill-remaining';
   static const slivers = '/slivers';
   static const slivers_constraints = '$slivers/constraints';

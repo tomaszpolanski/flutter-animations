@@ -1,4 +1,5 @@
 import 'package:animation_cheat_page/config.dart';
+import 'package:animation_cheat_page/content_page.dart';
 import 'package:animation_cheat_page/curves/curves_page.dart';
 import 'package:animation_cheat_page/generic/not_found_page.dart';
 import 'package:animation_cheat_page/root_page.dart';
@@ -33,23 +34,25 @@ class AnimationCheatSheet extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.crimsonProTextTheme(),
       ),
-      initialRoute: config.route,
+      initialRoute: Routes.content ?? config.route,
       onUnknownRoute: (settings) => MaterialPageRoute(
         settings: settings,
         builder: (_) => const NotFoundPage(),
       ),
-      routes: {
-        Routes.root: (_) => RootPage(
-              repeatAnimations: config.repeatAnimations,
-            ),
-        Routes.curves: (_) => CurvesPage(
-              repeatAnimations: config.repeatAnimations,
-            ),
-        ...slivers_constraints.pages,
-        ...slivers_geometry.pages,
-        ...fill_remaining.pages,
-      },
+      routes: routes(repeatAnimations: config.repeatAnimations),
     );
+  }
+
+  static Map<String, WidgetBuilder> routes({bool repeatAnimations = false}) {
+    return {
+      Routes.root: (_) => RootPage(repeatAnimations: repeatAnimations),
+      Routes.curves: (_) => CurvesPage(repeatAnimations: repeatAnimations),
+      Routes.not_found: (_) => const NotFoundPage(),
+      Routes.content: (_) => const ContentPage(),
+      ...slivers_constraints.pages,
+      ...slivers_geometry.pages,
+      ...fill_remaining.pages,
+    };
   }
 }
 
