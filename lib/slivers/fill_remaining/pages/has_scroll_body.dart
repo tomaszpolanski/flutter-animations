@@ -2,22 +2,26 @@ import 'package:animation_cheat_page/shared/frame.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:animation_cheat_page/slivers/fill_remaining/fill_remaining_sliver.dart';
 import 'package:animation_cheat_page/slivers/fill_remaining/pages/widgets.dart';
-import 'package:animation_cheat_page/transitions/all_transitions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:presentation/presentation.dart';
 
 class HasScrollBodyPage extends StatelessWidget {
   const HasScrollBodyPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final Example example = widgetExamples[HasScrollBodyPage];
+    final SliverExample example = widgetExamples[HasScrollBodyPage];
     return Scaffold(
       body: DoubleSection(
         title: example.title,
         url: example.fileUrl,
-        released: example.released,
-        body: example.body,
+        released: DateTime(2000),
+        body: Markdown(
+          example.description,
+          style: GoogleFonts.crimsonPro(),
+        ),
         children: [
           AppFrameCard(
             title: 'hasScrollBody: false',
@@ -60,8 +64,6 @@ class _HasScrollBodyExample extends StatelessWidget {
           delegate: SliverChildListDelegate(const [
             ListTile(title: Text('First item')),
             ListTile(title: Text('Second item')),
-            ListTile(title: Text('Third item')),
-            ListTile(title: Text('Fourth item')),
           ]),
         ),
         CustomSliverFillRemaining(

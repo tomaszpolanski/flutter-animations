@@ -2,9 +2,10 @@ import 'package:animation_cheat_page/shared/header_page.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:animation_cheat_page/slivers/fill_remaining/fill_remaining_sliver.dart';
 import 'package:animation_cheat_page/slivers/fill_remaining/pages/widgets.dart';
-import 'package:animation_cheat_page/transitions/all_transitions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:presentation/presentation.dart';
 
 class FillRemainingPage extends StatelessWidget {
   const FillRemainingPage({
@@ -25,12 +26,15 @@ class _SliverFillRemainingContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Example example = widgetExamples[SliverFillRemaining];
+    final SliverExample example = widgetExamples[SliverFillRemaining];
     return Section(
       title: example.title,
       url: example.fileUrl,
-      released: example.released,
-      body: example.body,
+      released: DateTime(2000),
+      body: Markdown(
+        example.description,
+        style: GoogleFonts.crimsonPro(),
+      ),
       child: CustomScrollView(
         slivers: [
           SliverList(
@@ -55,7 +59,7 @@ class _SliverFillRemainingContent extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  FlutterLogo(size: 5),
+                  FlutterLogo(size: 200),
                   Text(
                     'This is some longest text that should be centered'
                     'together with the logo',

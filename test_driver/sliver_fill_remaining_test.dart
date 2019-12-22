@@ -22,14 +22,14 @@ void main(List<String> args) {
       await restart(
         driver,
         config: const Configuration(
-          route: Routes.sliver_fill_remaining,
+          route: Routes.slivers_fill_remaining_example,
           repeatAnimations: false,
         ),
       );
     });
 
     test('shows sliver', () async {
-      await driver.waitFor(find.byType('SliverFillRemainingPage'));
+      await driver.waitFor(find.byType('FillRemainingPage'));
     });
   });
 }

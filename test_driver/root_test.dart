@@ -29,7 +29,7 @@ void main(List<String> args) {
     });
 
     test('shows root', () async {
-      await driver.waitFor(find.byType('PresentationList'));
+      await driver.waitFor(find.byType('RootPage'));
     });
 
     test('scrolls to bottom', () async {
