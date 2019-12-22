@@ -1,7 +1,7 @@
 import 'package:animation_cheat_page/shared/header_page.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
+import 'package:animation_cheat_page/slivers/fill_remaining/pages/widgets.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart';
-import 'package:animation_cheat_page/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 

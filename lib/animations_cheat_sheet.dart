@@ -34,7 +34,8 @@ class AnimationCheatSheet extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.crimsonProTextTheme(),
       ),
-      initialRoute: config.route,
+      initialRoute:
+          Routes.slivers_fill_remaining_has_scroll_body ?? config.route,
       onUnknownRoute: (settings) => MaterialPageRoute(
         settings: settings,
         builder: (_) => const NotFoundPage(),

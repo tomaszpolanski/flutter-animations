@@ -32,4 +32,6 @@ class Routes {
   static const slivers_fill_remaining_example = '$slivers/fill-remaining';
   static const slivers_fill_remaining_fill_overscroll =
       '$slivers_fill_remaining_example/fillOverscroll';
+  static const slivers_fill_remaining_has_scroll_body =
+      '$slivers_fill_remaining_example/hasScrollBody';
 }
