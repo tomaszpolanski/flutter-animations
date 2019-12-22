@@ -18,10 +18,9 @@ final widgetExamples = <dynamic, SliverExample>{
   HasScrollBodyPage: const SliverExample(
     title: 'hasScrollBody',
     description: 'Demonstration how **hasScrollBody** works.\n'
-        '**SliverFillRemaining** should not be larger than available viewport. '
+        '**SliverFillRemaining** should not be larger than the available viewport. '
         'If the content is bigger you could either consider making it scrollable '
-        'with **hasScrollBody** or just put that content in an another '
-        'scrollable sliver.',
+        'with **hasScrollBody** or just put that content in another scrollable sliver.',
     url: 'master/lib/slivers/fill_remaining/pages/has_scroll_body.dart',
   ),
 };
@@ -37,5 +36,6 @@ class SliverExample {
   final String description;
 
   final String _url;
+
   String get fileUrl => '$rawUrl/$_url';
 }
