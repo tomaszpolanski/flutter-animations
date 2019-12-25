@@ -8,7 +8,7 @@ final widgetExamples = <dynamic, SliverExample>{
     title: 'SliverFillRemaining',
     description: 'This Widget is irreplaceable when you want to '
         'center your content even if there is not enough space for it.',
-    url: 'master/lib/slivers/fill_remaining/pages/sliver_fill_remaining.dart',
+    url: 'master/lib/slivers/fill_remaining/pages/fill_remaining_page.dart',
   ),
   FillOverscrollPage: const SliverExample(
     title: 'fillOverscroll',

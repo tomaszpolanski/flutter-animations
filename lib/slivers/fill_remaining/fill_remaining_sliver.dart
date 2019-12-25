@@ -52,13 +52,13 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
 
     /// viewportMainAxisExtent size of the viewport
     /// precedingScrollExtent how far is the sliver in the scrollview
-    /// Check how many pixels the has until it's not visible
-    /// The value is negative when sliver is no yet visible without scrolling (how many pixels to be visible)
-    /// and positive if it's withing the view port without scrolling
+
+    /// The value is negative when sliver is no yet visible
+    /// and positive if it's withing the view port.
     /// This is the smallest size of the sliver:
     /// - if sliver won't fit the visible space because either child is bigger
     ///   than available space
-    /// - OR previous slivers push the sliver outside so it's fills the ramaining
+    /// - OR previous slivers pushes the sliver outside so it's fills the remaining
     ///   space which is zero but still it needs to display the child
     double extent =
         constraints.viewportMainAxisExtent - constraints.precedingScrollExtent;
@@ -115,10 +115,9 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
       if (maxExtent < extent) {
         maxExtent = extent;
       }
-      // Extent cannot be grater then child due to the assignment before
-      // Can be replaced with fillOverscroll && maxExtent > childExtent
-//      SliverFillRemaining - hasScrollBody child without size is sized by extent when false
-//      SliverFillRemaining - hasScrollBody child with size is sized by extent when false
+
+      /// In case iOS-like overscroll behavior is enabled, we need to allow
+      /// the child to grow to match the overscroll
       if ((fillOverscroll ? maxExtent : extent) > childExtent) {
         child.layout(
           constraints.asBoxConstraints(
@@ -128,6 +127,7 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
           parentUsesSize: true,
         );
       } else {
+        /// No need for the child to handle overscroll
         child.layout(constraints.asBoxConstraints(), parentUsesSize: true);
       }
     }
@@ -139,6 +139,8 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
       'hasScrollBody property of SliverFillRemaining should not be set to'
       'false.',
     );
+
+    /// Calculate Sliver's paint size
     final double paintedChildSize = calculatePaintOffset(
       constraints,
       from: 0,
@@ -146,7 +148,10 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
     );
     assert(paintedChildSize.isFinite);
     assert(paintedChildSize >= 0.0);
+
     geometry = SliverGeometry(
+      /// When the content of the Sliver's is scrollable, then it's size is
+      /// as big as the viewport
       scrollExtent: hasScrollBody ? constraints.viewportMainAxisExtent : extent,
       paintExtent: paintedChildSize,
       maxPaintExtent: paintedChildSize,
