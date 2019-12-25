@@ -19,16 +19,18 @@ class _ContentPageState extends State<ContentPage> {
       appBar: SearchBar(
         onChanged: (String value) => setState(() => _searchQuery = value),
       ),
-      body: ListView(
-        children: <Widget>[
-          for (final route in AnimationCheatSheet.routes()
-              .keys
-              .where((route) => route.containsIgnoreCase(_searchQuery)))
-            ListTile(
-              title: Text(route),
-              onTap: () => Navigator.of(context).pushNamed(route),
-            )
-        ],
+      body: Scrollbar(
+        child: ListView(
+          children: <Widget>[
+            for (final route in AnimationCheatSheet.routes()
+                .keys
+                .where((route) => route.containsIgnoreCase(_searchQuery)))
+              ListTile(
+                title: Text(route, maxLines: 1),
+                onTap: () => Navigator.of(context).pushNamed(route),
+              )
+          ],
+        ),
       ),
     );
   }
