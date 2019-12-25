@@ -35,6 +35,7 @@ class AnimationCheatSheet extends StatelessWidget {
         textTheme: GoogleFonts.crimsonProTextTheme(),
       ),
       initialRoute: config.route,
+      title: 'Flutter Animations',
       onUnknownRoute: (settings) => MaterialPageRoute(
         settings: settings,
         builder: (_) => const NotFoundPage(),
