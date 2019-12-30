@@ -15,7 +15,7 @@ class RestartWidget<T> extends StatelessWidget {
 
   Stream<T> _invalidate(T config) async* {
     yield null;
-    await Future.delayed(const Duration(milliseconds: 16));
+    await Future<dynamic>.delayed(const Duration(milliseconds: 16));
     yield config;
   }
 

@@ -18,7 +18,7 @@ void main() {
     handler: (request) async {
       final Configuration config = Configuration.fromJson(json.decode(request));
       configStream.add(config);
-      await Future.delayed(const Duration(milliseconds: 200));
+      await Future<dynamic>.delayed(const Duration(milliseconds: 200));
       return null;
     },
   );
@@ -26,7 +26,7 @@ void main() {
     RestartWidget(
       initialData: const Configuration(),
       stream: configStream,
-      builder: (_, config) => AnimationCheatSheet(config: config),
+      builder: (_, Configuration config) => AnimationCheatSheet(config: config),
     ),
   );
 }
