@@ -63,7 +63,7 @@ class Resolution {
     }
   }
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => <String, dynamic>{
         'width': width.floor(),
         'height': height.floor(),
       };

@@ -36,7 +36,7 @@ class AnimationCheatSheet extends StatelessWidget {
       ),
       initialRoute: config.route,
       title: 'Flutter Animations',
-      onUnknownRoute: (settings) => MaterialPageRoute(
+      onUnknownRoute: (settings) => MaterialPageRoute<void>(
         settings: settings,
         builder: (_) => const NotFoundPage(),
       ),
