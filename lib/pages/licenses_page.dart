@@ -44,44 +44,7 @@ class _LicensesPageState extends State<LicensesPage> {
         return;
       }
       setState(() {
-        _licenses
-          ..add(
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 18),
-              child: Text('🍀‬', textAlign: TextAlign.center),
-            ),
-          )
-          ..add(Container(
-            decoration: const BoxDecoration(
-              border: Border(
-                bottom: BorderSide(width: 0),
-              ),
-            ),
-            child: Text(
-              license.packages.join(', '),
-              style: const TextStyle(fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-            ),
-          ));
-        for (final paragraph in paragraphs) {
-          if (paragraph.indent == LicenseParagraph.centeredIndent) {
-            _licenses.add(Padding(
-              padding: const EdgeInsets.only(top: 16),
-              child: Text(
-                paragraph.text,
-                style: const TextStyle(fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-            ));
-          } else {
-            assert(paragraph.indent >= 0);
-            _licenses.add(Padding(
-              padding: EdgeInsetsDirectional.only(
-                  top: 8, start: 16.0 * paragraph.indent),
-              child: Text(paragraph.text),
-            ));
-          }
-        }
+        _licenses.addAll(_loadLicenses(license, paragraphs));
       });
     }
     setState(() {
@@ -89,17 +52,54 @@ class _LicensesPageState extends State<LicensesPage> {
     });
   }
 
+  Iterable<Widget> _loadLicenses(
+      LicenseEntry license, List<LicenseParagraph> paragraphs) sync* {
+    yield const Padding(
+      padding: EdgeInsets.symmetric(vertical: 18),
+      child: Text('🍀‬', textAlign: TextAlign.center),
+    );
+
+    yield Container(
+      decoration: const BoxDecoration(
+        border: Border(
+          bottom: BorderSide(width: 0),
+        ),
+      ),
+      child: Text(
+        license.packages.join(', '),
+        style: const TextStyle(fontWeight: FontWeight.bold),
+        textAlign: TextAlign.center,
+      ),
+    );
+    for (final paragraph in paragraphs) {
+      if (paragraph.indent == LicenseParagraph.centeredIndent) {
+        yield Padding(
+          padding: const EdgeInsets.only(top: 16),
+          child: Text(
+            paragraph.text,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+          ),
+        );
+      } else {
+        assert(paragraph.indent >= 0);
+        yield Padding(
+          padding: EdgeInsetsDirectional.only(
+            top: 8,
+            start: 16.0 * paragraph.indent,
+          ),
+          child: Text(paragraph.text),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     assert(debugCheckHasMaterialLocalizations(context));
     final String name = widget.applicationName;
     final String version = widget.applicationVersion;
-    final MaterialLocalizations localizations =
-        MaterialLocalizations.of(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(localizations.licensesPageTitle),
-      ),
       body: Localizations.override(
         locale: const Locale('en', 'US'),
         context: context,
@@ -107,40 +107,42 @@ class _LicensesPageState extends State<LicensesPage> {
           style: Theme.of(context).textTheme.caption,
           child: SafeArea(
             bottom: false,
-            child: ListView(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
-              children: <Widget>[
-                Text(
-                  name,
-                  style: Theme.of(context).textTheme.headline,
-                  textAlign: TextAlign.center,
+            child: DefaultTextStyle.merge(
+              textAlign: TextAlign.center,
+              child: ListView(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 8,
+                  vertical: 12,
                 ),
-                if (version != null)
+                children: <Widget>[
                   Text(
-                    version,
+                    name,
+                    style: Theme.of(context).textTheme.headline,
+                  ),
+                  if (version != null)
+                    Text(
+                      version,
+                      style: Theme.of(context).textTheme.body1,
+                    ),
+                  const SizedBox(height: 18),
+                  Text(
+                    widget.applicationLegalese ?? '',
+                    style: Theme.of(context).textTheme.caption,
+                  ),
+                  Container(height: 18),
+                  Text(
+                    'Powered by Flutter',
                     style: Theme.of(context).textTheme.body1,
-                    textAlign: TextAlign.center,
                   ),
-                const SizedBox(height: 18),
-                Text(
-                  widget.applicationLegalese ?? '',
-                  style: Theme.of(context).textTheme.caption,
-                  textAlign: TextAlign.center,
-                ),
-                Container(height: 18),
-                Text(
-                  'Powered by Flutter',
-                  style: Theme.of(context).textTheme.body1,
-                  textAlign: TextAlign.center,
-                ),
-                Container(height: 24),
-                ..._licenses,
-                if (!_loaded)
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 24),
-                    child: Center(child: CircularProgressIndicator()),
-                  ),
-              ],
+                  Container(height: 24),
+                  ..._licenses,
+                  if (!_loaded)
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 24),
+                      child: Center(child: CircularProgressIndicator()),
+                    ),
+                ],
+              ),
             ),
           ),
         ),
