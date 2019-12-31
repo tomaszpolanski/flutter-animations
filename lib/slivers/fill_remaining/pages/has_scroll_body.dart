@@ -1,4 +1,5 @@
 import 'package:animation_cheat_page/shared/frame.dart';
+import 'package:animation_cheat_page/shared/ui/footer.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:animation_cheat_page/slivers/fill_remaining/fill_remaining_sliver.dart';
 import 'package:animation_cheat_page/slivers/fill_remaining/pages/widgets.dart';
@@ -14,32 +15,39 @@ class HasScrollBodyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final SliverExample example = widgetExamples[HasScrollBodyPage];
     return Scaffold(
-      body: DoubleSection(
-        title: example.title,
-        url: example.fileUrl,
-        released: DateTime(2000),
-        body: Markdown(
-          example.description,
-          style: GoogleFonts.crimsonPro(),
-        ),
-        children: [
-          AppFrameCard(
-            title: 'hasScrollBody: false',
-            child: _HasScrollBodyExample(
-              hasScrollBody: false,
-              builder: (children) => Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: children,
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: DoubleSection(
+              title: example.title,
+              url: example.fileUrl,
+              released: DateTime(2000),
+              body: Markdown(
+                example.description,
+                style: GoogleFonts.crimsonPro(),
               ),
+              children: [
+                AppFrameCard(
+                  title: 'hasScrollBody: false',
+                  child: _HasScrollBodyExample(
+                    hasScrollBody: false,
+                    builder: (children) => Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: children,
+                    ),
+                  ),
+                ),
+                AppFrameCard(
+                  title: 'hasScrollBody: true',
+                  child: _HasScrollBodyExample(
+                    hasScrollBody: true,
+                    builder: (children) => ListView(children: children),
+                  ),
+                ),
+              ],
             ),
           ),
-          AppFrameCard(
-            title: 'hasScrollBody: true',
-            child: _HasScrollBodyExample(
-              hasScrollBody: true,
-              builder: (children) => ListView(children: children),
-            ),
-          ),
+          const Footer(),
         ],
       ),
     );
