@@ -62,5 +62,10 @@ class AnimationCheatSheet extends StatelessWidget {
 
 class NoOverflow extends ScrollBehavior {
   @override
-  Widget buildViewportChrome(context, child, axisDirection) => child;
+  Widget buildViewportChrome(
+    BuildContext context,
+    Widget child,
+    AxisDirection axisDirection,
+  ) =>
+      child;
 }
