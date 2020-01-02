@@ -1,8 +1,9 @@
 import 'package:animation_cheat_page/config.dart';
-import 'package:animation_cheat_page/content_page.dart';
 import 'package:animation_cheat_page/curves/curves_page.dart';
 import 'package:animation_cheat_page/generic/not_found_page.dart';
-import 'package:animation_cheat_page/root_page.dart';
+import 'package:animation_cheat_page/pages/content_page.dart';
+import 'package:animation_cheat_page/pages/licenses_page.dart';
+import 'package:animation_cheat_page/pages/root_page.dart';
 import 'package:animation_cheat_page/slivers/constraints/slivers_constraints.dart'
     as slivers_constraints;
 import 'package:animation_cheat_page/slivers/fill_remaining/pages.dart'
@@ -21,6 +22,7 @@ class AnimationCheatSheet extends StatelessWidget {
 
   final Configuration config;
 
+  static const title = 'Flutter Animations';
   static final GlobalKey gKey = GlobalKey<NavigatorState>();
 
   @override
@@ -35,7 +37,7 @@ class AnimationCheatSheet extends StatelessWidget {
         textTheme: GoogleFonts.crimsonProTextTheme(),
       ),
       initialRoute: config.route,
-      title: 'Flutter Animations',
+      title: title,
       onUnknownRoute: (settings) => MaterialPageRoute<void>(
         settings: settings,
         builder: (_) => const NotFoundPage(),
@@ -50,6 +52,7 @@ class AnimationCheatSheet extends StatelessWidget {
       Routes.curves: (_) => CurvesPage(repeatAnimations: repeatAnimations),
       Routes.not_found: (_) => const NotFoundPage(),
       Routes.content: (_) => const ContentPage(),
+      Routes.licenses: (_) => const LicensesPage(),
       ...slivers_constraints.pages,
       ...slivers_geometry.pages,
       ...fill_remaining.pages,

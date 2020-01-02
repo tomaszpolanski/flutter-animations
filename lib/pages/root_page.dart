@@ -3,6 +3,7 @@ import 'package:animation_cheat_page/animated_widgets/all_animated_widgets.dart'
 import 'package:animation_cheat_page/curves/curves.dart' as curves;
 import 'package:animation_cheat_page/curves/curves.dart';
 import 'package:animation_cheat_page/shared/ui/description.dart';
+import 'package:animation_cheat_page/shared/ui/footer.dart';
 import 'package:animation_cheat_page/shared/ui/header.dart';
 import 'package:animation_cheat_page/shared/ui/new_section.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
@@ -152,6 +153,7 @@ class __AnimationProviderState extends State<_AnimationProvider>
               },
               child: example.builder(_controller, child),
             ),
+          const Footer(),
         ],
       ),
     );
