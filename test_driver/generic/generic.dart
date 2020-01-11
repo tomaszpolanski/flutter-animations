@@ -1,8 +1,7 @@
 import 'dart:convert';
 
 import 'package:animation_cheat_page/animations_cheat_sheet.dart';
-import 'package:fast_flutter_driver/src/shared/restart_widget.dart';
-import 'package:fast_flutter_driver/src/src/driver_helper.dart';
+import 'package:fast_flutter_driver/app.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/widgets.dart';

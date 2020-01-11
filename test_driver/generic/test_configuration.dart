@@ -1,5 +1,5 @@
 import 'package:animation_cheat_page/config.dart';
-import 'package:fast_flutter_driver/fast_flutter_driver.dart';
+import 'package:fast_flutter_driver/tests.dart';
 import 'package:meta/meta.dart';
 
 class TestConfiguration implements BaseConfiguration {
