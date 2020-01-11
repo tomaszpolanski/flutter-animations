@@ -1,9 +1,9 @@
+import 'dart:convert';
+
 import 'package:animation_cheat_page/config.dart';
-import 'package:animation_cheat_page/tests/src/test_properties.dart';
+import 'package:fast_flutter_driver/fast_flutter_driver.dart';
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
-
-import 'tools/driver.dart';
 
 void main(List<String> args) {
   group('Sliver Fill Remaining', () {
@@ -19,11 +19,13 @@ void main(List<String> args) {
     });
 
     setUp(() async {
-      await restart(
-        driver,
-        config: const Configuration(
-          route: Routes.slivers_fill_remaining_example,
-          repeatAnimations: false,
+      await driver.requestData(
+        json.encode(
+          Configuration(
+            route: Routes.slivers_fill_remaining_example,
+            repeatAnimations: false,
+            resolution: properties.resolution,
+          ),
         ),
       );
     });

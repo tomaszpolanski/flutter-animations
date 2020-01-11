@@ -3,6 +3,7 @@ import 'package:animation_cheat_page/config.dart';
 import 'package:animation_cheat_page/shared/ui/description.dart' as ui;
 import 'package:animation_cheat_page/shared/ui/header.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
+import 'package:fast_flutter_driver/fast_flutter_driver.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -10,7 +11,7 @@ void main() {
   testWidgets('Header is rendered', (tester) async {
     await tester.pumpWidget(
       const AnimationCheatSheet(
-        config: Configuration(),
+        config: Configuration(resolution: Resolution(1, 1)),
       ),
     );
 
@@ -22,7 +23,7 @@ void main() {
       const TickerMode(
         enabled: false,
         child: AnimationCheatSheet(
-          config: Configuration(),
+          config: Configuration(resolution: Resolution(1, 1)),
         ),
       ),
     );
@@ -38,7 +39,7 @@ void main() {
       const TickerMode(
         enabled: false,
         child: AnimationCheatSheet(
-          config: Configuration(),
+          config: Configuration(resolution: Resolution(1, 1)),
         ),
       ),
     );
