@@ -6,7 +6,7 @@ class TestConfiguration implements BaseConfiguration {
   const TestConfiguration({
     @required this.resolution,
     this.platform,
-    this.configuration,
+    @required this.configuration,
   }) : assert(resolution != null);
 
   factory TestConfiguration.fromJson(Map<String, dynamic> json) {
