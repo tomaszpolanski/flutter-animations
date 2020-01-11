@@ -13,13 +13,14 @@ void main() {
   debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
   timeDilation = 0.2;
   enableFlutterDriverExtension(
-    handler: (playload) =>
-        configureTest(Configuration.fromJson(json.decode(playload))),
+    handler: (playload) => configureTest(
+      Configuration.fromJson(json.decode(playload)),
+    ),
   );
 
   runApp(
-    RestartWidget(
-      builder: (_, Configuration config) => AnimationCheatSheet(config: config),
+    RestartWidget<Configuration>(
+      builder: (context, config) => AnimationCheatSheet(config: config),
     ),
   );
 }

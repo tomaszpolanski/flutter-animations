@@ -33,16 +33,5 @@ void main(List<String> args) {
     test('shows curves', () async {
       await driver.waitFor(find.byType('CurvesPage'));
     });
-
-    test('scroll and interact', () async {
-      await driver.scrollUntilVisible(
-        find.byType('CurvesPage'),
-        find.byValueKey('curved-examples'),
-      );
-      await driver.tap(find.byValueKey('left-curve'));
-      await driver.tap(find.text('easeIn'));
-      await driver.tap(find.byValueKey('right-curve'));
-      await driver.tap(find.text('fastLinearToSlowEaseIn'));
-    });
   });
 }
