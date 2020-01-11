@@ -19,9 +19,8 @@ void main() {
   );
 
   runApp(
-    RestartWidget(
-      builder: (context, dynamic config) =>
-          AnimationCheatSheet(config: config.configuration),
+    RestartWidget<TestConfiguration>(
+      builder: (_, config) => AnimationCheatSheet(config: config.configuration),
     ),
   );
 }
