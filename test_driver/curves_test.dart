@@ -5,6 +5,8 @@ import 'package:fast_flutter_driver/fast_flutter_driver.dart';
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
+import 'generic/test_configuration.dart';
+
 void main(List<String> args) {
   group('Curves', () {
     FlutterDriver driver;
@@ -21,10 +23,12 @@ void main(List<String> args) {
     setUp(() async {
       await driver.requestData(
         json.encode(
-          Configuration(
-            route: Routes.curves,
-            repeatAnimations: false,
+          TestConfiguration(
             resolution: properties.resolution,
+            configuration: const Configuration(
+              route: Routes.curves,
+              repeatAnimations: false,
+            ),
           ),
         ),
       );

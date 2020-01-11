@@ -15,8 +15,6 @@ dependencies:
   google_fonts: ^0.2.0
   http: ^0.12.0+1
   universal_html: ^1.1.6
-  fast_flutter_driver:
-    path: ../fast_flutter_driver
 
 dev_dependencies:
   flutter_test:
@@ -28,6 +26,8 @@ dev_dependencies:
   args: ^1.5.2
   process_run: ^0.10.3
   rxdart: 0.22.0
+  fast_flutter_driver:
+    path: ../fast_flutter_driver
 
 flutter:
 
