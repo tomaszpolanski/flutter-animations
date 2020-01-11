@@ -27,7 +27,8 @@ dev_dependencies:
   process_run: ^0.10.3
   rxdart: 0.22.0
   fast_flutter_driver:
-    path: ../fast_flutter_driver
+    git:
+      url: git://github.com/tomaszpolanski/fast_flutter_driver.git
 
 flutter:
 

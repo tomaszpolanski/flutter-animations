@@ -11,7 +11,7 @@ import 'test_configuration.dart';
 
 void main() {
   debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
-  timeDilation = 0.2;
+  timeDilation = 0.1;
   enableFlutterDriverExtension(
     handler: (playload) => configureTest(
       TestConfiguration.fromJson(json.decode(playload)),
