@@ -12,7 +12,7 @@ class TestConfiguration implements BaseConfiguration {
   factory TestConfiguration.fromJson(Map<String, dynamic> json) {
     return TestConfiguration(
       resolution: Resolution.fromJson(json['resolution']),
-      platform: platformFromString(json['platform']),
+      platform: TestPlatformEx.fromString(json['platform']),
       configuration: Configuration.fromJson(json['configuration']),
     );
   }
