@@ -1,5 +1,5 @@
 import 'package:animation_cheat_page/config.dart';
-import 'package:fast_flutter_driver/tests.dart';
+import 'package:fast_flutter_driver/tool.dart';
 import 'package:meta/meta.dart';
 
 class TestConfiguration implements BaseConfiguration {
@@ -24,7 +24,7 @@ class TestConfiguration implements BaseConfiguration {
   @override
   Map<String, dynamic> toJson() => <String, dynamic>{
         'resolution': resolution,
-        if (platform != null) 'platform': fromEnum(platform),
+        if (platform != null) 'platform': platform.asString(),
         'configuration': configuration,
       };
 }
