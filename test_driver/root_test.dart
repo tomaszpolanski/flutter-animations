@@ -1,9 +1,11 @@
+import 'dart:convert';
+
 import 'package:animation_cheat_page/config.dart';
-import 'package:animation_cheat_page/tests/src/test_properties.dart';
+import 'package:fast_flutter_driver/tool.dart';
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
-import 'tools/driver.dart';
+import 'generic/test_configuration.dart';
 
 void main(List<String> args) {
   group('Root', () {
@@ -19,11 +21,15 @@ void main(List<String> args) {
     });
 
     setUp(() async {
-      await restart(
-        driver,
-        config: const Configuration(
-          route: Routes.root,
-          repeatAnimations: false,
+      await driver.requestData(
+        json.encode(
+          TestConfiguration(
+            resolution: properties.resolution,
+            configuration: const Configuration(
+              route: Routes.root,
+              repeatAnimations: false,
+            ),
+          ),
         ),
       );
     });
