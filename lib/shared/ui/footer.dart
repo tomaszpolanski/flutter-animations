@@ -7,10 +7,10 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Container(
-      color: theme.primaryColor,
-      width: double.infinity,
-      child: DefaultTextStyle.merge(
+    return DefaultTextStyle.merge(
+      child: Container(
+        color: theme.primaryColor,
+        width: double.infinity,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
