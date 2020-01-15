@@ -9,27 +9,36 @@ class Footer extends StatelessWidget {
     final theme = Theme.of(context);
     return Container(
       color: theme.primaryColor,
-      child: Column(
-        children: <Widget>[
-          ListTile(
-            title: Text(
-              'Content',
-              style: theme.textTheme.subhead.copyWith(
-                color: Colors.white,
+      width: double.infinity,
+      child: DefaultTextStyle.merge(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            FlatButton(
+              onPressed: () => Navigator.of(context).pushNamed(Routes.content),
+              child: Text(
+                'Content',
+                style: theme.textTheme.title.copyWith(
+                  color: Colors.white,
+                ),
               ),
             ),
-            onTap: () => Navigator.of(context).pushNamed(Routes.content),
-          ),
-          ListTile(
-            title: Text(
-              'Licenses',
-              style: theme.textTheme.subhead.copyWith(
-                color: Colors.white,
+            Container(
+              height: 30,
+              width: 2,
+              color: Colors.white,
+            ),
+            FlatButton(
+              onPressed: () => Navigator.of(context).pushNamed(Routes.licenses),
+              child: Text(
+                'Licenses',
+                style: theme.textTheme.title.copyWith(
+                  color: Colors.white,
+                ),
               ),
             ),
-            onTap: () => Navigator.of(context).pushNamed(Routes.licenses),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
