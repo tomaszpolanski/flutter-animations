@@ -3,7 +3,7 @@ description: Presentations made with Flutter
 
 environment:
   sdk: ">=2.6.0-dev.0.0.flutter-1103600280 <3.0.0"
-
+  flutter: ">=1.14.6 <2.0.0"
 
 dependencies:
   flutter:
@@ -30,7 +30,7 @@ dev_dependencies:
     git:
       url: git://github.com/tomaszpolanski/fast_flutter_driver.git
       path: driver
-
+      ref: embedding-window_utils
 flutter:
 
   uses-material-design: true
