@@ -3,7 +3,7 @@ description: Presentations made with Flutter
 
 environment:
   sdk: ">=2.6.0-dev.0.0.flutter-1103600280 <3.0.0"
-
+  flutter: ">=1.14.6 <2.0.0"
 
 dependencies:
   flutter:
@@ -26,13 +26,9 @@ dev_dependencies:
   args: ^1.5.2
   process_run: ^0.10.3
   rxdart: 0.22.0
-  fast_flutter_driver:
-    git:
-      url: git://github.com/tomaszpolanski/fast_flutter_driver.git
-      path: driver
+  fast_flutter_driver: ^0.1.0
 
 flutter:
-
   uses-material-design: true
   assets:
     - assets/favicon.png
