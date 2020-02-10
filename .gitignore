@@ -33,3 +33,5 @@ windows/flutter/generated_plugin_registrant.h
 ios/Flutter/flutter_export_environment.sh
 .flutter-plugins-dependencies
 windows/window_configuration.cpp_copy
+ios/Podfile
+macos/Podfile

@@ -67,7 +67,7 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
             ),
             const SizedBox(height: 20),
             DefaultTextStyle.merge(
-              style: Theme.of(context).textTheme.subhead.copyWith(fontSize: 25),
+              style: Theme.of(context).textTheme.subtitle1.copyWith(fontSize: 25),
               child: widget.body,
             ),
             const SizedBox(height: 20),
@@ -154,7 +154,7 @@ class DoubleSection extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             DefaultTextStyle.merge(
-              style: Theme.of(context).textTheme.subhead.copyWith(fontSize: 25),
+              style: Theme.of(context).textTheme.subtitle1.copyWith(fontSize: 25),
               child: body,
             ),
             const SizedBox(height: 20),
@@ -193,13 +193,13 @@ class SectionHeader extends StatelessWidget {
             DefaultTextStyle.merge(
               style: Theme.of(context)
                   .textTheme
-                  .display1
+                  .headline4
                   .copyWith(fontWeight: FontWeight.bold, color: Colors.black),
               child: title,
             ),
             const SizedBox(height: 20),
             DefaultTextStyle.merge(
-              style: Theme.of(context).textTheme.subhead.copyWith(fontSize: 25),
+              style: Theme.of(context).textTheme.subtitle1.copyWith(fontSize: 25),
               child: child,
             ),
             const SizedBox(height: 20),
@@ -226,7 +226,7 @@ class SectionTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     final titleWidget = Text(
       title,
-      style: Theme.of(context).textTheme.headline.copyWith(
+      style: Theme.of(context).textTheme.headline5.copyWith(
             fontWeight: FontWeight.bold,
             fontSize: 35,
           ),

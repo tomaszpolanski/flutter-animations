@@ -16,8 +16,8 @@ class DefaultTextStyleExample extends StatelessWidget {
       style: animation
           .drive(CurveTween(curve: Curves.fastOutSlowIn))
           .drive(TextStyleTween(
-            begin: Theme.of(context).textTheme.display1,
-            end: Theme.of(context).textTheme.display3,
+            begin: Theme.of(context).textTheme.headline4,
+            end: Theme.of(context).textTheme.headline2,
           )),
       child: const Text('Flutter'),
     );
