@@ -35,5 +35,4 @@ ios/Flutter/flutter_export_environment.sh
 windows/window_configuration.cpp_copy
 ios/Podfile
 macos/Podfile
-macos/Flutter/Flutter-Debug.xcconfig
-macos/Flutter/Flutter-Release.xcconfig
+
