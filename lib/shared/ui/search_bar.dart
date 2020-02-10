@@ -39,8 +39,8 @@ class _SearchBarState extends State<SearchBar> {
       automaticallyImplyLeading: false,
       title: TextField(
         controller: _controller,
-        style: Theme.of(context).primaryTextTheme.headline6,
-        cursorColor: Theme.of(context).primaryTextTheme.headline6.color,
+        style: Theme.of(context).primaryTextTheme.title,
+        cursorColor: Theme.of(context).primaryTextTheme.title.color,
         keyboardType: TextInputType.text,
         autofocus: true,
       ),

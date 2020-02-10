@@ -96,8 +96,7 @@ Win32Window::MessageHandler(HWND hwnd, UINT const message, WPARAM const wparam,
 
   switch (message) {
     case WM_DESTROY:
-      window_handle_ = nullptr;
-      Destroy();
+      messageloop_running_ = false;
       return 0;
 
     case WM_SIZE:
@@ -114,11 +113,6 @@ Win32Window::MessageHandler(HWND hwnd, UINT const message, WPARAM const wparam,
       if (child_content_ != nullptr) {
         SetFocus(child_content_);
       }
-      return 0;
-
-    // Messages that are directly forwarded to embedding.
-    case WM_FONTCHANGE:
-      SendMessage(child_content_, WM_FONTCHANGE, NULL, NULL);
       return 0;
   }
 
@@ -149,6 +143,20 @@ void Win32Window::SetChildContent(HWND content) {
              frame.bottom - frame.top, true);
 
   SetFocus(child_content_);
+}
+
+void Win32Window::RunMessageLoop(std::function<void()> callback) {
+  // Run until the window is closed.
+  MSG message;
+  while (GetMessage(&message, nullptr, 0, 0) && messageloop_running_) {
+    TranslateMessage(&message);
+    DispatchMessage(&message);
+
+    // Allow flutter view to process its messages
+    if (callback != nullptr) {
+      callback();
+    }
+  }
 }
 
 HWND Win32Window::GetHandle() { return window_handle_; }

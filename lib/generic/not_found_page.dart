@@ -15,14 +15,14 @@ class NotFoundPage extends StatelessWidget {
           children: <Widget>[
             Text(
               '0x‭194‬',
-              style: Theme.of(context).textTheme.headline1.copyWith(
+              style: Theme.of(context).textTheme.display4.copyWith(
                     color: Colors.black,
                     fontSize: 200,
                   ),
             ),
             Text(
               '(404)',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.display1,
             ),
           ],
         ),

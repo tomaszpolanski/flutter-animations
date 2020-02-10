@@ -15,8 +15,7 @@
 
 set FLUTTER_CACHE_DIR=%~1
 set BUNDLE_DIR=%~2
-set PLUGIN_DIR=%~3
-set EXE_NAME=%~4
+set EXE_NAME=%~3
 
 set DATA_DIR=%BUNDLE_DIR%data
 
@@ -42,9 +41,3 @@ if %errorlevel% neq 0 exit /b %errorlevel%
 :: Copy the Flutter DLL to the target location.
 call xcopy /y /d /q "%FLUTTER_CACHE_DIR%flutter_windows.dll" "%BUNDLE_DIR%"
 if %errorlevel% neq 0 exit /b %errorlevel%
-
-:: Copy any Plugin DLLs to the target location.
-if exist "%PLUGIN_DIR%" (
-  call xcopy /y /d /q "%PLUGIN_DIR%"*.dll "%BUNDLE_DIR%"
-  if %errorlevel% neq 0 exit /b %errorlevel%
-)
