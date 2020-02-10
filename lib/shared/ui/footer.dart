@@ -18,7 +18,7 @@ class Footer extends StatelessWidget {
               onPressed: () => Navigator.of(context).pushNamed(Routes.content),
               child: Text(
                 'Content',
-                style: theme.textTheme.headline6.copyWith(
+                style: theme.textTheme.title.copyWith(
                   color: Colors.white,
                 ),
               ),
@@ -32,7 +32,7 @@ class Footer extends StatelessWidget {
               onPressed: () => Navigator.of(context).pushNamed(Routes.licenses),
               child: Text(
                 'Licenses',
-                style: theme.textTheme.headline6.copyWith(
+                style: theme.textTheme.title.copyWith(
                   color: Colors.white,
                 ),
               ),
