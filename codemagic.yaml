@@ -1,0 +1,39 @@
+# Automatically generated on 2020-02-11 UTC from https://codemagic.io/app/5d360a1b3b905a001cfaa874/settings
+# Note that this configuration is not an exact match to UI settings. Review and adjust as necessary.
+
+workflows:
+  default-workflow:
+    name: Default Workflow
+    environment:
+      flutter: v1.13.6
+      xcode: latest
+    cache:
+      cache_paths:
+        - $FCI_BUILD_DIR/build
+    triggering:
+      events:
+        - pull_request
+      branch_patterns:
+        - pattern: master
+          include: true
+          source: true
+    scripts:
+      - flutter packages pub get
+      - flutter config --enable-web
+      - flutter analyze
+      - flutter test
+      - |
+        flutter config --enable-linux-desktop --enable-macos-desktop
+        flutter devices
+      - |
+        # build web
+        flutter build web --release
+        cd build/web
+        7z a -r ../web.zip ./*
+    artifacts:
+      - build/web.zip
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - polanski.tomek@gmail.com
