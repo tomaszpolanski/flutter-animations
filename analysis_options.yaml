@@ -11,6 +11,8 @@ analyzer:
   language:
     strict-inference: true
     strict-raw-types: true
+  exclude:
+    - lib/generated_plugin_registrant.dart
 
 linter:
   rules:
