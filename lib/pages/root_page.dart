@@ -96,66 +96,72 @@ class __AnimationProviderState extends State<_AnimationProvider>
         ),
       ),
     );
-    return Scrollbar(
-      child: ListView(
-        children: [
-          Align(
-            child: Header(
-              'Animations',
-              animation: _headerController,
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: Scrollbar(
+            child: ListView(
+              children: [
+                Align(
+                  child: Header(
+                    'Animations',
+                    animation: _headerController,
+                  ),
+                ),
+                const Align(child: Description()),
+                const Align(child: Separator()),
+                Align(
+                  child: NewSection(
+                    transitions: transitions.allTransitions,
+                    animated: animated.allAnimatedWidgets,
+                    curves: [curves.singleCurveExample],
+                  ),
+                ),
+                const SectionHeader(
+                  title: Text('Curves'),
+                  child: Text(curves.description),
+                ),
+                CurvesSection(
+                  animation: _controller,
+                  onPressed: (url) => _handleUrl(context, url),
+                  child: child,
+                ),
+                const SectionHeader(
+                  title: Text('Transitions'),
+                  child: Text(transitions.description),
+                ),
+                for (final example in transitions.allTransitions)
+                  Section(
+                    title: example.title,
+                    url: example.fileUrl,
+                    released: example.released,
+                    body: example.body,
+                    onPressed: () {
+                      _handleUrl(context, example.pageUrl);
+                    },
+                    child: example.builder(_controller, child),
+                  ),
+                const SectionHeader(
+                  title: Text('Animated Widgets'),
+                  child: Text(animated.description),
+                ),
+                for (final example in animated.allAnimatedWidgets)
+                  Section(
+                    title: example.title,
+                    url: example.fileUrl,
+                    released: example.released,
+                    body: example.body,
+                    onPressed: () {
+                      _handleUrl(context, example.pageUrl);
+                    },
+                    child: example.builder(_controller, child),
+                  ),
+              ],
             ),
           ),
-          const Align(child: Description()),
-          const Align(child: Separator()),
-          Align(
-            child: NewSection(
-              transitions: transitions.allTransitions,
-              animated: animated.allAnimatedWidgets,
-              curves: [curves.singleCurveExample],
-            ),
-          ),
-          const SectionHeader(
-            title: Text('Curves'),
-            child: Text(curves.description),
-          ),
-          CurvesSection(
-            animation: _controller,
-            onPressed: (url) => _handleUrl(context, url),
-            child: child,
-          ),
-          const SectionHeader(
-            title: Text('Transitions'),
-            child: Text(transitions.description),
-          ),
-          for (final example in transitions.allTransitions)
-            Section(
-              title: example.title,
-              url: example.fileUrl,
-              released: example.released,
-              body: example.body,
-              onPressed: () {
-                _handleUrl(context, example.pageUrl);
-              },
-              child: example.builder(_controller, child),
-            ),
-          const SectionHeader(
-            title: Text('Animated Widgets'),
-            child: Text(animated.description),
-          ),
-          for (final example in animated.allAnimatedWidgets)
-            Section(
-              title: example.title,
-              url: example.fileUrl,
-              released: example.released,
-              body: example.body,
-              onPressed: () {
-                _handleUrl(context, example.pageUrl);
-              },
-              child: example.builder(_controller, child),
-            ),
-          const Footer(),
-        ],
-      ),
+        ),
+        const Footer(),
+      ],
     );
   }
 }
