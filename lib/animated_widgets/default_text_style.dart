@@ -42,8 +42,8 @@ class _AnimatedDefaultTextStyleExampleState
     return AnimatedDefaultTextStyle(
       duration: const Duration(seconds: 4),
       style: _showFirst
-          ? Theme.of(context).textTheme.display1
-          : Theme.of(context).textTheme.display3,
+          ? Theme.of(context).textTheme.headline4
+          : Theme.of(context).textTheme.headline2,
       child: const Text('FlutterFlutterFlutterFlutterFlutterFlutter'),
     );
   }

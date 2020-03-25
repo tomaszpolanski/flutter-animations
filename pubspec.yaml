@@ -26,11 +26,8 @@ dev_dependencies:
   args: ^1.5.2
   process_run: ^0.10.3
   rxdart: 0.22.0
-  fast_flutter_driver:
-    git:
-      url: git://github.com/tomaszpolanski/fast_flutter_driver.git
-      path: driver
-      ref: embedding-window_utils
+  fast_flutter_driver: ^0.1.0
+
 flutter:
 
   uses-material-design: true

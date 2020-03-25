@@ -29,7 +29,8 @@ class NewSection extends StatelessWidget {
     ]
         .map((example) => Text(
               '    • ${example.title}',
-              style: Theme.of(context).textTheme.title.copyWith(fontSize: 25),
+              style:
+                  Theme.of(context).textTheme.headline6.copyWith(fontSize: 25),
             ))
         .toList(growable: false);
     return children.isNotEmpty
@@ -46,7 +47,7 @@ class NewSection extends StatelessWidget {
                     NewLabel(),
                     Text(
                       ' wigets:',
-                      style: Theme.of(context).textTheme.display1.copyWith(
+                      style: Theme.of(context).textTheme.headline4.copyWith(
                           fontWeight: FontWeight.bold, color: Colors.black),
                     ),
                   ],
