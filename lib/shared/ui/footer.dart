@@ -25,11 +25,13 @@ class Footer extends StatelessWidget {
                 style: theme.textTheme.headline6.copyWith(
                   color: Colors.white,
                 ),
+              ),
+            ),
             _Button(
               onPressed: () => Navigator.of(context).pushNamed(Routes.licenses),
               icon: Icons.copyright,
               child: const Text('Licenses'),
-              ),
+            ),
             if (System.isMobile || System.isWeb || System.isMacOS)
               _Button(
                 onPressed: () async {
@@ -42,11 +44,11 @@ class Footer extends StatelessWidget {
               )
           ]
               .joinEx(
-            Container(
+                Container(
                   height: 20,
-              width: 2,
-              color: Colors.white,
-            ),
+                  width: 2,
+                  color: Colors.white,
+                ),
               )
               .toList(),
         ),
@@ -80,9 +82,9 @@ class _Button extends StatelessWidget {
                   color: Colors.white,
                 ),
             child: child,
-              ),
-          ],
-        ),
+          ),
+        ],
+      ),
     );
   }
 }
