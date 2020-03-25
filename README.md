@@ -1,7 +1,7 @@
 # Flutter Animations Cheat Sheet
 [![Codemagic build status](https://api.codemagic.io/apps/5d360a1b3b905a001cfaa874/5d360a1b3b905a001cfaa873/status_badge.svg)](https://codemagic.io/apps/5d360a1b3b905a001cfaa874/5d360a1b3b905a001cfaa873/latest_build)
 
-List of animations and transitions that you can used in Flutter.
+This is a list of animations and transitions that you can used in Flutter.
 
 Available as a [webpage](https://flutter-animations-cheat-sheet.codemagic.app/#/).
 The content of the page is [searchable](https://flutter-animations-cheat-sheet.codemagic.app/#/content).
@@ -24,7 +24,7 @@ Enable desktop builds by running in the terminal:
 flutter config --enable-linux-desktop --enable-macos-desktop --enable-windows-desktop
 ```
 ### Linux
-- Add the following to `.bash_profile` but replace `$HOME/flutter/` with path to your Flutter folder
+- Add the following to `.bash_profile` replacing `$HOME/flutter/` with path to your Flutter folder.
 ```
 # Add Flutter
 export PATH="$PATH:$HOME/flutter/bin"
@@ -32,7 +32,7 @@ export PATH="$PATH:$HOME/flutter/bin"
 export PATH="$PATH:$HOME/flutter/bin/cache/dart-sdk/bin"
 ```
 ### Mac
-- Add the following to `.bash_profile` but replace `$HOME/flutter/` with path to your Flutter folder
+- Add the following to `.bash_profile` replacing `$HOME/flutter/` with path to your Flutter folder.
 ```
 # Add Flutter
 export PATH="$PATH:$HOME/flutter/bin"
@@ -58,7 +58,7 @@ You might need to use `-d` to pick desktop if you have any other device connecte
 OR
 
 Open in your ide `flutter-animations` 
-In IntelliJ/VS Code select appropriate device via device picker and run tha app
+In IntelliJ/VS Code select appropriate device via device picker and run the app.
 
 # Running Flutter Driver tests on Desktop
 Installing [fast_flutter_driver](https://github.com/tomaszpolanski/fast_flutter_driver) script:
