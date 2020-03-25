@@ -20,7 +20,12 @@ class Footer extends StatelessWidget {
             _Button(
               onPressed: () => Navigator.of(context).pushNamed(Routes.content),
               icon: Icons.all_inclusive,
-              child: const Text('Content'),
+              child: Text(
+                'Content',
+                style: theme.textTheme.headline6.copyWith(
+                  color: Colors.white,
+                ),
+              ),
             ),
             _Button(
               onPressed: () => Navigator.of(context).pushNamed(Routes.licenses),
@@ -73,7 +78,7 @@ class _Button extends StatelessWidget {
           Icon(icon, color: Colors.white, size: 16),
           const SizedBox(width: 5),
           DefaultTextStyle.merge(
-            style: Theme.of(context).textTheme.title.copyWith(
+            style: Theme.of(context).textTheme.headline6.copyWith(
                   color: Colors.white,
                 ),
             child: child,

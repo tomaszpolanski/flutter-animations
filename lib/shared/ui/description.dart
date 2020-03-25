@@ -13,7 +13,7 @@ class Description extends StatelessWidget {
       width: 640,
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: DefaultTextStyle.merge(
-        style: Theme.of(context).textTheme.subhead.copyWith(fontSize: 25),
+        style: Theme.of(context).textTheme.subtitle1.copyWith(fontSize: 25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -102,7 +102,7 @@ class _Description extends StatelessWidget {
     return SizedBox(
       width: 600,
       child: RichText(
-        text: TextSpan(style: Theme.of(context).textTheme.subhead, children: [
+        text: TextSpan(style: Theme.of(context).textTheme.subtitle1, children: [
           const TextSpan(
             text: 'Do you need simple animation samples for Flutter?\n'
                 'I present you my set of Flutter animation code snippets. '

@@ -117,12 +117,12 @@ class _LicensesPageState extends State<LicensesPage> {
                 children: <Widget>[
                   Text(
                     name,
-                    style: Theme.of(context).textTheme.headline,
+                    style: Theme.of(context).textTheme.headline5,
                   ),
                   if (version != null)
                     Text(
                       version,
-                      style: Theme.of(context).textTheme.body1,
+                      style: Theme.of(context).textTheme.bodyText2,
                     ),
                   const SizedBox(height: 18),
                   Text(
@@ -132,7 +132,7 @@ class _LicensesPageState extends State<LicensesPage> {
                   Container(height: 18),
                   Text(
                     'Powered by Flutter',
-                    style: Theme.of(context).textTheme.body1,
+                    style: Theme.of(context).textTheme.bodyText2,
                   ),
                   Container(height: 24),
                   ..._licenses,
