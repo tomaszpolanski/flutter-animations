@@ -78,7 +78,7 @@ class _Button extends StatelessWidget {
           Icon(icon, color: Colors.white, size: 16),
           const SizedBox(width: 5),
           DefaultTextStyle.merge(
-            style: Theme.of(context).textTheme.title.copyWith(
+            style: Theme.of(context).textTheme.headline6.copyWith(
                   color: Colors.white,
                 ),
             child: child,
