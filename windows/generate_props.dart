@@ -49,7 +49,8 @@ String getUserMacrosContent(Map<String, String> settings) {
 String getItemGroupContent(Map<String, String> settings) {
   final macroList = StringBuffer();
   for (final name in settings.keys) {
-    macroList.writeln('''    <BuildMacro Include="$name">
+    macroList.writeln('''
+<BuildMacro Include="$name">
       <Value>\$($name)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>''');

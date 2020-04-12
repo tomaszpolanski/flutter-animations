@@ -75,7 +75,6 @@ class _HasScrollBodyExample extends StatelessWidget {
           ]),
         ),
         CustomSliverFillRemaining(
-          hasScrollBody: true,
           child: builder(
             [
               Container(

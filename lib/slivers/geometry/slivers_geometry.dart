@@ -6,7 +6,8 @@ import 'package:animation_cheat_page/slivers/single_page.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
-const description = '''This page explains in an interactive way how 
+const description = '''
+This page explains in an interactive way how 
 different **SliverGeometry** describe Slivers.''';
 
 final sliverExamples = <SliverSectionData<SliverGeometry>>[
