@@ -73,7 +73,6 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
             ),
             const SizedBox(height: 20),
             Align(
-              alignment: Alignment.center,
               child: GestureDetector(
                 onTap: widget.onPressed,
                 child: MouseRegion(

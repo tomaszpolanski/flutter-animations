@@ -31,6 +31,7 @@ linter:
     - avoid_double_and_int_checks
     - avoid_empty_else
     - avoid_equals_and_hash_code_on_mutable_classes
+    - avoid_escaping_inner_quotes
     - avoid_field_initializers_in_const_classes
     - avoid_function_literals_in_foreach_calls
     - avoid_implementing_value_types
@@ -40,6 +41,7 @@ linter:
     - avoid_positional_boolean_parameters
     - avoid_print
     - avoid_private_typedef_functions
+    - avoid_redundant_argument_values
     - avoid_relative_lib_imports
     - avoid_renaming_method_parameters
     - avoid_return_types_on_setters
@@ -79,13 +81,17 @@ linter:
     - invariant_booleans
     - iterable_contains_unrelated_type
     - join_return_with_assignment
+    - leading_newlines_in_multiline_strings
     - library_names
     - library_prefixes
     # - lines_longer_than_80_chars # we use it when temporarily adding strings before translations
     - list_remove_unrelated_type
     - literal_only_boolean_expressions
+    - missing_whitespace_between_adjacent_strings
     - no_adjacent_strings_in_list
     - no_duplicate_case_values
+    - no_logic_in_create_state
+    - no_runtimeType_toString
     - non_constant_identifier_names
     - null_closures
     # - omit_local_variable_types # opposite of always_specify_types
@@ -158,12 +164,17 @@ linter:
     - unnecessary_null_in_if_null_operators
     - unnecessary_overrides
     - unnecessary_parenthesis
+    - unnecessary_raw_strings
     - unnecessary_statements
+    - unnecessary_string_escapes
+    - unnecessary_string_interpolations
     - unnecessary_this
     - unrelated_type_equality_checks
     - unsafe_html
     - use_full_hex_values_for_flutter_colors
     - use_function_type_syntax_for_parameters
+    - use_key_in_widget_constructors
+    - use_raw_strings
     - use_rethrow_when_possible
     - use_setters_to_change_properties
     - use_string_buffers

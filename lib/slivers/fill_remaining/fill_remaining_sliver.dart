@@ -134,9 +134,9 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
 
     assert(
       extent.isFinite,
-      'The calculated extent for the child of SliverFillRemaining is not finite.'
-      'This can happen if the child is a scrollable, in which case, the'
-      'hasScrollBody property of SliverFillRemaining should not be set to'
+      'The calculated extent for the child of SliverFillRemaining is not finite. '
+      'This can happen if the child is a scrollable, in which case, the '
+      'hasScrollBody property of SliverFillRemaining should not be set to '
       'false.',
     );
 

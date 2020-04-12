@@ -82,7 +82,7 @@ final allAnimatedWidgets = [
     body: const Text(
         'This widget changes the position and size of a widget that is within a stack.\n'
         'AnimatedPositioned triggers re-layout on every animation frame so it might be expensive.\n'
-        'In case you don\'t need to change the size of this widget, use something '
+        "In case you don't need to change the size of this widget, use something "
         'like SlideTransition which only does repaint during the animation.'),
     url: 'master/lib/animated_widgets/positioned.dart',
     builder: (_, child) => const PositionedExample(),
@@ -100,7 +100,7 @@ final allAnimatedWidgets = [
   Example(
     released: DateTime.utc(2019, 8, 2),
     title: 'AnimatedOpacity',
-    body: const Text('Simply animates the opacity. It\'s more performant '
+    body: const Text("Simply animates the opacity. It's more performant "
         'than just using Opacity widget as AnimatedOpacity does not need '
         'to rebuild the widget when animating'),
     url: 'master/lib/animated_widgets/opacity.dart',

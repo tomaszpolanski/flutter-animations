@@ -73,7 +73,7 @@ class _OverscrollExample extends StatelessWidget {
               children: const [
                 FlutterLogo(size: 50),
                 Text(
-                  'This is some longest text that should be centered'
+                  'This is some longest text that should be centered '
                   'together with the logo',
                   textAlign: TextAlign.center,
                 ),
