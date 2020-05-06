@@ -44,7 +44,7 @@ class NewSection extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.baseline,
                   textBaseline: TextBaseline.alphabetic,
                   children: [
-                    NewLabel(),
+                    const NewLabel(),
                     Text(
                       ' wigets:',
                       style: Theme.of(context).textTheme.headline4.copyWith(

@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NewLabel extends StatelessWidget {
+  const NewLabel({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(

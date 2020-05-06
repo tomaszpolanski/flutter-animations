@@ -237,7 +237,7 @@ class SectionTitle extends StatelessWidget {
         ? Wrap(
             spacing: 8,
             children: [
-              NewLabel(),
+              const NewLabel(),
               titleWidget,
             ],
           )
