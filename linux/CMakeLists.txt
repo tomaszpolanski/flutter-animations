@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
-set(BINARY_NAME "mobile_flutter_merchant")
+set(BINARY_NAME "animation_cheat_page")
 
 cmake_policy(SET CMP0063 NEW)
 
