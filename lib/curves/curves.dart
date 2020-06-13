@@ -92,8 +92,6 @@ class _CurvesSectionState extends State<CurvesSection> {
         children: <Widget>[
           singleCurveExample.body,
           Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               Expanded(

@@ -7,22 +7,18 @@ Available as a [webpage](https://flutter-animations-cheat-sheet.codemagic.app/#/
 The content of the page is [searchable](https://flutter-animations-cheat-sheet.codemagic.app/#/content).
 
 # Building
-Last tested version of Flutter that works with this repo is `v1.17.0`:
-  * **Important**: Use `version` otherwise desktop won't be picked up: `v1.17.0`
+Last tested version of Flutter that works with this repo is `1.19.0-4.1.pre`:
+  * **Important**: Use `version` otherwise desktop won't be picked up: `1.19.0-4.1.pre`
 
 ## Building for Web
-Upgrade flutter to minimum `v1.17.0`, enable web compilation and run:
+Upgrade flutter to minimum `1.19.0-4.1.pre`, enable web compilation and run:
 ```
-flutter version v1.17.0
+flutter version 1.19.0-4.1.pre
 flutter config --enable-web
 flutter run -d chrome -v
 ```
 
 ## Building for Desktop
-Enable desktop builds by running in the terminal:
-```
-flutter config --enable-linux-desktop --enable-macos-desktop --enable-windows-desktop
-```
 ### Linux
 - Add the following to `.bash_profile` replacing `$HOME/flutter/` with path to your Flutter folder.
 ```

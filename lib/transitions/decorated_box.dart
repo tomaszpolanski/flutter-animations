@@ -16,12 +16,12 @@ class DecoratedBoxExample extends StatelessWidget {
       decoration: animation.drive(DecorationTween(
         begin: BoxDecoration(
           color: Colors.white,
-          border: Border.all(color: Colors.black, width: 0),
+          border: Border.all(width: 0),
           borderRadius: const BorderRadius.all(Radius.circular(0)),
         ),
         end: BoxDecoration(
           color: Colors.yellowAccent,
-          border: Border.all(color: Colors.black, width: 35),
+          border: Border.all(width: 35),
           borderRadius: const BorderRadius.all(Radius.circular(30)),
         ),
       )),

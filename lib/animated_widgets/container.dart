@@ -44,7 +44,7 @@ class _ContainerExampleState extends State<ContainerExample> {
           ? const BoxDecoration(color: Colors.yellowAccent)
           : BoxDecoration(
               color: Colors.blue,
-              border: Border.all(color: Colors.black, width: 5),
+              border: Border.all(width: 5),
               borderRadius: const BorderRadius.all(Radius.circular(15)),
             ),
       child: const Icon(

@@ -97,7 +97,7 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
                         },
                       )
                     : IconButton(
-                        icon: Icon(Icons.content_copy),
+                        icon: const Icon(Icons.content_copy),
                         tooltip: 'Copy code',
                         onPressed: () async {
                           await copyText(_code);
