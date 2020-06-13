@@ -134,7 +134,6 @@ class Header extends StatelessWidget {
               for (int i = 0; i < rowCount; i++)
                 Row(
                   mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: children.sublist(
                     i * (children.length / rowCount).round(),
                     (i + 1) * (children.length / rowCount).round(),

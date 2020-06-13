@@ -46,7 +46,7 @@ class _SearchBarState extends State<SearchBar> {
       ),
       actions: <Widget>[
         IconButton(
-          icon: Icon(Icons.clear),
+          icon: const Icon(Icons.clear),
           onPressed: _controller.clear,
         )
       ],

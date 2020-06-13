@@ -31,7 +31,7 @@ class _CodeButtonState extends State<CodeButton> {
                 width: 20,
                 child: CircularProgressIndicator(),
               )
-            : Icon(Icons.code),
+            : const Icon(Icons.code),
         tooltip: 'Show code',
         onPressed: () async {
           setState(() => _isLoading = true);

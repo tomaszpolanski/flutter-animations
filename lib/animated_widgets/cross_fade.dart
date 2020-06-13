@@ -44,10 +44,10 @@ class _CrossFadeExampleState extends State<CrossFadeExample> {
     return AnimatedCrossFade(
       duration: const Duration(seconds: 4),
       firstChild: widget.child,
-      secondChild: Card(
+      secondChild: const Card(
         color: Colors.greenAccent,
         child: Padding(
-          padding: const EdgeInsets.all(40),
+          padding: EdgeInsets.all(40),
           child: Icon(
             Icons.public,
             size: 50,
