@@ -5,7 +5,7 @@ workflows:
   default-workflow:
     name: Default Workflow
     environment:
-      flutter: v1.13.6
+      flutter: flutte-1.19.0-4.1.pre
       xcode: latest
     cache:
       cache_paths:
