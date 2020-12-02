@@ -42,7 +42,6 @@ class NewSection extends StatelessWidget {
               children: [
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.baseline,
-                  textBaseline: TextBaseline.alphabetic,
                   children: [
                     const NewLabel(),
                     Text(

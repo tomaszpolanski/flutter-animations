@@ -34,3 +34,6 @@ ios/Flutter/flutter_export_environment.sh
 .flutter-plugins-dependencies
 windows/window_configuration.cpp_copy
 lib/generated_plugin_registrant.dart
+windows/flutter/generated_plugins.cmake
+test_driver/generic/generic_test.dart
+linux/flutter/generated_plugins.cmake

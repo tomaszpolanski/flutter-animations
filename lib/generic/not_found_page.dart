@@ -11,7 +11,6 @@ class NotFoundPage extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.baseline,
           mainAxisAlignment: MainAxisAlignment.center,
-          textBaseline: TextBaseline.alphabetic,
           children: <Widget>[
             Text(
               '0x‭194‬',
