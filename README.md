@@ -7,13 +7,13 @@ Available as a [webpage](https://flutter-animations-cheat-sheet.codemagic.app/#/
 The content of the page is [searchable](https://flutter-animations-cheat-sheet.codemagic.app/#/content).
 
 # Building
-Last tested version of Flutter that works with this repo is `1.19.0-4.1.pre`:
-  * **Important**: Use `version` otherwise desktop won't be picked up: `1.19.0-4.1.pre`
+Last tested version of Flutter that works with this repo is `1.23.0-18.1.pre`:
+  * **Important**: Use `version` otherwise desktop won't be picked up: `1.23.0-18.1.pre`
 
 ## Building for Web
-Upgrade flutter to minimum `1.19.0-4.1.pre`, enable web compilation and run:
+Upgrade flutter to minimum `1.23.0-18.1.pre`, enable web compilation and run:
 ```
-flutter version 1.19.0-4.1.pre
+flutter version 1.23.0-18.1.pre
 flutter config --enable-web
 flutter run -d chrome -v
 ```
