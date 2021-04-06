@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 
 class PositionedDirectionalExample extends StatefulWidget {
   const PositionedDirectionalExample({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -16,13 +16,13 @@ class PositionedDirectionalExample extends StatefulWidget {
 class _PositionedDirectionalExampleState
     extends State<PositionedDirectionalExample> {
   bool _showFirst = false;
-  Timer _timer;
+  late Timer _timer;
 
   @override
   void initState() {
     super.initState();
     // starts animating just after the first frame
-    WidgetsBinding.instance.addPostFrameCallback(
+    WidgetsBinding.instance!.addPostFrameCallback(
       (_) => setState(() => _showFirst = !_showFirst),
     );
     _timer = Timer.periodic(

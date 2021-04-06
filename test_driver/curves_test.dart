@@ -9,7 +9,7 @@ import 'generic/test_configuration.dart';
 
 void main(List<String> args) {
   group('Curves', () {
-    FlutterDriver driver;
+    late FlutterDriver driver;
     final properties = TestProperties(args);
 
     setUpAll(() async {
@@ -17,7 +17,7 @@ void main(List<String> args) {
     });
 
     tearDownAll(() async {
-      await driver?.close();
+      await driver.close();
     });
 
     setUp(() async {

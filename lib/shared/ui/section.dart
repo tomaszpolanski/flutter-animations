@@ -8,18 +8,14 @@ import 'package:flutter/material.dart';
 
 class Section extends StatefulWidget {
   const Section({
-    Key key,
-    @required this.title,
-    @required this.url,
-    @required this.released,
-    @required this.body,
-    @required this.child,
+    Key? key,
+    required this.title,
+    required this.url,
+    required this.released,
+    required this.body,
+    required this.child,
     this.onPressed,
-  })  : assert(title != null),
-        assert(url != null),
-        assert(released != null),
-        assert(body != null),
-        assert(child != null),
+  })  :
         super(key: key);
 
   final String title;
@@ -27,15 +23,15 @@ class Section extends StatefulWidget {
   final DateTime released;
   final Widget body;
   final Widget child;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   @override
   _SectionState createState() => _SectionState();
 }
 
 class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  String _code;
+  late AnimationController _controller;
+  String? _code;
 
   @override
   void initState() {
@@ -68,7 +64,7 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
             const SizedBox(height: 20),
             DefaultTextStyle.merge(
               style:
-                  Theme.of(context).textTheme.subtitle1.copyWith(fontSize: 25),
+                  Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 25),
               child: widget.body,
             ),
             const SizedBox(height: 20),
@@ -104,7 +100,7 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
                           const snackBar = SnackBar(
                             content: Text('Code copied!'),
                           );
-                          Scaffold.of(context).showSnackBar(snackBar);
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
                         },
                       ),
               ),
@@ -120,18 +116,14 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
 
 class DoubleSection extends StatelessWidget {
   const DoubleSection({
-    Key key,
-    @required this.title,
-    @required this.url,
-    @required this.released,
-    @required this.body,
-    @required this.children,
+    Key? key,
+    required this.title,
+    required this.url,
+    required this.released,
+    required this.body,
+    required this.children,
     this.onPressed,
-  })  : assert(title != null),
-        assert(url != null),
-        assert(released != null),
-        assert(body != null),
-        assert(children != null),
+  })  :
         super(key: key);
 
   final String title;
@@ -139,7 +131,7 @@ class DoubleSection extends StatelessWidget {
   final DateTime released;
   final Widget body;
   final List<Widget> children;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -155,7 +147,7 @@ class DoubleSection extends StatelessWidget {
             const SizedBox(height: 20),
             DefaultTextStyle.merge(
               style:
-                  Theme.of(context).textTheme.subtitle1.copyWith(fontSize: 25),
+                  Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 25),
               child: body,
             ),
             const SizedBox(height: 20),
@@ -172,11 +164,10 @@ class DoubleSection extends StatelessWidget {
 
 class SectionHeader extends StatelessWidget {
   const SectionHeader({
-    Key key,
-    @required this.title,
-    @required this.child,
-  })  : assert(title != null),
-        assert(child != null),
+    Key? key,
+    required this.title,
+    required this.child,
+  })  :
         super(key: key);
 
   final Widget title;
@@ -194,14 +185,14 @@ class SectionHeader extends StatelessWidget {
             DefaultTextStyle.merge(
               style: Theme.of(context)
                   .textTheme
-                  .headline4
+                  .headline4!
                   .copyWith(fontWeight: FontWeight.bold, color: Colors.black),
               child: title,
             ),
             const SizedBox(height: 20),
             DefaultTextStyle.merge(
               style:
-                  Theme.of(context).textTheme.subtitle1.copyWith(fontSize: 25),
+                  Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 25),
               child: child,
             ),
             const SizedBox(height: 20),
@@ -214,11 +205,10 @@ class SectionHeader extends StatelessWidget {
 
 class SectionTitle extends StatelessWidget {
   const SectionTitle({
-    Key key,
-    @required this.title,
-    @required this.released,
-  })  : assert(title != null),
-        assert(released != null),
+    Key? key,
+    required this.title,
+    required this.released,
+  })  :
         super(key: key);
 
   final String title;
@@ -228,7 +218,7 @@ class SectionTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     final titleWidget = Text(
       title,
-      style: Theme.of(context).textTheme.headline5.copyWith(
+      style: Theme.of(context).textTheme.headline5!.copyWith(
             fontWeight: FontWeight.bold,
             fontSize: 35,
           ),

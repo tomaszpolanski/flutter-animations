@@ -11,7 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:presentation/presentation.dart';
 
 class SliversGeometryPage extends StatelessWidget {
-  const SliversGeometryPage({Key key}) : super(key: key);
+  const SliversGeometryPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

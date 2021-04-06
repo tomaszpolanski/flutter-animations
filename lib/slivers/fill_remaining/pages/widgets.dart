@@ -27,9 +27,9 @@ final widgetExamples = <dynamic, SliverExample>{
 
 class SliverExample {
   const SliverExample({
-    @required this.title,
-    @required this.description,
-    @required String url,
+    required this.title,
+    required this.description,
+    required String url,
   }) : _url = url;
 
   final String title;

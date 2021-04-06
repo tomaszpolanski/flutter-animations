@@ -88,7 +88,7 @@ Map<String, WidgetBuilder> get pages {
     Routes.slivers_constraints: (_) => const SliversConstraintsPage(),
     ...singlePages(
       sliverExamples,
-      builder: (example) => SingleSliverConstraintsPage(example),
+      builder: (example) => SingleSliverConstraintsPage(example as SliverSectionData<SliverConstraints>),
     )
   };
 }

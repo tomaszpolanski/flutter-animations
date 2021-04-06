@@ -18,11 +18,11 @@ import 'package:universal_html/html.dart' as html;
 
 class RootPage extends StatelessWidget {
   const RootPage({
-    Key key,
+    Key? key,
     this.repeatAnimations = true,
   }) : super(key: key);
 
-  final bool repeatAnimations;
+  final bool? repeatAnimations;
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +34,11 @@ class RootPage extends StatelessWidget {
 
 class _AnimationProvider extends StatefulWidget {
   const _AnimationProvider({
-    Key key,
-    @required this.repeatAnimations,
+    Key? key,
+    required this.repeatAnimations,
   }) : super(key: key);
 
-  final bool repeatAnimations;
+  final bool? repeatAnimations;
 
   @override
   __AnimationProviderState createState() => __AnimationProviderState();
@@ -46,8 +46,8 @@ class _AnimationProvider extends StatefulWidget {
 
 class __AnimationProviderState extends State<_AnimationProvider>
     with TickerProviderStateMixin {
-  AnimationController _controller;
-  AnimationController _headerController;
+  late AnimationController _controller;
+  late AnimationController _headerController;
 
   @override
   void initState() {
@@ -55,7 +55,7 @@ class __AnimationProviderState extends State<_AnimationProvider>
       vsync: this,
       duration: const Duration(seconds: 3),
     );
-    if (widget.repeatAnimations) {
+    if (widget.repeatAnimations!) {
       _controller.repeat(reverse: true);
     }
     _headerController = AnimationController(
@@ -80,7 +80,7 @@ class __AnimationProviderState extends State<_AnimationProvider>
       final snackBar = SnackBar(
         content: Text('Copied link:\n$url'),
       );
-      Scaffold.of(context).showSnackBar(snackBar);
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
   }
 

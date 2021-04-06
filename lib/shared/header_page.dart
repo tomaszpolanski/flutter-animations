@@ -4,23 +4,23 @@ import 'package:flutter/material.dart';
 
 class HeaderPage extends StatefulWidget {
   const HeaderPage({
-    Key key,
-    @required this.builder,
+    Key? key,
+    required this.builder,
     this.header,
-    @required this.repeatAnimations,
+    required this.repeatAnimations,
   }) : super(key: key);
 
   final AnimatedWidgetBuilder builder;
-  final Widget header;
-  final bool repeatAnimations;
+  final Widget? header;
+  final bool? repeatAnimations;
 
   @override
   _HeaderPageState createState() => _HeaderPageState();
 }
 
 class _HeaderPageState extends State<HeaderPage> with TickerProviderStateMixin {
-  AnimationController _controller;
-  AnimationController _headerController;
+  late AnimationController _controller;
+  late AnimationController _headerController;
 
   @override
   void initState() {
@@ -28,7 +28,7 @@ class _HeaderPageState extends State<HeaderPage> with TickerProviderStateMixin {
       vsync: this,
       duration: const Duration(seconds: 3),
     );
-    if (widget.repeatAnimations) {
+    if (widget.repeatAnimations!) {
       _controller.repeat(reverse: true);
     }
     _headerController = AnimationController(

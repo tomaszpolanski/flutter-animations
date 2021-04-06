@@ -3,9 +3,9 @@ import 'package:flutter/widgets.dart';
 
 class DecoratedBoxExample extends StatelessWidget {
   const DecoratedBoxExample({
-    @required this.animation,
-    Key key,
-  })  : assert(animation != null),
+    required this.animation,
+    Key? key,
+  })  :
         super(key: key);
 
   final Animation<double> animation;

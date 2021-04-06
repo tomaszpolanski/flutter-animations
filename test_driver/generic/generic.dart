@@ -13,9 +13,12 @@ void main() {
   debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
   timeDilation = 0.1;
   enableFlutterDriverExtension(
-    handler: (playload) => configureTest(
-      TestConfiguration.fromJson(json.decode(playload)),
-    ),
+    handler: (playload) async {
+      await configureTest(
+        TestConfiguration.fromJson(json.decode(playload ?? '{}')),
+      );
+      return '';
+    },
   );
 
   runApp(

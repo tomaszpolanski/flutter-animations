@@ -5,10 +5,10 @@ import 'package:presentation/presentation.dart';
 class CodeBlock extends StatefulWidget {
   const CodeBlock(
     this.code, {
-    Key key,
+    Key? key,
   }) : super(key: key);
 
-  final String code;
+  final String? code;
 
   @override
   _CodeBlockState createState() => _CodeBlockState();
@@ -34,7 +34,7 @@ class _CodeBlockState extends State<CodeBlock> {
           borderRadius: const BorderRadius.all(Radius.circular(5)),
         ),
         child: Editor(
-          widget.code,
+          widget.code!,
           brightness: _brightness,
           nested: true,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),

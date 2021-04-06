@@ -2,11 +2,10 @@ import 'package:flutter/widgets.dart';
 
 class PositionedExample extends StatelessWidget {
   const PositionedExample({
-    @required this.animation,
-    @required this.child,
-    Key key,
-  })  : assert(animation != null),
-        assert(child != null),
+    required this.animation,
+    required this.child,
+    Key? key,
+  })  :
         super(key: key);
 
   final Widget child;

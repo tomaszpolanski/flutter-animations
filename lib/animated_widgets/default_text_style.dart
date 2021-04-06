@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 
 class AnimatedDefaultTextStyleExample extends StatefulWidget {
   const AnimatedDefaultTextStyleExample({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -16,13 +16,13 @@ class AnimatedDefaultTextStyleExample extends StatefulWidget {
 class _AnimatedDefaultTextStyleExampleState
     extends State<AnimatedDefaultTextStyleExample> {
   bool _showFirst = false;
-  Timer _timer;
+  late Timer _timer;
 
   @override
   void initState() {
     super.initState();
     // starts animating just after the first frame
-    WidgetsBinding.instance.addPostFrameCallback(
+    WidgetsBinding.instance!.addPostFrameCallback(
       (_) => setState(() => _showFirst = !_showFirst),
     );
     _timer = Timer.periodic(
@@ -42,8 +42,8 @@ class _AnimatedDefaultTextStyleExampleState
     return AnimatedDefaultTextStyle(
       duration: const Duration(seconds: 4),
       style: _showFirst
-          ? Theme.of(context).textTheme.headline4
-          : Theme.of(context).textTheme.headline2,
+          ? Theme.of(context).textTheme.headline4!
+          : Theme.of(context).textTheme.headline2!,
       child: const Text('FlutterFlutterFlutterFlutterFlutterFlutter'),
     );
   }

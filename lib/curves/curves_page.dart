@@ -5,9 +5,9 @@ import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:flutter/widgets.dart';
 
 class CurvesPage extends StatelessWidget {
-  const CurvesPage({Key key, @required this.repeatAnimations})
+  const CurvesPage({Key? key, required this.repeatAnimations})
       : super(key: key);
-  final bool repeatAnimations;
+  final bool? repeatAnimations;
 
   @override
   Widget build(BuildContext context) {

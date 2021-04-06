@@ -5,11 +5,11 @@ import 'package:flutter/widgets.dart';
 
 class CustomSliverFillRemaining extends SingleChildRenderObjectWidget {
   const CustomSliverFillRemaining({
-    Key key,
-    Widget child,
+    Key? key,
+    Widget? child,
     this.hasScrollBody = true,
     this.fillOverscroll = false,
-  })  : assert(hasScrollBody != null),
+  })  :
         super(key: key, child: child);
 
   final bool hasScrollBody;
@@ -36,10 +36,10 @@ class CustomSliverFillRemaining extends SingleChildRenderObjectWidget {
 
 class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
   _RenderSliverFillRemaining({
-    RenderBox child,
+    RenderBox? child,
     this.hasScrollBody = true,
     this.fillOverscroll = false,
-  })  : assert(hasScrollBody != null),
+  })  :
         super(child: child);
 
   bool hasScrollBody;
@@ -48,7 +48,7 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
   @override
   void performLayout() {
     /// The size of the child
-    double childExtent;
+    double? childExtent;
 
     /// viewportMainAxisExtent size of the viewport
     /// precedingScrollExtent how far is the sliver in the scrollview
@@ -60,7 +60,7 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
     ///   than available space
     /// - OR previous slivers pushes the sliver outside so it's fills the remaining
     ///   space which is zero but still it needs to display the child
-    double extent =
+    double? extent =
         constraints.viewportMainAxisExtent - constraints.precedingScrollExtent;
 
     /// remainingPaintExtent starts with 0 until a first pixel of the sliver is visible,
@@ -68,13 +68,13 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
     /// This is the maximum size how big can be our widget - it cannot be bigger
     /// than the viewport
     /// In case of iOS over-scroll it can grow to be bigger than the extent
-    double maxExtent =
+    double? maxExtent =
         constraints.remainingPaintExtent - math.min(constraints.overlap, 0.0);
 
     if (hasScrollBody) {
       extent = maxExtent;
       if (child != null) {
-        child.layout(
+        child!.layout(
           constraints.asBoxConstraints(
             minExtent: extent,
             maxExtent: extent,
@@ -88,13 +88,13 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
         case Axis.horizontal:
 
           /// crossAxisExtent is here ScrollView's height
-          childExtent = child.getMaxIntrinsicWidth(constraints.crossAxisExtent);
+          childExtent = child!.getMaxIntrinsicWidth(constraints.crossAxisExtent);
           break;
         case Axis.vertical:
 
           /// crossAxisExtent is here ScrollView's width
           childExtent =
-              child.getMaxIntrinsicHeight(constraints.crossAxisExtent);
+              child!.getMaxIntrinsicHeight(constraints.crossAxisExtent);
           break;
       }
 
@@ -119,7 +119,7 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
       /// In case iOS-like overscroll behavior is enabled, we need to allow
       /// the child to grow to match the overscroll
       if ((fillOverscroll ? maxExtent : extent) > childExtent) {
-        child.layout(
+        child!.layout(
           constraints.asBoxConstraints(
             minExtent: extent,
             maxExtent: fillOverscroll ? maxExtent : extent,
@@ -128,7 +128,7 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
         );
       } else {
         /// No need for the child to handle overscroll
-        child.layout(constraints.asBoxConstraints(), parentUsesSize: true);
+        child!.layout(constraints.asBoxConstraints(), parentUsesSize: true);
       }
     }
 
@@ -159,7 +159,7 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
           constraints.scrollOffset > 0.0,
     );
     if (child != null) {
-      setChildParentData(child, constraints, geometry);
+      setChildParentData(child!, constraints, geometry!);
     }
   }
 }

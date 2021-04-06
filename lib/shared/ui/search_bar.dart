@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class SearchBar extends StatefulWidget implements PreferredSizeWidget {
   const SearchBar({
-    Key key,
-    @required this.onChanged,
+    Key? key,
+    required this.onChanged,
   }) : super(key: key);
 
   final ValueChanged<String> onChanged;
@@ -16,20 +16,20 @@ class SearchBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _SearchBarState extends State<SearchBar> {
-  TextEditingController _controller;
+  TextEditingController? _controller;
 
   @override
   void initState() {
     _controller = TextEditingController()
       ..addListener(() {
-        widget.onChanged(_controller.text);
+        widget.onChanged(_controller!.text);
       });
     super.initState();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller!.dispose();
     super.dispose();
   }
 
@@ -40,14 +40,14 @@ class _SearchBarState extends State<SearchBar> {
       title: TextField(
         controller: _controller,
         style: Theme.of(context).primaryTextTheme.headline6,
-        cursorColor: Theme.of(context).primaryTextTheme.headline6.color,
+        cursorColor: Theme.of(context).primaryTextTheme.headline6!.color,
         keyboardType: TextInputType.text,
         autofocus: true,
       ),
       actions: <Widget>[
         IconButton(
           icon: const Icon(Icons.clear),
-          onPressed: _controller.clear,
+          onPressed: _controller!.clear,
         )
       ],
     );

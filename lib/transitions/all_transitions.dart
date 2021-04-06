@@ -136,17 +136,12 @@ typedef AnimatedWidgetBuilder = Widget Function(
 
 class Example {
   const Example({
-    @required this.released,
-    @required this.title,
-    @required this.body,
-    @required String url,
-    @required this.builder,
-  })  : assert(released != null),
-        assert(title != null),
-        assert(url != null),
-        assert(body != null),
-        assert(builder != null),
-        _url = url;
+    required this.released,
+    required this.title,
+    required this.body,
+    required String url,
+    required this.builder,
+  })  : _url = url;
 
   final DateTime released;
   final String title;

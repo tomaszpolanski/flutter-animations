@@ -6,11 +6,10 @@ import 'package:presentation/presentation.dart';
 
 class AppFrameCard extends StatelessWidget {
   const AppFrameCard({
-    Key key,
-    @required this.title,
-    @required this.child,
-  })  : assert(child != null),
-        super(key: key);
+    Key? key,
+    required this.title,
+    required this.child,
+  })  : super(key: key);
 
   final String title;
   final Widget child;

@@ -3,9 +3,9 @@ import 'package:flutter/widgets.dart';
 
 class DefaultTextStyleExample extends StatelessWidget {
   const DefaultTextStyleExample({
-    @required this.animation,
-    Key key,
-  })  : assert(animation != null),
+    required this.animation,
+    Key? key,
+  })  :
         super(key: key);
 
   final Animation<double> animation;

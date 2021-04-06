@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 
 class PositionedExample extends StatefulWidget {
   const PositionedExample({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -14,13 +14,13 @@ class PositionedExample extends StatefulWidget {
 
 class _PositionedExampleState extends State<PositionedExample> {
   bool _showFirst = false;
-  Timer _timer;
+  late Timer _timer;
 
   @override
   void initState() {
     super.initState();
     // starts animating just after the first frame
-    WidgetsBinding.instance.addPostFrameCallback(
+    WidgetsBinding.instance!.addPostFrameCallback(
       (_) => setState(() => _showFirst = !_showFirst),
     );
     _timer = Timer.periodic(

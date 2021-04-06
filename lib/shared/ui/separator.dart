@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class Separator extends StatelessWidget {
-  const Separator({Key key}) : super(key: key);
+  const Separator({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

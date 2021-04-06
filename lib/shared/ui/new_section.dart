@@ -7,13 +7,11 @@ import 'new_label.dart';
 
 class NewSection extends StatelessWidget {
   const NewSection({
-    Key key,
-    @required this.transitions,
-    @required this.animated,
-    @required this.curves,
-  })  : assert(transitions != null),
-        assert(animated != null),
-        assert(curves != null),
+    Key? key,
+    required this.transitions,
+    required this.animated,
+    required this.curves,
+  })  :
         super(key: key);
 
   final List<Example> transitions;
@@ -30,7 +28,7 @@ class NewSection extends StatelessWidget {
         .map((example) => Text(
               '    • ${example.title}',
               style:
-                  Theme.of(context).textTheme.headline6.copyWith(fontSize: 25),
+                  Theme.of(context).textTheme.headline6!.copyWith(fontSize: 25),
             ))
         .toList(growable: false);
     return children.isNotEmpty
@@ -46,7 +44,7 @@ class NewSection extends StatelessWidget {
                     const NewLabel(),
                     Text(
                       ' wigets:',
-                      style: Theme.of(context).textTheme.headline4.copyWith(
+                      style: Theme.of(context).textTheme.headline4!.copyWith(
                           fontWeight: FontWeight.bold, color: Colors.black),
                     ),
                   ],

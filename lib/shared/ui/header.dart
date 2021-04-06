@@ -7,11 +7,11 @@ class AnimatedHeader extends StatefulWidget {
   const AnimatedHeader(
     this.text, {
     this.onPressed,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final String text;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   @override
   _AnimatedHeaderState createState() => _AnimatedHeaderState();
@@ -19,7 +19,7 @@ class AnimatedHeader extends StatefulWidget {
 
 class _AnimatedHeaderState extends State<AnimatedHeader>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  AnimationController? _controller;
 
   @override
   void initState() {
@@ -32,7 +32,7 @@ class _AnimatedHeaderState extends State<AnimatedHeader>
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller!.dispose();
     super.dispose();
   }
 
@@ -49,15 +49,15 @@ class _AnimatedHeaderState extends State<AnimatedHeader>
 class Header extends StatelessWidget {
   Header(
     String text, {
-    @required this.animation,
+    required this.animation,
     this.onPressed,
-    Key key,
+    Key? key,
   })  : letters = text.split(''),
         super(key: key);
 
-  final Animation<double> animation;
+  final Animation<double>? animation;
   final List<String> letters;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   int calculateRowCount(double screenWidth) {
     if (screenWidth > 1080) {
@@ -87,7 +87,7 @@ class Header extends StatelessWidget {
                 end: 1,
               ).animate(
                 CurvedAnimation(
-                  parent: animation,
+                  parent: animation!,
                   curve: Interval(
                     (i / 2) / letters.length,
                     (1 + i) / letters.length,

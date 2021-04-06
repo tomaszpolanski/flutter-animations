@@ -4,12 +4,10 @@ import 'package:http/http.dart' as http;
 
 class CodeButton extends StatefulWidget {
   const CodeButton({
-    Key key,
-    @required this.url,
-    @required this.onFetched,
-  })  : assert(url != null),
-        assert(onFetched != null),
-        super(key: key);
+    Key? key,
+    required this.url,
+    required this.onFetched,
+  }) : super(key: key);
 
   final String url;
   final ValueChanged<String> onFetched;
@@ -35,7 +33,7 @@ class _CodeButtonState extends State<CodeButton> {
         tooltip: 'Show code',
         onPressed: () async {
           setState(() => _isLoading = true);
-          final code = await http.get(widget.url);
+          final code = await http.get(Uri.parse(widget.url));
           setState(() => _isLoading = false);
           widget.onFetched(
             code.body
