@@ -12,7 +12,7 @@ import 'package:animation_cheat_page/transitions/size.dart';
 import 'package:animation_cheat_page/transitions/slide.dart';
 
 const description = '''
-are lightweight and you and more clean to combine. They do not need to be placed it a StatefullWidget to work, but they need to have access Animation object (usually is an AnimationController). 
+are lightweight and more clean to combine. They do not need to be placed it a StatefullWidget to work, but they need to have access Animation object (usually is an AnimationController). 
 In the beginning, Transitions might be harder to use vs Animated Widgets, but in the long run, they end up with cleaner code when creating more advanced animations.
 ''';
 final released = DateTime.utc(2019, 7, 22);
