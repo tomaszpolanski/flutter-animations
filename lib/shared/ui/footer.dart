@@ -72,6 +72,9 @@ class _Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
+      style: TextButton.styleFrom(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+      ),
       onPressed: onPressed,
       child: Row(
         children: <Widget>[

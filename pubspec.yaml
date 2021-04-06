@@ -12,8 +12,12 @@ dependencies:
 
   google_fonts: ^2.0.0
   http: ^0.13.0
-  presentation: ^0.0.10+1
-  universal_html: ^1.1.6
+  presentation: ^1.0.0
+  universal_html: ^2.0.8
+  args: ^2.0.0
+  process_run: ^0.12.0
+  rxdart: ^0.24.1
+  url_launcher: ^6.0.3
 
 dev_dependencies:
   flutter_driver:
@@ -23,10 +27,6 @@ dev_dependencies:
 
 
   test: ^1.6.3
-  args: ^2.0.0
-  process_run: ^0.12.0
-  rxdart: ^0.24.1
-  url_launcher: ^6.0.3
   fast_flutter_driver: ^3.0.0
 
 flutter:
