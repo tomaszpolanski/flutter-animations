@@ -11,8 +11,8 @@ class Configuration {
     );
   }
 
-  final String route;
-  final bool repeatAnimations;
+  final String? route;
+  final bool? repeatAnimations;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
         'route': route,

@@ -5,10 +5,9 @@ import 'package:flutter/widgets.dart';
 
 class CrossFadeExample extends StatefulWidget {
   const CrossFadeExample({
-    @required this.child,
-    Key key,
-  })  : assert(child != null),
-        super(key: key);
+    required this.child,
+    Key? key,
+  }) : super(key: key);
 
   final Widget child;
 
@@ -18,13 +17,13 @@ class CrossFadeExample extends StatefulWidget {
 
 class _CrossFadeExampleState extends State<CrossFadeExample> {
   bool _showFirst = false;
-  Timer _timer;
+  late Timer _timer;
 
   @override
   void initState() {
     super.initState();
     // starts animating just after the first frame
-    WidgetsBinding.instance.addPostFrameCallback(
+    WidgetsBinding.instance!.addPostFrameCallback(
       (_) => setState(() => _showFirst = !_showFirst),
     );
     _timer = Timer.periodic(

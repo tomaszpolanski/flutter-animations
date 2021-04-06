@@ -11,7 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:presentation/presentation.dart';
 
 class SingleSliverConstraintsPage extends StatelessWidget {
-  const SingleSliverConstraintsPage(this.data, {Key key}) : super(key: key);
+  const SingleSliverConstraintsPage(this.data, {Key? key}) : super(key: key);
 
   final SliverSectionData<SliverConstraints> data;
 
@@ -20,7 +20,7 @@ class SingleSliverConstraintsPage extends StatelessWidget {
     return _SingleSliverPage(
       data,
       title: const Text('Constraints'),
-      builder: (context, ValueChanged<Object> onChanged) {
+      builder: (context, ValueChanged<Object?> onChanged) {
         return SliverValueChanged(
           onConstraintsChanged: (constraints) {
             onChanged(data.mapper(constraints));
@@ -36,7 +36,7 @@ class SingleSliverConstraintsPage extends StatelessWidget {
 }
 
 class SingleSliverGeometryPage extends StatelessWidget {
-  const SingleSliverGeometryPage(this.data, {Key key}) : super(key: key);
+  const SingleSliverGeometryPage(this.data, {Key? key}) : super(key: key);
 
   final SliverSectionData<SliverGeometry> data;
 
@@ -45,7 +45,7 @@ class SingleSliverGeometryPage extends StatelessWidget {
     return _SingleSliverPage(
       data,
       title: const Text('Geometry'),
-      builder: (context, ValueChanged<Object> onChanged) {
+      builder: (context, ValueChanged<Object?> onChanged) {
         return SliverValueChanged(
           onGeometryChanged: (geometry) {
             onChanged(data.mapper(geometry));
@@ -62,13 +62,13 @@ class SingleSliverGeometryPage extends StatelessWidget {
 
 Map<String, WidgetBuilder> singlePages<T>(
   List<SliverSectionData<T>> examples, {
-  Widget Function(SliverSectionData<T> data) builder,
+  Widget Function(SliverSectionData<T> data)? builder,
 }) {
   return Map.fromEntries(
     examples.map((example) {
       return MapEntry(
         '${Routes.slivers}/${example.title}',
-        (_) => builder(example),
+        (_) => builder!(example),
       );
     }),
   );
@@ -77,14 +77,14 @@ Map<String, WidgetBuilder> singlePages<T>(
 class _SingleSliverPage<T> extends StatelessWidget {
   const _SingleSliverPage(
     this.data, {
-    Key key,
-    @required this.title,
-    @required this.builder,
+    Key? key,
+    required this.title,
+    required this.builder,
   }) : super(key: key);
 
   final SliverSectionData<T> data;
   final Widget title;
-  final Widget Function(BuildContext, ValueChanged<Object> onChanged) builder;
+  final Widget Function(BuildContext, ValueChanged<Object?> onChanged) builder;
 
   @override
   Widget build(BuildContext context) {

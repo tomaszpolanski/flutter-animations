@@ -1,26 +1,22 @@
 import 'package:animation_cheat_page/shared/network/urls.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 class SliverSection extends StatefulWidget {
   const SliverSection({
-    Key key,
-    @required this.title,
-    @required this.body,
+    Key? key,
+    required this.title,
+    required this.body,
     this.leading,
     this.trailing,
-    @required this.builder,
-  })  : assert(title != null),
-        assert(body != null),
-        assert(builder != null),
-        super(key: key);
+    required this.builder,
+  }) : super(key: key);
 
   final String title;
   final Widget body;
-  final Widget leading;
-  final Widget trailing;
-  final Widget Function(BuildContext, ValueChanged<Object> onChanged) builder;
+  final Widget? leading;
+  final Widget? trailing;
+  final Widget Function(BuildContext, ValueChanged<Object?> onChanged) builder;
 
   @override
   _SliverSectionState createState() => _SliverSectionState();
@@ -44,7 +40,7 @@ class _SliverSectionState extends State<SliverSection> {
                 child: Placeholder(fallbackHeight: 500),
               ),
           widget.builder(context, (value) {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
+            WidgetsBinding.instance!.addPostFrameCallback((_) {
               setState(() => _value = value.toString());
             });
           }),
@@ -60,16 +56,16 @@ class _SliverSectionState extends State<SliverSection> {
 
 class SliverSectionData<T> {
   const SliverSectionData({
-    @required this.title,
-    @required this.description,
-    @required this.mapper,
+    required this.title,
+    required this.description,
+    required this.mapper,
     this.leading,
     this.trailing,
   });
 
   final String title;
   final String description;
-  final Widget leading;
-  final Widget trailing;
-  final Object Function(T) mapper;
+  final Widget? leading;
+  final Widget? trailing;
+  final Object? Function(T) mapper;
 }

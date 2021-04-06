@@ -2,8 +2,7 @@ name: animation_cheat_page
 description: Presentations made with Flutter
 
 environment:
-  sdk: ">=2.6.0-dev.0.0.flutter-1103600280 <3.0.0"
-  flutter: ">=1.14.6 <2.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
@@ -11,23 +10,24 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  presentation: ^0.0.10+1
-  google_fonts: ^1.1.0
-  http: ^0.12.0+1
-  universal_html: ^1.1.6
+  google_fonts: ^2.0.0
+  http: ^0.13.0
+  presentation: ^1.0.0
+  universal_html: ^2.0.8
+  args: ^2.0.0
+  process_run: ^0.12.0
+  rxdart: ^0.24.1
+  url_launcher: ^6.0.3
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
   flutter_driver:
     sdk: flutter
+  flutter_test:
+    sdk: flutter
+
 
   test: ^1.6.3
-  args: ^1.5.2
-  process_run: ^0.10.3
-  rxdart: ^0.24.1
-  url_launcher: ^5.4.1
-  fast_flutter_driver: ^0.1.0
+  fast_flutter_driver: ^3.0.0
 
 flutter:
 

@@ -16,14 +16,14 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AnimationCheatSheet extends StatelessWidget {
   const AnimationCheatSheet({
-    Key key,
-    @required this.config,
+    Key? key,
+    required this.config,
   }) : super(key: key);
 
   final Configuration config;
 
   static const title = 'Flutter Animations';
-  static final GlobalKey gKey = GlobalKey<NavigatorState>();
+  static final gKey = GlobalKey<NavigatorState>();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class AnimationCheatSheet extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       navigatorKey: gKey,
       builder: (_, child) {
-        return ScrollConfiguration(behavior: NoOverflow(), child: child);
+        return ScrollConfiguration(behavior: NoOverflow(), child: child!);
       },
       theme: ThemeData(
         textTheme: GoogleFonts.crimsonProTextTheme(),
@@ -46,7 +46,7 @@ class AnimationCheatSheet extends StatelessWidget {
     );
   }
 
-  static Map<String, WidgetBuilder> routes({bool repeatAnimations = false}) {
+  static Map<String, WidgetBuilder> routes({bool? repeatAnimations = false}) {
     return {
       Routes.root: (_) => RootPage(repeatAnimations: repeatAnimations),
       Routes.curves: (_) => CurvesPage(repeatAnimations: repeatAnimations),

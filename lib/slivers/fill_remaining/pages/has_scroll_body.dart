@@ -9,11 +9,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:presentation/presentation.dart';
 
 class HasScrollBodyPage extends StatelessWidget {
-  const HasScrollBodyPage({Key key}) : super(key: key);
+  const HasScrollBodyPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final SliverExample example = widgetExamples[HasScrollBodyPage];
+    final SliverExample example = widgetExamples[HasScrollBodyPage]!;
     return Scaffold(
       body: Column(
         children: <Widget>[
@@ -56,9 +56,9 @@ class HasScrollBodyPage extends StatelessWidget {
 
 class _HasScrollBodyExample extends StatelessWidget {
   const _HasScrollBodyExample({
-    Key key,
-    @required this.hasScrollBody,
-    @required this.builder,
+    Key? key,
+    required this.hasScrollBody,
+    required this.builder,
   }) : super(key: key);
 
   final bool hasScrollBody;

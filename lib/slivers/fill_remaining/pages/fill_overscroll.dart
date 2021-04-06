@@ -8,11 +8,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:presentation/presentation.dart';
 
 class FillOverscrollPage extends StatelessWidget {
-  const FillOverscrollPage({Key key}) : super(key: key);
+  const FillOverscrollPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final SliverExample example = widgetExamples[FillOverscrollPage];
+    final SliverExample example = widgetExamples[FillOverscrollPage]!;
     return MaterialApp(
       color: Colors.white,
       home: Theme(
@@ -45,8 +45,8 @@ class FillOverscrollPage extends StatelessWidget {
 
 class _OverscrollExample extends StatelessWidget {
   const _OverscrollExample({
-    Key key,
-    @required this.fillOverscroll,
+    Key? key,
+    required this.fillOverscroll,
   }) : super(key: key);
 
   final bool fillOverscroll;

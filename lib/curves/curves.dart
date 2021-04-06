@@ -16,14 +16,11 @@ final singleCurveExample = Example(
 
 class CurvesSection extends StatefulWidget {
   const CurvesSection({
-    Key key,
-    @required this.animation,
-    @required this.child,
-    @required this.onPressed,
-  })  : assert(animation != null),
-        assert(child != null),
-        assert(onPressed != null),
-        super(key: key);
+    Key? key,
+    required this.animation,
+    required this.child,
+    required this.onPressed,
+  }) : super(key: key);
 
   final Widget child;
   final ValueChanged<String> onPressed;
@@ -132,11 +129,9 @@ class _CurvesSectionState extends State<CurvesSection> {
 class _DropdownCurve extends StatelessWidget {
   const _DropdownCurve(
     this.curve, {
-    Key key,
-    @required this.onChanged,
-  })  : assert(curve != null),
-        assert(onChanged != null),
-        super(key: key);
+    Key? key,
+    required this.onChanged,
+  }) : super(key: key);
 
   final Curve curve;
   final ValueChanged<Curve> onChanged;
@@ -146,12 +141,12 @@ class _DropdownCurve extends StatelessWidget {
     return DropdownButton(
       isExpanded: true,
       value: curve,
-      onChanged: onChanged,
+      onChanged: (c) => c!,
       items: [
         for (final curve in _allCurves.keys)
           DropdownMenuItem<Curve>(
             value: curve,
-            child: Text(_allCurves[curve]),
+            child: Text(_allCurves[curve]!),
           ),
       ],
     );
@@ -160,16 +155,12 @@ class _DropdownCurve extends StatelessWidget {
 
 class _CurvesExample extends StatelessWidget {
   const _CurvesExample({
-    @required this.leftCurve,
-    @required this.rightCurve,
-    @required this.animation,
-    @required this.child,
-    Key key,
-  })  : assert(leftCurve != null),
-        assert(rightCurve != null),
-        assert(animation != null),
-        assert(child != null),
-        super(key: key);
+    required this.leftCurve,
+    required this.rightCurve,
+    required this.animation,
+    required this.child,
+    Key? key,
+  }) : super(key: key);
 
   final Curve leftCurve;
   final Curve rightCurve;

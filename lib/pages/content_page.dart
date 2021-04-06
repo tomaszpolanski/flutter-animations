@@ -4,14 +4,14 @@ import 'package:animation_cheat_page/shared/ui/search_bar.dart';
 import 'package:flutter/material.dart';
 
 class ContentPage extends StatefulWidget {
-  const ContentPage({Key key}) : super(key: key);
+  const ContentPage({Key? key}) : super(key: key);
 
   @override
   _ContentPageState createState() => _ContentPageState();
 }
 
 class _ContentPageState extends State<ContentPage> {
-  String _searchQuery;
+  String? _searchQuery;
 
   @override
   Widget build(BuildContext context) {

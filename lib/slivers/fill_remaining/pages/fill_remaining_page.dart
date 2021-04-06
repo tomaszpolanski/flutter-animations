@@ -9,7 +9,7 @@ import 'package:presentation/presentation.dart';
 
 class FillRemainingPage extends StatelessWidget {
   const FillRemainingPage({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -22,11 +22,11 @@ class FillRemainingPage extends StatelessWidget {
 }
 
 class _SliverFillRemainingContent extends StatelessWidget {
-  const _SliverFillRemainingContent({Key key}) : super(key: key);
+  const _SliverFillRemainingContent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final SliverExample example = widgetExamples[SliverFillRemaining];
+    final SliverExample example = widgetExamples[SliverFillRemaining]!;
     return Section(
       title: example.title,
       url: example.fileUrl,

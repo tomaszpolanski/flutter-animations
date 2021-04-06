@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:universal_html/html.dart' as html;
 
 class Description extends StatelessWidget {
-  const Description({Key key}) : super(key: key);
+  const Description({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class Description extends StatelessWidget {
       width: 640,
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: DefaultTextStyle.merge(
-        style: Theme.of(context).textTheme.subtitle1.copyWith(fontSize: 25),
+        style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -95,7 +95,7 @@ class Description extends StatelessWidget {
 
 // ignore: unused_element
 class _Description extends StatelessWidget {
-  const _Description({Key key}) : super(key: key);
+  const _Description({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

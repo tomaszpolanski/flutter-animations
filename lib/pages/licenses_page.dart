@@ -5,14 +5,14 @@ import 'package:flutter/scheduler.dart';
 
 class LicensesPage extends StatefulWidget {
   const LicensesPage({
-    Key key,
+    Key? key,
     this.applicationName = AnimationCheatSheet.title,
     this.applicationVersion,
     this.applicationLegalese = '© Tomek Polański',
   }) : super(key: key);
 
   final String applicationName;
-  final String applicationVersion;
+  final String? applicationVersion;
   final String applicationLegalese;
 
   @override
@@ -35,7 +35,7 @@ class _LicensesPageState extends State<LicensesPage> {
         return;
       }
       final List<LicenseParagraph> paragraphs =
-          await SchedulerBinding.instance.scheduleTask<List<LicenseParagraph>>(
+          await SchedulerBinding.instance!.scheduleTask<List<LicenseParagraph>>(
         license.paragraphs.toList,
         Priority.animation,
         debugLabel: 'License',
@@ -98,13 +98,13 @@ class _LicensesPageState extends State<LicensesPage> {
   Widget build(BuildContext context) {
     assert(debugCheckHasMaterialLocalizations(context));
     final String name = widget.applicationName;
-    final String version = widget.applicationVersion;
+    final String? version = widget.applicationVersion;
     return Scaffold(
       body: Localizations.override(
         locale: const Locale('en', 'US'),
         context: context,
         child: DefaultTextStyle(
-          style: Theme.of(context).textTheme.caption,
+          style: Theme.of(context).textTheme.caption!,
           child: SafeArea(
             bottom: false,
             child: DefaultTextStyle.merge(
@@ -126,7 +126,7 @@ class _LicensesPageState extends State<LicensesPage> {
                     ),
                   const SizedBox(height: 18),
                   Text(
-                    widget.applicationLegalese ?? '',
+                    widget.applicationLegalese,
                     style: Theme.of(context).textTheme.caption,
                   ),
                   Container(height: 18),

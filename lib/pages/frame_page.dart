@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FramePage extends StatelessWidget {
-  const FramePage({Key key}) : super(key: key);
+  const FramePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class FramePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Align(
-              child: RaisedButton(
+              child: ElevatedButton(
                 onPressed: () {},
                 child: Text(
                   'Button',

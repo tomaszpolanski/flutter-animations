@@ -3,15 +3,15 @@ import 'package:flutter/rendering.dart';
 
 class SliverValueChanged extends SingleChildRenderObjectWidget {
   const SliverValueChanged({
-    Key key,
-    Widget child,
+    Key? key,
+    Widget? child,
     this.onConstraintsChanged,
     this.onGeometryChanged,
   })  : assert(onConstraintsChanged != null || onGeometryChanged != null),
         super(key: key, child: child);
 
-  final ValueChanged<SliverConstraints> onConstraintsChanged;
-  final ValueChanged<SliverGeometry> onGeometryChanged;
+  final ValueChanged<SliverConstraints>? onConstraintsChanged;
+  final ValueChanged<SliverGeometry>? onGeometryChanged;
 
   @override
   RenderSliverExample createRenderObject(BuildContext context) =>
@@ -23,13 +23,13 @@ class SliverValueChanged extends SingleChildRenderObjectWidget {
 
 class RenderSliverExample extends RenderSliverSingleBoxAdapter {
   RenderSliverExample({
-    @required this.onConstraintsChanged,
-    @required this.onGeometryChanged,
-    RenderBox child,
+    required this.onConstraintsChanged,
+    required this.onGeometryChanged,
+    RenderBox? child,
   }) : super(child: child);
 
-  final ValueChanged<SliverConstraints> onConstraintsChanged;
-  final ValueChanged<SliverGeometry> onGeometryChanged;
+  final ValueChanged<SliverConstraints>? onConstraintsChanged;
+  final ValueChanged<SliverGeometry>? onGeometryChanged;
 
   @override
   void performLayout() {
@@ -37,17 +37,16 @@ class RenderSliverExample extends RenderSliverSingleBoxAdapter {
       geometry = SliverGeometry.zero;
       return;
     }
-    child.layout(constraints.asBoxConstraints(), parentUsesSize: true);
-    double childExtent;
+    child!.layout(constraints.asBoxConstraints(), parentUsesSize: true);
+    double? childExtent;
     switch (constraints.axis) {
       case Axis.horizontal:
-        childExtent = child.size.width;
+        childExtent = child!.size.width;
         break;
       case Axis.vertical:
-        childExtent = child.size.height;
+        childExtent = child!.size.height;
         break;
     }
-    assert(childExtent != null);
     final double paintedChildSize =
         calculatePaintOffset(constraints, from: 0, to: childExtent);
     final double cacheExtent =
@@ -64,11 +63,13 @@ class RenderSliverExample extends RenderSliverSingleBoxAdapter {
           constraints.scrollOffset > 0.0,
     );
     if (onConstraintsChanged != null) {
-      onConstraintsChanged(constraints);
+      onConstraintsChanged!(constraints);
     }
-    if (onGeometryChanged != null) {
-      onGeometryChanged(geometry);
+    final onGeo = onGeometryChanged;
+    final geo = geometry;
+    if (onGeo != null && geo != null) {
+      onGeo(geo);
     }
-    setChildParentData(child, constraints, geometry);
+    setChildParentData(child!, constraints, geometry!);
   }
 }

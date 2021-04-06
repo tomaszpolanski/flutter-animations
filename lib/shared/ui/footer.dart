@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Footer extends StatelessWidget {
-  const Footer({Key key}) : super(key: key);
+  const Footer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class Footer extends StatelessWidget {
               icon: Icons.all_inclusive,
               child: Text(
                 'Content',
-                style: theme.textTheme.headline6.copyWith(
+                style: theme.textTheme.headline6!.copyWith(
                   color: Colors.white,
                 ),
               ),
@@ -59,10 +59,10 @@ class Footer extends StatelessWidget {
 
 class _Button extends StatelessWidget {
   const _Button({
-    Key key,
-    @required this.onPressed,
-    @required this.icon,
-    @required this.child,
+    Key? key,
+    required this.onPressed,
+    required this.icon,
+    required this.child,
   }) : super(key: key);
 
   final VoidCallback onPressed;
@@ -71,14 +71,17 @@ class _Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
+    return TextButton(
+      style: TextButton.styleFrom(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+      ),
       onPressed: onPressed,
       child: Row(
         children: <Widget>[
           Icon(icon, color: Colors.white, size: 16),
           const SizedBox(width: 5),
           DefaultTextStyle.merge(
-            style: Theme.of(context).textTheme.headline6.copyWith(
+            style: Theme.of(context).textTheme.headline6!.copyWith(
                   color: Colors.white,
                 ),
             child: child,

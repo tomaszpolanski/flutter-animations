@@ -96,7 +96,8 @@ Map<String, WidgetBuilder> get pages {
     Routes.slivers_geometry: (_) => const SliversGeometryPage(),
     ...singlePages(
       sliverExamples,
-      builder: (example) => SingleSliverGeometryPage(example),
+      builder: (example) => SingleSliverGeometryPage(
+          example as SliverSectionData<SliverGeometry>),
     ),
   };
 }
