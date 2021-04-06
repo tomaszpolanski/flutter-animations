@@ -141,7 +141,7 @@ class Example {
     required this.body,
     required String url,
     required this.builder,
-  })  : _url = url;
+  }) : _url = url;
 
   final DateTime released;
   final String title;

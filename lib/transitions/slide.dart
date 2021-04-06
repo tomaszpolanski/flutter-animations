@@ -5,8 +5,7 @@ class SlideExample extends StatelessWidget {
     required this.animation,
     required this.child,
     Key? key,
-  })  :
-        super(key: key);
+  }) : super(key: key);
 
   final Widget child;
   final Animation<double> animation;

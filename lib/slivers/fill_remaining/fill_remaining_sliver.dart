@@ -9,8 +9,7 @@ class CustomSliverFillRemaining extends SingleChildRenderObjectWidget {
     Widget? child,
     this.hasScrollBody = true,
     this.fillOverscroll = false,
-  })  :
-        super(key: key, child: child);
+  }) : super(key: key, child: child);
 
   final bool hasScrollBody;
 
@@ -39,8 +38,7 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
     RenderBox? child,
     this.hasScrollBody = true,
     this.fillOverscroll = false,
-  })  :
-        super(child: child);
+  }) : super(child: child);
 
   bool hasScrollBody;
   bool fillOverscroll;
@@ -88,7 +86,8 @@ class _RenderSliverFillRemaining extends RenderSliverSingleBoxAdapter {
         case Axis.horizontal:
 
           /// crossAxisExtent is here ScrollView's height
-          childExtent = child!.getMaxIntrinsicWidth(constraints.crossAxisExtent);
+          childExtent =
+              child!.getMaxIntrinsicWidth(constraints.crossAxisExtent);
           break;
         case Axis.vertical:
 

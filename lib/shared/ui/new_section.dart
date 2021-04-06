@@ -11,8 +11,7 @@ class NewSection extends StatelessWidget {
     required this.transitions,
     required this.animated,
     required this.curves,
-  })  :
-        super(key: key);
+  }) : super(key: key);
 
   final List<Example> transitions;
   final List<Example> animated;

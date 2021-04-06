@@ -9,7 +9,7 @@ class AppFrameCard extends StatelessWidget {
     Key? key,
     required this.title,
     required this.child,
-  })  : super(key: key);
+  }) : super(key: key);
 
   final String title;
   final Widget child;

@@ -6,7 +6,7 @@ class AnimatedOpacityExample extends StatefulWidget {
   const AnimatedOpacityExample({
     required this.child,
     Key? key,
-  })  : super(key: key);
+  }) : super(key: key);
 
   final Widget child;
 

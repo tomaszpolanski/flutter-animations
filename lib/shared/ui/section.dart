@@ -15,8 +15,7 @@ class Section extends StatefulWidget {
     required this.body,
     required this.child,
     this.onPressed,
-  })  :
-        super(key: key);
+  }) : super(key: key);
 
   final String title;
   final String url;
@@ -123,8 +122,7 @@ class DoubleSection extends StatelessWidget {
     required this.body,
     required this.children,
     this.onPressed,
-  })  :
-        super(key: key);
+  }) : super(key: key);
 
   final String title;
   final String url;
@@ -167,8 +165,7 @@ class SectionHeader extends StatelessWidget {
     Key? key,
     required this.title,
     required this.child,
-  })  :
-        super(key: key);
+  }) : super(key: key);
 
   final Widget title;
   final Widget child;
@@ -208,8 +205,7 @@ class SectionTitle extends StatelessWidget {
     Key? key,
     required this.title,
     required this.released,
-  })  :
-        super(key: key);
+  }) : super(key: key);
 
   final String title;
   final DateTime released;

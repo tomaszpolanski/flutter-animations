@@ -10,8 +10,7 @@ class SliverSection extends StatefulWidget {
     this.leading,
     this.trailing,
     required this.builder,
-  })  :
-        super(key: key);
+  }) : super(key: key);
 
   final String title;
   final Widget body;

@@ -5,8 +5,7 @@ class DecoratedBoxExample extends StatelessWidget {
   const DecoratedBoxExample({
     required this.animation,
     Key? key,
-  })  :
-        super(key: key);
+  }) : super(key: key);
 
   final Animation<double> animation;
 

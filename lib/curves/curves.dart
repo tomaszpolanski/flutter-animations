@@ -20,8 +20,7 @@ class CurvesSection extends StatefulWidget {
     required this.animation,
     required this.child,
     required this.onPressed,
-  })   :
-        super(key: key);
+  }) : super(key: key);
 
   final Widget child;
   final ValueChanged<String> onPressed;

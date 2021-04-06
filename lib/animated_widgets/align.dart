@@ -6,7 +6,7 @@ class AlignExample extends StatefulWidget {
   const AlignExample({
     required this.child,
     Key? key,
-  })  : super(key: key);
+  }) : super(key: key);
 
   final Widget child;
 

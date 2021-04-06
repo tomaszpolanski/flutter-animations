@@ -5,8 +5,7 @@ class DefaultTextStyleExample extends StatelessWidget {
   const DefaultTextStyleExample({
     required this.animation,
     Key? key,
-  })  :
-        super(key: key);
+  }) : super(key: key);
 
   final Animation<double> animation;
 

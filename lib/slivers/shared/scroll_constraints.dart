@@ -67,7 +67,7 @@ class RenderSliverExample extends RenderSliverSingleBoxAdapter {
     }
     final onGeo = onGeometryChanged;
     final geo = geometry;
-    if (onGeo != null && geo != null)  {
+    if (onGeo != null && geo != null) {
       onGeo(geo);
     }
     setChildParentData(child!, constraints, geometry!);
