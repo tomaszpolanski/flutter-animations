@@ -11,6 +11,8 @@ void main() {
       ),
     );
 
+    await tester.pump(const Duration(seconds: 4));
+
     expect(find.byType(RootPage), findsOneWidget);
   });
 }
