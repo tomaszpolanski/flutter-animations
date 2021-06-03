@@ -1,4 +1,3 @@
-import 'package:animation_cheat_page/config.dart';
 import 'package:animation_cheat_page/shared/header_page.dart';
 import 'package:animation_cheat_page/shared/ui/header.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';
@@ -58,20 +57,6 @@ class SingleSliverGeometryPage extends StatelessWidget {
       },
     );
   }
-}
-
-Map<String, WidgetBuilder> singlePages<T>(
-  List<SliverSectionData<T>> examples, {
-  Widget Function(SliverSectionData<T> data)? builder,
-}) {
-  return Map.fromEntries(
-    examples.map((example) {
-      return MapEntry(
-        '${Routes.slivers}/${example.title}',
-        (_) => builder!(example),
-      );
-    }),
-  );
 }
 
 class _SingleSliverPage<T> extends StatelessWidget {

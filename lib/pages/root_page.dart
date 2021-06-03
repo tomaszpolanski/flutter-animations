@@ -1,20 +1,9 @@
-import 'package:animation_cheat_page/animated_widgets/all_animated_widgets.dart'
-    as animated;
-import 'package:animation_cheat_page/curves/curves.dart' as curves;
-import 'package:animation_cheat_page/curves/curves.dart';
-import 'package:animation_cheat_page/shared/ui/description.dart';
+import 'package:animation_cheat_page/pages/examples.dart' deferred as examples;
+import 'package:animation_cheat_page/shared/deferred.dart';
 import 'package:animation_cheat_page/shared/ui/footer.dart';
 import 'package:animation_cheat_page/shared/ui/header.dart';
-import 'package:animation_cheat_page/shared/ui/new_section.dart';
-import 'package:animation_cheat_page/shared/ui/section.dart';
-import 'package:animation_cheat_page/shared/ui/separator.dart';
-import 'package:animation_cheat_page/transitions/all_transitions.dart'
-    as transitions;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
-import 'package:universal_html/html.dart' as html;
 
 class RootPage extends StatelessWidget {
   const RootPage({
@@ -41,23 +30,15 @@ class _AnimationProvider extends StatefulWidget {
   final bool? repeatAnimations;
 
   @override
-  __AnimationProviderState createState() => __AnimationProviderState();
+  _AnimationProviderState createState() => _AnimationProviderState();
 }
 
-class __AnimationProviderState extends State<_AnimationProvider>
+class _AnimationProviderState extends State<_AnimationProvider>
     with TickerProviderStateMixin {
-  late AnimationController _controller;
   late AnimationController _headerController;
 
   @override
   void initState() {
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 3),
-    );
-    if (widget.repeatAnimations!) {
-      _controller.repeat(reverse: true);
-    }
     _headerController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 3),
@@ -67,95 +48,38 @@ class __AnimationProviderState extends State<_AnimationProvider>
 
   @override
   void dispose() {
-    _controller.dispose();
     _headerController.dispose();
     super.dispose();
   }
 
-  void _handleUrl(BuildContext context, String url) {
-    if (kIsWeb) {
-      html.window.open(url, 'Source Code');
-    } else {
-      Clipboard.setData(ClipboardData(text: url));
-      final snackBar = SnackBar(
-        content: Text('Copied link:\n$url'),
-      );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    const child = Card(
-      color: Colors.yellowAccent,
-      child: Padding(
-        padding: EdgeInsets.all(40),
-        child: Icon(
-          Icons.star,
-          size: 50,
-        ),
-      ),
-    );
     return Column(
       children: <Widget>[
         Expanded(
           child: Scrollbar(
-            child: ListView(
-              children: [
-                Align(
-                  child: Header(
-                    'Animations',
-                    animation: _headerController,
+            child: CustomScrollView(
+              slivers: [
+                SliverToBoxAdapter(
+                  child: Align(
+                    child: Header(
+                      'Animations',
+                      animation: _headerController,
+                    ),
                   ),
                 ),
-                const Align(child: Description()),
-                const Align(child: Separator()),
-                Align(
-                  child: NewSection(
-                    transitions: transitions.allTransitions,
-                    animated: animated.allAnimatedWidgets,
-                    curves: [curves.singleCurveExample],
+                Deferred(
+                  future: Future<void>.delayed(_headerController.isCompleted
+                          ? Duration.zero
+                          : _headerController.duration ?? Duration.zero)
+                      .then(
+                    (_) => Future.wait<void>([examples.loadLibrary()]),
+                  ),
+                  fallback: const SliverPadding(padding: EdgeInsets.zero),
+                  builder: (context) => examples.Examples(
+                    repeatAnimations: widget.repeatAnimations ?? false,
                   ),
                 ),
-                const SectionHeader(
-                  title: Text('Curves'),
-                  child: Text(curves.description),
-                ),
-                CurvesSection(
-                  animation: _controller,
-                  onPressed: (url) => _handleUrl(context, url),
-                  child: child,
-                ),
-                const SectionHeader(
-                  title: Text('Transitions'),
-                  child: Text(transitions.description),
-                ),
-                for (final example in transitions.allTransitions)
-                  Section(
-                    title: example.title,
-                    url: example.fileUrl,
-                    released: example.released,
-                    body: example.body,
-                    onPressed: () {
-                      _handleUrl(context, example.pageUrl);
-                    },
-                    child: example.builder(_controller, child),
-                  ),
-                const SectionHeader(
-                  title: Text('Animated Widgets'),
-                  child: Text(animated.description),
-                ),
-                for (final example in animated.allAnimatedWidgets)
-                  Section(
-                    title: example.title,
-                    url: example.fileUrl,
-                    released: example.released,
-                    body: example.body,
-                    onPressed: () {
-                      _handleUrl(context, example.pageUrl);
-                    },
-                    child: example.builder(_controller, child),
-                  ),
               ],
             ),
           ),

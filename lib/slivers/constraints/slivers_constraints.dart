@@ -1,10 +1,13 @@
 // ignore_for_file: prefer_single_quotes
 import 'package:animation_cheat_page/config.dart';
+import 'package:animation_cheat_page/shared/deferred.dart';
 import 'package:animation_cheat_page/shared/enum.dart';
-import 'package:animation_cheat_page/slivers/constraints/slivers_constraints_page.dart';
+import 'package:animation_cheat_page/slivers/constraints/slivers_constraints_page.dart'
+    deferred as constraints;
 import 'package:animation_cheat_page/slivers/shared/overlapping.dart';
 import 'package:animation_cheat_page/slivers/shared/sliver_section.dart';
-import 'package:animation_cheat_page/slivers/single_page.dart';
+import 'package:animation_cheat_page/slivers/single_page.dart'
+    deferred as single;
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
@@ -85,11 +88,32 @@ final sliverExamples = <SliverSectionData<SliverConstraints>>[
 
 Map<String, WidgetBuilder> get pages {
   return {
-    Routes.slivers_constraints: (_) => const SliversConstraintsPage(),
-    ...singlePages(
+    Routes.slivers_constraints: (_) => Deferred(
+          future: constraints.loadLibrary(),
+          // ignore: prefer_const_constructors
+          builder: (_) => constraints.SliversConstraintsPage(),
+        ),
+    ...singlePages<SliverConstraints>(
       sliverExamples,
-      builder: (example) => SingleSliverConstraintsPage(
-          example as SliverSectionData<SliverConstraints>),
+      builder: (example) => Deferred(
+        future: single.loadLibrary(),
+        // ignore: prefer_const_constructors
+        builder: (_) => single.SingleSliverConstraintsPage(example),
+      ),
     )
   };
+}
+
+Map<String, WidgetBuilder> singlePages<T>(
+  List<SliverSectionData<T>> examples, {
+  Widget Function(SliverSectionData<T> data)? builder,
+}) {
+  return Map.fromEntries(
+    examples.map((example) {
+      return MapEntry(
+        '${Routes.slivers}/${example.title}',
+        (_) => builder!(example),
+      );
+    }),
+  );
 }
