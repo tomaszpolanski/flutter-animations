@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_single_quotes
 import 'package:animation_cheat_page/config.dart';
+import 'package:animation_cheat_page/shared/deferred.dart';
 import 'package:animation_cheat_page/shared/enum.dart';
 import 'package:animation_cheat_page/slivers/constraints/slivers_constraints_page.dart'
     deferred as constraints;
@@ -87,23 +88,17 @@ final sliverExamples = <SliverSectionData<SliverConstraints>>[
 
 Map<String, WidgetBuilder> get pages {
   return {
-    Routes.slivers_constraints: (_) => FutureBuilder<void>(
+    Routes.slivers_constraints: (_) => Deferred(
           future: constraints.loadLibrary(),
-          builder: (_, snapshot) =>
-              snapshot.connectionState != ConnectionState.done
-                  ? const SizedBox()
-                  // ignore: prefer_const_constructors
-                  : constraints.SliversConstraintsPage(),
+          // ignore: prefer_const_constructors
+          builder: (_) => constraints.SliversConstraintsPage(),
         ),
     ...singlePages<SliverConstraints>(
       sliverExamples,
-      builder: (example) => FutureBuilder<void>(
+      builder: (example) => Deferred(
         future: single.loadLibrary(),
-        builder: (_, snapshot) =>
-            snapshot.connectionState != ConnectionState.done
-                ? const SizedBox()
-                // ignore: prefer_const_constructors
-                : single.SingleSliverConstraintsPage(example),
+        // ignore: prefer_const_constructors
+        builder: (_) => single.SingleSliverConstraintsPage(example),
       ),
     )
   };

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_single_quotes
 import 'package:animation_cheat_page/config.dart';
+import 'package:animation_cheat_page/shared/deferred.dart';
 import 'package:animation_cheat_page/slivers/geometry/slivers_geomerty_page.dart'
     deferred as geometry;
 import 'package:animation_cheat_page/slivers/shared/sliver_section.dart';
@@ -95,23 +96,17 @@ final sliverExamples = <SliverSectionData<SliverGeometry>>[
 
 Map<String, WidgetBuilder> get pages {
   return {
-    Routes.slivers_geometry: (_) => FutureBuilder<void>(
+    Routes.slivers_geometry: (_) => Deferred(
           future: geometry.loadLibrary(),
-          builder: (_, snapshot) =>
-              snapshot.connectionState != ConnectionState.done
-                  ? const SizedBox()
-                  // ignore: prefer_const_constructors
-                  : geometry.SliversGeometryPage(),
+          // ignore: prefer_const_constructors
+          builder: (_) => geometry.SliversGeometryPage(),
         ),
     ...singlePages<SliverGeometry>(
       sliverExamples,
-      builder: (example) => FutureBuilder<void>(
+      builder: (example) => Deferred(
         future: single.loadLibrary(),
-        builder: (_, snapshot) =>
-            snapshot.connectionState != ConnectionState.done
-                ? const Placeholder()
-                // ignore: prefer_const_constructors
-                : single.SingleSliverGeometryPage(example),
+        // ignore: prefer_const_constructors
+        builder: (_) => single.SingleSliverGeometryPage(example),
       ),
     ),
   };

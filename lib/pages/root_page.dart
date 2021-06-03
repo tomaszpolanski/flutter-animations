@@ -1,6 +1,7 @@
 import 'package:animation_cheat_page/animated_widgets/all_animated_widgets.dart'
     deferred as animated;
 import 'package:animation_cheat_page/curves/curves.dart' deferred as curves;
+import 'package:animation_cheat_page/shared/deferred.dart';
 import 'package:animation_cheat_page/shared/ui/description.dart';
 import 'package:animation_cheat_page/shared/ui/footer.dart';
 import 'package:animation_cheat_page/shared/ui/header.dart';
@@ -112,7 +113,7 @@ class __AnimationProviderState extends State<_AnimationProvider>
                     ),
                   ),
                 ),
-                FutureBuilder<void>(
+                Deferred(
                   future: Future.wait<void>([
                     animated.loadLibrary(),
                     curves.loadLibrary(),
@@ -120,76 +121,74 @@ class __AnimationProviderState extends State<_AnimationProvider>
                     section.loadLibrary(),
                     transitions.loadLibrary(),
                   ]),
-                  builder: (_, snapshot) => snapshot.connectionState !=
-                          ConnectionState.done
-                      ? const SliverFillRemaining(
-                          child: Center(
-                            child: SizedBox(child: CircularProgressIndicator()),
-                          ),
-                        )
-                      : SliverList(
-                          delegate: SliverChildListDelegate(
-                            [
-                              const Align(child: Description()),
-                              const Align(child: Separator()),
-                              Align(
-                                child: new_section.NewSection(
-                                  transitions: transitions.allTransitions,
-                                  animated: animated.allAnimatedWidgets,
-                                  curves: [curves.singleCurveExample],
-                                ),
-                              ),
-                              // ignore: prefer_const_constructors
-                              section.SectionHeader(
-                                // ignore: prefer_const_constructors
-                                title: Text('Curves'),
-                                // ignore: prefer_const_constructors
-                                child: Text(curves.description),
-                              ),
-                              curves.CurvesSection(
-                                animation: _controller,
-                                onPressed: (url) => _handleUrl(context, url),
-                                child: child,
-                              ),
-                              // ignore: prefer_const_constructors
-                              section.SectionHeader(
-                                // ignore: prefer_const_constructors
-                                title: Text('Transitions'),
-                                // ignore: prefer_const_constructors
-                                child: Text(transitions.description),
-                              ),
-                              for (final example in transitions.allTransitions)
-                                section.Section(
-                                  title: example.title,
-                                  url: example.fileUrl,
-                                  released: example.released,
-                                  body: example.body,
-                                  onPressed: () {
-                                    _handleUrl(context, example.pageUrl);
-                                  },
-                                  child: example.builder(_controller, child),
-                                ),
-                              // ignore: prefer_const_constructors
-                              section.SectionHeader(
-                                // ignore: prefer_const_constructors
-                                title: Text('Animated Widgets'),
-                                // ignore: prefer_const_constructors
-                                child: Text(animated.description),
-                              ),
-                              for (final example in animated.allAnimatedWidgets)
-                                section.Section(
-                                  title: example.title,
-                                  url: example.fileUrl,
-                                  released: example.released,
-                                  body: example.body,
-                                  onPressed: () {
-                                    _handleUrl(context, example.pageUrl);
-                                  },
-                                  child: example.builder(_controller, child),
-                                ),
-                            ],
+                  fallback: const SliverFillRemaining(
+                    child: Center(
+                      child: SizedBox(child: CircularProgressIndicator()),
+                    ),
+                  ),
+                  builder: (_) => SliverList(
+                    delegate: SliverChildListDelegate(
+                      [
+                        const Align(child: Description()),
+                        const Align(child: Separator()),
+                        Align(
+                          child: new_section.NewSection(
+                            transitions: transitions.allTransitions,
+                            animated: animated.allAnimatedWidgets,
+                            curves: [curves.singleCurveExample],
                           ),
                         ),
+                        // ignore: prefer_const_constructors
+                        section.SectionHeader(
+                          // ignore: prefer_const_constructors
+                          title: Text('Curves'),
+                          // ignore: prefer_const_constructors
+                          child: Text(curves.description),
+                        ),
+                        curves.CurvesSection(
+                          animation: _controller,
+                          onPressed: (url) => _handleUrl(context, url),
+                          child: child,
+                        ),
+                        // ignore: prefer_const_constructors
+                        section.SectionHeader(
+                          // ignore: prefer_const_constructors
+                          title: Text('Transitions'),
+                          // ignore: prefer_const_constructors
+                          child: Text(transitions.description),
+                        ),
+                        for (final example in transitions.allTransitions)
+                          section.Section(
+                            title: example.title,
+                            url: example.fileUrl,
+                            released: example.released,
+                            body: example.body,
+                            onPressed: () {
+                              _handleUrl(context, example.pageUrl);
+                            },
+                            child: example.builder(_controller, child),
+                          ),
+                        // ignore: prefer_const_constructors
+                        section.SectionHeader(
+                          // ignore: prefer_const_constructors
+                          title: Text('Animated Widgets'),
+                          // ignore: prefer_const_constructors
+                          child: Text(animated.description),
+                        ),
+                        for (final example in animated.allAnimatedWidgets)
+                          section.Section(
+                            title: example.title,
+                            url: example.fileUrl,
+                            released: example.released,
+                            body: example.body,
+                            onPressed: () {
+                              _handleUrl(context, example.pageUrl);
+                            },
+                            child: example.builder(_controller, child),
+                          ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
