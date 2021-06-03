@@ -138,10 +138,14 @@ class _DropdownCurve extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButton(
+    return DropdownButton<Curve>(
       isExpanded: true,
       value: curve,
-      onChanged: (c) => c!,
+      onChanged: (c) {
+        if (c != null) {
+          onChanged(c);
+        }
+      },
       items: [
         for (final curve in _allCurves.keys)
           DropdownMenuItem<Curve>(
