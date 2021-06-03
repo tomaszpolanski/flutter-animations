@@ -1,4 +1,3 @@
-import 'package:animation_cheat_page/config.dart';
 import 'package:animation_cheat_page/shared/header_page.dart';
 import 'package:animation_cheat_page/shared/ui/header.dart';
 import 'package:animation_cheat_page/shared/ui/section.dart';

@@ -141,8 +141,10 @@ class __AnimationProviderState extends State<_AnimationProvider>
                               ),
                               // ignore: prefer_const_constructors
                               section.SectionHeader(
-                                title: const Text('Curves'),
-                                child: const Text(curves.description),
+                                // ignore: prefer_const_constructors
+                                title: Text('Curves'),
+                                // ignore: prefer_const_constructors
+                                child: Text(curves.description),
                               ),
                               curves.CurvesSection(
                                 animation: _controller,
@@ -151,8 +153,10 @@ class __AnimationProviderState extends State<_AnimationProvider>
                               ),
                               // ignore: prefer_const_constructors
                               section.SectionHeader(
-                                title: const Text('Transitions'),
-                                child: const Text(transitions.description),
+                                // ignore: prefer_const_constructors
+                                title: Text('Transitions'),
+                                // ignore: prefer_const_constructors
+                                child: Text(transitions.description),
                               ),
                               for (final example in transitions.allTransitions)
                                 section.Section(
@@ -167,8 +171,10 @@ class __AnimationProviderState extends State<_AnimationProvider>
                                 ),
                               // ignore: prefer_const_constructors
                               section.SectionHeader(
-                                title: const Text('Animated Widgets'),
-                                child: const Text(animated.description),
+                                // ignore: prefer_const_constructors
+                                title: Text('Animated Widgets'),
+                                // ignore: prefer_const_constructors
+                                child: Text(animated.description),
                               ),
                               for (final example in animated.allAnimatedWidgets)
                                 section.Section(

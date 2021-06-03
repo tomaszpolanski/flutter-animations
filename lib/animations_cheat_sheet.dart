@@ -57,7 +57,8 @@ class AnimationCheatSheet extends StatelessWidget {
             future: licenses.loadLibrary(),
             builder: (_, snapshot) =>
                 snapshot.connectionState != ConnectionState.done
-                    ? const Placeholder()
+                    ? const SizedBox()
+                    // ignore: prefer_const_constructors
                     : licenses.LicensesPage(),
           ),
       ...slivers_constraints.pages,

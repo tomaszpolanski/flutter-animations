@@ -99,18 +99,19 @@ Map<String, WidgetBuilder> get pages {
           future: geometry.loadLibrary(),
           builder: (_, snapshot) =>
               snapshot.connectionState != ConnectionState.done
-                  ? const Placeholder()
+                  ? const SizedBox()
+                  // ignore: prefer_const_constructors
                   : geometry.SliversGeometryPage(),
         ),
-    ...singlePages(
+    ...singlePages<SliverGeometry>(
       sliverExamples,
       builder: (example) => FutureBuilder<void>(
         future: single.loadLibrary(),
         builder: (_, snapshot) =>
             snapshot.connectionState != ConnectionState.done
                 ? const Placeholder()
-                : single.SingleSliverGeometryPage(
-                    example as SliverSectionData<SliverGeometry>),
+                // ignore: prefer_const_constructors
+                : single.SingleSliverGeometryPage(example),
       ),
     ),
   };

@@ -91,18 +91,19 @@ Map<String, WidgetBuilder> get pages {
           future: constraints.loadLibrary(),
           builder: (_, snapshot) =>
               snapshot.connectionState != ConnectionState.done
-                  ? const Placeholder()
+                  ? const SizedBox()
+                  // ignore: prefer_const_constructors
                   : constraints.SliversConstraintsPage(),
         ),
-    ...singlePages(
+    ...singlePages<SliverConstraints>(
       sliverExamples,
       builder: (example) => FutureBuilder<void>(
         future: single.loadLibrary(),
         builder: (_, snapshot) =>
             snapshot.connectionState != ConnectionState.done
-                ? const Placeholder()
-                : single.SingleSliverConstraintsPage(
-                    example as SliverSectionData<SliverConstraints>),
+                ? const SizedBox()
+                // ignore: prefer_const_constructors
+                : single.SingleSliverConstraintsPage(example),
       ),
     )
   };
