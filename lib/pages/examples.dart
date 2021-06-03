@@ -31,7 +31,7 @@ class _ExamplesState extends State<Examples>
       vsync: this,
       duration: const Duration(seconds: 3),
     );
-    if (widget.repeatAnimations!) {
+    if (widget.repeatAnimations) {
       _controller.repeat(reverse: true);
     }
     super.initState();
