@@ -1,10 +1,12 @@
 // ignore_for_file: prefer_single_quotes
 import 'package:animation_cheat_page/config.dart';
 import 'package:animation_cheat_page/shared/enum.dart';
-import 'package:animation_cheat_page/slivers/constraints/slivers_constraints_page.dart';
+import 'package:animation_cheat_page/slivers/constraints/slivers_constraints_page.dart'
+    deferred as constraints;
 import 'package:animation_cheat_page/slivers/shared/overlapping.dart';
 import 'package:animation_cheat_page/slivers/shared/sliver_section.dart';
-import 'package:animation_cheat_page/slivers/single_page.dart';
+import 'package:animation_cheat_page/slivers/single_page.dart'
+    deferred as single;
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
@@ -85,11 +87,37 @@ final sliverExamples = <SliverSectionData<SliverConstraints>>[
 
 Map<String, WidgetBuilder> get pages {
   return {
-    Routes.slivers_constraints: (_) => const SliversConstraintsPage(),
+    Routes.slivers_constraints: (_) => FutureBuilder<void>(
+          future: constraints.loadLibrary(),
+          builder: (_, snapshot) =>
+              snapshot.connectionState != ConnectionState.done
+                  ? const Placeholder()
+                  : constraints.SliversConstraintsPage(),
+        ),
     ...singlePages(
       sliverExamples,
-      builder: (example) => SingleSliverConstraintsPage(
-          example as SliverSectionData<SliverConstraints>),
+      builder: (example) => FutureBuilder<void>(
+        future: single.loadLibrary(),
+        builder: (_, snapshot) =>
+            snapshot.connectionState != ConnectionState.done
+                ? const Placeholder()
+                : single.SingleSliverConstraintsPage(
+                    example as SliverSectionData<SliverConstraints>),
+      ),
     )
   };
+}
+
+Map<String, WidgetBuilder> singlePages<T>(
+  List<SliverSectionData<T>> examples, {
+  Widget Function(SliverSectionData<T> data)? builder,
+}) {
+  return Map.fromEntries(
+    examples.map((example) {
+      return MapEntry(
+        '${Routes.slivers}/${example.title}',
+        (_) => builder!(example),
+      );
+    }),
+  );
 }

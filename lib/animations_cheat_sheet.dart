@@ -2,7 +2,8 @@ import 'package:animation_cheat_page/config.dart';
 import 'package:animation_cheat_page/curves/curves_page.dart';
 import 'package:animation_cheat_page/generic/not_found_page.dart';
 import 'package:animation_cheat_page/pages/content_page.dart';
-import 'package:animation_cheat_page/pages/licenses_page.dart';
+import 'package:animation_cheat_page/pages/licenses_page.dart'
+    deferred as licenses;
 import 'package:animation_cheat_page/pages/root_page.dart';
 import 'package:animation_cheat_page/slivers/constraints/slivers_constraints.dart'
     as slivers_constraints;
@@ -52,7 +53,13 @@ class AnimationCheatSheet extends StatelessWidget {
       Routes.curves: (_) => CurvesPage(repeatAnimations: repeatAnimations),
       Routes.not_found: (_) => const NotFoundPage(),
       Routes.content: (_) => const ContentPage(),
-      Routes.licenses: (_) => const LicensesPage(),
+      Routes.licenses: (_) => FutureBuilder<void>(
+            future: licenses.loadLibrary(),
+            builder: (_, snapshot) =>
+                snapshot.connectionState != ConnectionState.done
+                    ? const Placeholder()
+                    : licenses.LicensesPage(),
+          ),
       ...slivers_constraints.pages,
       ...slivers_geometry.pages,
       ...fill_remaining.pages,

@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_single_quotes
 import 'package:animation_cheat_page/config.dart';
-import 'package:animation_cheat_page/slivers/geometry/slivers_geomerty_page.dart';
+import 'package:animation_cheat_page/slivers/geometry/slivers_geomerty_page.dart'
+    deferred as geometry;
 import 'package:animation_cheat_page/slivers/shared/sliver_section.dart';
-import 'package:animation_cheat_page/slivers/single_page.dart';
+import 'package:animation_cheat_page/slivers/single_page.dart'
+    deferred as single;
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
@@ -93,11 +95,37 @@ final sliverExamples = <SliverSectionData<SliverGeometry>>[
 
 Map<String, WidgetBuilder> get pages {
   return {
-    Routes.slivers_geometry: (_) => const SliversGeometryPage(),
+    Routes.slivers_geometry: (_) => FutureBuilder<void>(
+          future: geometry.loadLibrary(),
+          builder: (_, snapshot) =>
+              snapshot.connectionState != ConnectionState.done
+                  ? const Placeholder()
+                  : geometry.SliversGeometryPage(),
+        ),
     ...singlePages(
       sliverExamples,
-      builder: (example) => SingleSliverGeometryPage(
-          example as SliverSectionData<SliverGeometry>),
+      builder: (example) => FutureBuilder<void>(
+        future: single.loadLibrary(),
+        builder: (_, snapshot) =>
+            snapshot.connectionState != ConnectionState.done
+                ? const Placeholder()
+                : single.SingleSliverGeometryPage(
+                    example as SliverSectionData<SliverGeometry>),
+      ),
     ),
   };
+}
+
+Map<String, WidgetBuilder> singlePages<T>(
+  List<SliverSectionData<T>> examples, {
+  Widget Function(SliverSectionData<T> data)? builder,
+}) {
+  return Map.fromEntries(
+    examples.map((example) {
+      return MapEntry(
+        '${Routes.slivers}/${example.title}',
+        (_) => builder!(example),
+      );
+    }),
+  );
 }

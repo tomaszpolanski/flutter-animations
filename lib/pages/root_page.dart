@@ -1,20 +1,21 @@
 import 'package:animation_cheat_page/animated_widgets/all_animated_widgets.dart'
-    as animated;
-import 'package:animation_cheat_page/curves/curves.dart' as curves;
-import 'package:animation_cheat_page/curves/curves.dart';
+    deferred as animated;
+import 'package:animation_cheat_page/curves/curves.dart' deferred as curves;
 import 'package:animation_cheat_page/shared/ui/description.dart';
 import 'package:animation_cheat_page/shared/ui/footer.dart';
 import 'package:animation_cheat_page/shared/ui/header.dart';
-import 'package:animation_cheat_page/shared/ui/new_section.dart';
-import 'package:animation_cheat_page/shared/ui/section.dart';
+import 'package:animation_cheat_page/shared/ui/new_section.dart'
+    deferred as new_section;
+import 'package:animation_cheat_page/shared/ui/section.dart'
+    deferred as section;
 import 'package:animation_cheat_page/shared/ui/separator.dart';
 import 'package:animation_cheat_page/transitions/all_transitions.dart'
-    as transitions;
+    deferred as transitions;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:universal_html/html.dart' as html;
+import 'package:universal_html/html.dart' deferred as html;
 
 class RootPage extends StatelessWidget {
   const RootPage({
@@ -72,11 +73,12 @@ class __AnimationProviderState extends State<_AnimationProvider>
     super.dispose();
   }
 
-  void _handleUrl(BuildContext context, String url) {
+  Future<void> _handleUrl(BuildContext context, String url) async {
     if (kIsWeb) {
+      await html.loadLibrary();
       html.window.open(url, 'Source Code');
     } else {
-      Clipboard.setData(ClipboardData(text: url));
+      await Clipboard.setData(ClipboardData(text: url));
       final snackBar = SnackBar(
         content: Text('Copied link:\n$url'),
       );
@@ -100,62 +102,89 @@ class __AnimationProviderState extends State<_AnimationProvider>
       children: <Widget>[
         Expanded(
           child: Scrollbar(
-            child: ListView(
-              children: [
-                Align(
-                  child: Header(
-                    'Animations',
-                    animation: _headerController,
+            child: CustomScrollView(
+              slivers: [
+                SliverToBoxAdapter(
+                  child: Align(
+                    child: Header(
+                      'Animations',
+                      animation: _headerController,
+                    ),
                   ),
                 ),
-                const Align(child: Description()),
-                const Align(child: Separator()),
-                Align(
-                  child: NewSection(
-                    transitions: transitions.allTransitions,
-                    animated: animated.allAnimatedWidgets,
-                    curves: [curves.singleCurveExample],
-                  ),
+                FutureBuilder<void>(
+                  future: Future.wait<void>([
+                    animated.loadLibrary(),
+                    curves.loadLibrary(),
+                    new_section.loadLibrary(),
+                    section.loadLibrary(),
+                    transitions.loadLibrary(),
+                  ]),
+                  builder: (_, snapshot) => snapshot.connectionState !=
+                          ConnectionState.done
+                      ? const SliverFillRemaining(
+                          child: Center(
+                            child: SizedBox(child: CircularProgressIndicator()),
+                          ),
+                        )
+                      : SliverList(
+                          delegate: SliverChildListDelegate(
+                            [
+                              const Align(child: Description()),
+                              const Align(child: Separator()),
+                              Align(
+                                child: new_section.NewSection(
+                                  transitions: transitions.allTransitions,
+                                  animated: animated.allAnimatedWidgets,
+                                  curves: [curves.singleCurveExample],
+                                ),
+                              ),
+                              // ignore: prefer_const_constructors
+                              section.SectionHeader(
+                                title: const Text('Curves'),
+                                child: const Text(curves.description),
+                              ),
+                              curves.CurvesSection(
+                                animation: _controller,
+                                onPressed: (url) => _handleUrl(context, url),
+                                child: child,
+                              ),
+                              // ignore: prefer_const_constructors
+                              section.SectionHeader(
+                                title: const Text('Transitions'),
+                                child: const Text(transitions.description),
+                              ),
+                              for (final example in transitions.allTransitions)
+                                section.Section(
+                                  title: example.title,
+                                  url: example.fileUrl,
+                                  released: example.released,
+                                  body: example.body,
+                                  onPressed: () {
+                                    _handleUrl(context, example.pageUrl);
+                                  },
+                                  child: example.builder(_controller, child),
+                                ),
+                              // ignore: prefer_const_constructors
+                              section.SectionHeader(
+                                title: const Text('Animated Widgets'),
+                                child: const Text(animated.description),
+                              ),
+                              for (final example in animated.allAnimatedWidgets)
+                                section.Section(
+                                  title: example.title,
+                                  url: example.fileUrl,
+                                  released: example.released,
+                                  body: example.body,
+                                  onPressed: () {
+                                    _handleUrl(context, example.pageUrl);
+                                  },
+                                  child: example.builder(_controller, child),
+                                ),
+                            ],
+                          ),
+                        ),
                 ),
-                const SectionHeader(
-                  title: Text('Curves'),
-                  child: Text(curves.description),
-                ),
-                CurvesSection(
-                  animation: _controller,
-                  onPressed: (url) => _handleUrl(context, url),
-                  child: child,
-                ),
-                const SectionHeader(
-                  title: Text('Transitions'),
-                  child: Text(transitions.description),
-                ),
-                for (final example in transitions.allTransitions)
-                  Section(
-                    title: example.title,
-                    url: example.fileUrl,
-                    released: example.released,
-                    body: example.body,
-                    onPressed: () {
-                      _handleUrl(context, example.pageUrl);
-                    },
-                    child: example.builder(_controller, child),
-                  ),
-                const SectionHeader(
-                  title: Text('Animated Widgets'),
-                  child: Text(animated.description),
-                ),
-                for (final example in animated.allAnimatedWidgets)
-                  Section(
-                    title: example.title,
-                    url: example.fileUrl,
-                    released: example.released,
-                    body: example.body,
-                    onPressed: () {
-                      _handleUrl(context, example.pageUrl);
-                    },
-                    child: example.builder(_controller, child),
-                  ),
               ],
             ),
           ),

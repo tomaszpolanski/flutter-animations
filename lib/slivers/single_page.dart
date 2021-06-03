@@ -60,20 +60,6 @@ class SingleSliverGeometryPage extends StatelessWidget {
   }
 }
 
-Map<String, WidgetBuilder> singlePages<T>(
-  List<SliverSectionData<T>> examples, {
-  Widget Function(SliverSectionData<T> data)? builder,
-}) {
-  return Map.fromEntries(
-    examples.map((example) {
-      return MapEntry(
-        '${Routes.slivers}/${example.title}',
-        (_) => builder!(example),
-      );
-    }),
-  );
-}
-
 class _SingleSliverPage<T> extends StatelessWidget {
   const _SingleSliverPage(
     this.data, {
